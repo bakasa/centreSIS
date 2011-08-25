@@ -1,0 +1,1 @@
+modules/Users/includes/Schedule.inc.php:	ListOutput($schedule_RET,$columns,'Course','Courses',false,$group);

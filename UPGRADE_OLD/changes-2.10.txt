@@ -1,0 +1,33 @@
+Centre v2.10
+
+- updated version in Warehouse.php and copyright, updated INSTALL, UPGRADE, CHANGELOG
+- bugfix: gpa's not calculated, need to pass marking period to CalcGPA() in InputFinalGrades.php
+- changed $extra default from '' to array() in functions/Search.fnc.php for hopefully better php5 compatibility
+- changed cursor:hand's to cursor:pointer's per forum recommendation
+- changed to skip htmldoc processing if $htmldocPath is not set
+- feature: added variables in modules/Attendance/config.inc.php to set number of days in past and future when teachers can edit grades
+- feature: added a 'Group by Family' option to Students:Reports:AdvancedReport - this will group students in the list output with a 'ganged' address
+- bugfix: inactive and all_schools not carried into final list output of AdvancedReport
+- removed people links in GetStuList when outputting pdf
+- bugfix: changed full_name option to reflect name preference (common or given) in misc/Export.php
+- several bugfixes and updates to modules/School_Setup/Rollover.php
+- feature: added address custom fields and contact custom fields
+- converted PrintStudentInfo to search/select style and added address and contact custom fields
+- feature: added user custom fields
+- added user custom fields to permissions and profiles
+- converted TeacherComments to a standard student tab
+- converted mailing labels to pdf output (thanks Randy)
+- converted mailing labels to search/select style
+- feature: added staring label to mailing labels
+- feature: added student and family options to mailing labels
+- feature: added student labels similar to mailing labels but student centric instead of address centric
+- converted PrintAveryLabels menu item to PrintMailingLabels
+- added PrintStudentLabels to admin and teacher menus
+- bugfix: course period names not formed correctly for teacher pulldown in the side menu
+- feature: added 'group by family' option to admin student searches and corresponding default preferences setting
+- changed current user handling in side menu to be similar to student handling
+- changed program structure for student and user search
+  converted Students/Users Search.php's to Search.inc.php to be included from the Search() function
+  added new Students/Users Search.php's as default program to dispatch Student.php/User.php
+- changed AddUser menu item from '?' to '&'
+- change syear from 2006 to 2007 in default database, config.inc.php and created 2007 pictures directories

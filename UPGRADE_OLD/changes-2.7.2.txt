@@ -1,0 +1,32 @@
+Centre v2.7.2
+
+- added year, progress periods, and exams to teacher completion and
+  marking period select list filtered on graded and examed
+- fixed bug: can not delete address from student addresses
+- improved tab highlighting behavior on students screen
+- fixed bug: 'required' column in student_fields in centre.sql
+- removed 'create parent users' from menu - was accidentally added in 2.7.1
+- made some fields 'required' (red if blank) in gradebook Assignments
+- improved total grade calculation in progress reports
+- added MassDrops.php and DuplicateAttendance.php submissions to project
+- added Students/AddUsers.php to associate parents with students similar
+  to Users/AddStudents.php
+- added configuration variable to disable anonamous grade stats in StudentGrades.php
+- fixed enrollment bug in TakeAttendance.php
+- corrected inconsistent use of $extra['DATE'] and DBDate in 'teacher'
+  profile of GetStuList and changed 'admin' date references to $extra['DATE']
+- added a NoInput() in Inputs.php for convenient consistent display of fixed
+  text display
+- added assets/emergency_button.gif to replace use of warning_button.gif for
+  emergency contacts in Address.inc.php
+- changed highlight color of user in side menu so can distinguish current user
+  from current student
+- changed School Information screen to use titles below for better consistency
+  with rest of centre
+- fixed bug: any admin can edit school information in School.php
+- modules/Grades/CommentsA.php renamed to config.inc.php
+- configuration variables for modules/Students/includes/Address.inc.php moved to
+  modules/Students/config.inc.php
+- config variables added for state reporting and food service
+- CentreVersion variable moved to Warehouse.php to simplify upgrades
+- fixed bug: semester and final grade percent calcs in InputFinalGrades.php

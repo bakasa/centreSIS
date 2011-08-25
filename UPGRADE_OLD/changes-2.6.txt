@@ -1,0 +1,33 @@
+- converted user associations from username to user_id (preferences, exceptions)
+- the CentreAdmin is now CentreAdmins which is a comma separated list of the staff_id's
+    instead of a single username
+
+- added a 'last login' timestamp for users and students
+  if the login uses the CentreAdmin password then the CentreAdmin's timestamp is updated and
+    not the user's/student's
+
+- added two styles of report card comments
+
+- added schoolwide grading scale and option in course period to use schoolwide
+    scale or allow custom teacher scale
+
+- added school year marking period, full year grades, and full year exams
+
+- added flag in course_periods to indicate a halfday vs. fullday class
+
+- added flag in marking periods to indicate if marking period is graded
+  quarters are always graded and this flag is ignored
+
+- added flag in marking periods to indicate if marking period is examed
+  progress periods are never examed and this flag is ignored
+
+- added percent grade to final grade so both letter grade and percent are stored
+  this is useful for schools that grade in percent and for semester and year grade calculations
+
+- add teacher comment field to attendance so teachers can make attendance notes
+
+- added a welcome screen
+
+- cleaned up initial database centre.sql, changed syear to 2006
+
+- converted php tags to newstyle

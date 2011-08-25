@@ -1,0 +1,14 @@
+Centre v2.11.2
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- fixed appearance of Advanced search box in modules/Attendance/Percent.php
+  and modules/Discipline/CategoryBreakdown.php caused by recent changes to search
+- Student_Billing and Discipline modules added to internal releases
+- added long php tags to Student_Billing and Discipline scripts
+- bugfixes and updating of Discipline module
+- added last year course widget to Sceduling/MassSchedule and Scheduling/MassRequest
+- removed scheduling requests from widgets-all
+- added column_id to discipline_categories as column pointer into discipline_referrals table
+  and corresponding changes to Discipline module
+- added rollover for food service users accounts
+- added rollover for discipline referral form

@@ -1,0 +1,18 @@
+Centre School Information System - NEW_IN
+
+New in 2.14
+-----------
+Food Service Module
+- The Centre component of Food Service is included with the free distribution
+- The Point Of Sale program (Kiosk) remains commercial, though.  An
+  evaluation version of Kiosk will be available for download.
+
+Added color field to gradebook assignment categories for color coding the
+gradebook
+
+A new assignments interface is available
+- Automatically added for users of the old interface during upgrade
+
+Moved the color coding for report card comment categories from config.inc.php
+to the database
+- Configured on categories setup screen

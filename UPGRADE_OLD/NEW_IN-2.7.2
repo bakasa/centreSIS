@@ -1,0 +1,26 @@
+Centre School Information System - NEW_IN
+
+New in 2.7.2
+------------
+
+MassDrops.php
+- drops courses for groups of students similar to othe Mass (Group) functions
+
+DuplicateAttendance.php
+- finds and deltes attendance conflicts that can result when student's course
+  enrollment is backdated and attendance is already entered for the course
+  being dropped
+
+Students/AddUsers.php
+- associate Users with Students similar to associating students with users
+
+Student Address
+- simple addresses and contacts ganging capability added
+- 'title below' format adopted for contacts and contact info
+
+config.inc.php
+- configuration variables moved to config.inc.php files in their respective
+  module directories, simplifies upgrades but also better positioned to move
+  configurations to the database in future release
+- config variables added to main config.inc.php for optional modules to
+  simplify upgrades

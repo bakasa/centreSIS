@@ -1,0 +1,49 @@
+Centre v2.14
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- corrected Student/Students titles to User/Users in modules/Users/UserFields.php (per opencentre forum post)
+- bugfix: profile_exception not correctly deleted when deleting the corresponding user field category
+- bugfix: in functions/CustomFields.fnc.php for 'edits', test of $type is assignment instead of compare ('=' instead of '==')
+- added custom field type 'edits' to 'Group Assign Student Info'
+- bugfix: subquery in Grades.php sometimes returns multiple rows and throws db error if student transfers to another class with same teacher
+- added warning for gradebook assignments if assigned date or due date after the end of the quarter
+- background color for user name in side menu is redish (instead of greenish) if selected user is 'self'
+- added delete of student_report_card_comments when deleting a class from a student schedule in Schedule.php
+- added Forms.gif and Forms.png images to assets/icons
+- added 'Include All Courses' option and 'Missing', 'Excused/Negative', and 'Exceeds Max/Extra Credit' filters to Anomalous Grades
+- bugfix: course period pulldown in Teacher Programs included marking period short name for full year courses
+- added save of admin User record in TeacherPrograms so called program can know which admin user is running it as a teacher program
+- in Menu.php, read 'can use' information into $_CENTRE[AllowUse] to cache permissions for AllowUse()
+- bugfix: Rollover does not roll school_marking_periods correctly
+- bugfix: Copy School does not copy school_marking_periods correctly
+- added 'Include Anonymous Statistics' checkbox to Student Grades (when they are allowed)
+- suppress percent and letter grade in Student Grades when total points is zero (such as all assignments excused)
+- bugfix: marking period select list in MassSchedule.php
+- bugfix: marking period not selected by default when parent selects previous year
+- bugfix: ProgramTitle() does not resolve the name when 'Print'ing
+- bugfix: to Scheduling/IncompleteSchedules.php, several miscellaneous bugs
+- changed button.fnc.php so the specified bgcolor includes the hash symbol
+  this kind of change was made to other functions several versions ago but button() must have been missed
+- added a RadioInput() function to Inputs.php to support radio style input controls
+- added 'header' and 'header_colors' option to ListOutput.fnc.php
+- changed ReportCardGrades.php to use ListOutput 'header' option for tabs
+- changed ReportCardComments.php to use ListOutput 'header' option for tabs
+- added subject pulldown to ReportCardComments.php so selection is by subject then course
+- feature: added sort_order field to gradebook assignment categories to control display order
+- feature: added color field to gradebook assignment categories for color coding in gradebook
+- moved the color coding for report card comment categories from config.inc.php to database configured on categories setup screen
+- changed InputFinalGrades.php to use ListOutput 'header' option for tabs
+- converted scheduling 'available seats' to be computed on the fly rather than static query from database for reliable behavior
+  performed as sponsored development by Learner First Schools
+- added not null constraint to assignment_type_id column in gradebook_assignments table
+- added uniqueness constraint to username column in students table
+- added AllowUse condition for current student and user links in side frame
+- bugfix: initial database centre.sql report_card_grade_scales insert was missing values for hhr_gpa_value and hr_gpa_value
+- bugfix: PrintClassLists for teachers has incomplete query
+- added new Assignmnets interface - Assignments-new.php
+
+Centre v2.13.1
+- bugfix: extra 'ORDER BY' in GetStuList.fnc.php when sorting on grade then name, throws db error
+- bugfix: get gradebook grades in InputFinalGrades computed using unweighted regardless of teacher setting
+- bugfix: in PrintClassLists and PrintClassPictures, teacher not included in teacher select list of search
+  if if the teacher's SCHOOLS IS NULL

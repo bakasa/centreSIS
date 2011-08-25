@@ -1,0 +1,84 @@
+Centre Student Information System - UPGRADE DIRECTIONS
+
+-----------
+Version 2.1
+-----------
+
+NOTE: Before Installing Centre School Information System, you must read and 
+agree to the included license.
+
+Installing the Centre upgrade will not overwrite your data, but it is advisable 
+that you backup the Centre database before proceeding.
+
+Installing the Package
+----------------------
+If you are upgrading from version 2.0, all you have to do is replace the Centre
+files in the webserver directory.  You can use the config.inc.php file from 
+version 2.0.  If upgrading from version 1.5 or previous, follow these upgrade 
+instructions.  You do not have to run upgrade.sql, upgrade.php or change the 
+database in any way to upgrade from 2.0 to 2.1.
+
+NOTE: The upgrade procedure has changed from previous versions.  Do not proceed
+as per the instructions in previous versions.
+
+Before you begin, log into Centre as an administrative user.  Do not proceed
+before you are logged into Centre!  
+
+Unzip the package into the directory on your web server where Centre was 
+previously installed, overwriting the old version of Centre.
+
+Now go to the directory where you uncompressed all files and edit the
+file "config.inc.php". Notice that in version 2.0, the config.inc file was
+changed and it's name was changed to config.inc.php,
+so you cannot use the config.inc file from versions previous in 2.0.
+	* Line 10 is the database type, with 'postgres' as the default.
+	* Line 12 is the location of the database server and can be an IP
+		address or DNS address.  Do not include 'http://'
+	* Line 13 is the database username
+	* Line 14 is the database password.
+	* Line 15 is Centre's database name, with 'centre' as the default.
+	* Line 16 is the port which the database can be accessed from.  This 
+		has a default of '5432'.
+	* Line 18 is the default school year in which users are logged in.  
+		2005-2006 is abbreviated as 2005.
+	* Line 21 is the location of the Centre install on your server.  This is a 
+		relative address -- not a URL.
+	* Line 22 is the location of the htmldoc on your server.
+	* Line 23 is the location of the student images install. Again, this should 
+		be a relative address. In this 
+		directory, there should be another directory with the school year as the 
+		title (example: /2005/), and inside this, there should be student 
+		pictures with the student's ID as the title (example: 1031806.jpg)
+	* Line 24 is the Title displayed on the title bar of the web browser as well 
+		as many Centre print outs such as report cards.
+Pay special attention to lines 12, 13, 14, 18, and 21.
+
+These values should be, for the most part, the same as the values in the old 
+config.inc file.
+
+Before doing anything else, run the upgrade.php file through your 
+web-browser by pointing the browser to http://www.yourserver.com/centre/upgrade.php
+
+This may take several minutes, especially if your installation uses many user-
+defined student fields.
+
+You must now upgrade the rest of Centre's database structure.
+
+Follow these instructions for each of the upgrade .sql files you've never run on 
+your system.  These older upgrade files can be found in the UPGRADE_OLD 
+directory.  If you are using PGAdmin instead of the command prompt, these files
+can be imported using the PGAdmin tool.
+
+	1) Open a command prompt window.
+	2) Login as the postgres user
+		ex) server$ su - postgres
+	3) Run the Centre upgrade sql file on the centre database
+		ex) server$ psql centre < YOUR_CENTRE_INSTALL_DIRECTORY/upgrade.sql > upgrade.log
+
+This step might again take several minutes depending on your particular installation.
+
+That's it!... now, point your browser to:
+
+	http://yourdomain.com/INSTALL_LOCATION/index.php
+	
+and you will find the new version of Centre : version 2.0

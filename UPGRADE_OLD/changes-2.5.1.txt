@@ -1,0 +1,147 @@
+functions/GetStaffList.fnc.php
+- added $extra options for enhanced user searches
+
+modules/Users/Search.php
+- added $extra options for enhanced user searches
+
+functions/Seach.fnc.php
+- convert scalar $extra to array for compatibility
+
+modules/Users/TeacherPrograms.php
+- assign admin AllowEdit permission to $_Centre[allow_edit] to facilitate better control of
+  admin permissions of teacher programs in the future
+
+Help.php
+- removed references to remote icons
+
+Menu.php
+- rearranged some items
+- changed Final Grades to point to new file
+- added Anomalous Grades
+- added Final Grades and Student Grades to teachers
+
+Modules.php
+- changed email to $CentreNotifyAddress
+- disabled mysql query
+
+ProgramFunctions/_makeLetterGrade.fnc.php
+- made to work for specified staff_id
+- changed to return id or grade or percent
+
+ProgramFunctions/_makePercentGrade.fnc.php
+- new file
+- dual of _makeLetterGrade, takes grade to percent
+
+config.dist.inc
+- cleanup
+- added $CentreVersion = this release version (2.5.1)
+- added $CentreAdmin = username whose password can login as any user
+- added $CentreNotifyAddress = email address where notifications are sent
+
+config.inc.php
+- cleanup
+- changed $StudentPicturesPath
+- added $CentreVersion = this release version (2.5.1)
+- added $CentreAdmin = username whose password can login as any user
+- added $CentreNotifyAddress = email address where notifications are sent
+
+database.inc.php
+- changed email to $CentreNotifyAddress
+- disabled mysql query
+
+functions/DBGet.fnc.php
+- cleanup
+- changed indexed assignments to regular assignments instead of dynmaic literals
+
+functions/GetStaffList.fnc.php
+- changed to include user profile in list output
+
+functions/Inputs.php
+- added 'array style' inputs for ability to speciff independently on-top and on-bottom with hidden fields
+- append current val to select list and highlight in red (with hidden fields) if val not in list
+
+functions/ListOutput.fnc.php
+- bugfixes
+
+functions/Percent.fnc.php
+- simplify
+
+functions/Widgets.fnc.php
+- added $allow_widget parameter to force widget
+
+index.php
+- added $CentreAdmin feature
+- changed registration email
+
+modules/Grades/AnomalousGrades.php
+- new file
+- finds anomalous grades in teacher grade (missing, excused, negative, >100%)
+- output is linked to the gradebook
+
+modules/Grades/Assignments.php
+- added total percent display for weighted grades, in red if !=100%
+
+modules/Grades/DeletePromptX.fnc.php
+- new file
+- function similar to functions/DeletePrompt.fnc.php but different approach
+
+modules/Grades/FinalGrades.php
+- new file
+- old 'gradelist' functionality from report cards
+- uses search/select approach
+- moved to separate file since not much shared with report cards and better for Custom Report Cards
+
+modules/Grades/Grades.php
+- changed default to 'Totals' from 'All'
+- 'All' display format changed
+- grades >100% highlighted in red
+- single assignment for single student capability added
+
+modules/Grades/Grades.php-updated_to_2.5.1
+- new file
+- Grades.php from 2.5 but updated to work with 2.5.1
+
+modules/Grades/InputFinalGrades.php
+- programconfig updated to be consistent with changes to _makeLetterGrade
+
+modules/Grades/ProgressReports.php
+- programconfig updated to be consistent with changes to _makeLetterGrade
+
+modules/Grades/ReportCards.php
+- changed to search/select style - search first, specify content second
+- output same as 2.5 except attendance for classes that don't do attendance is displayed blank
+
+modules/Grades/StudentGrades.php
+- complete revision from 2.5
+- 'row oriented' approach rather than 'column oriented', works better, allows more info easily displayed
+- includes anonymous statistics
+
+modules/Grades/StudentGrades.php-updated_to_2.5.1
+- new file
+- StudentGrades.php from 2.5 but updated to work with 2.5.1
+
+modules/Grades/Transcripts.php
+- changed to search/select style - search first, specify content second
+- output same as 2.5 except attendance for class that doesn't doe attendance is displayed 'n/a'
+
+modules/School_Setup/Calendar.php
+- colorized for non-school/school-full/school-half day
+- changed so default calendar is the calendar for the currently selected class instead of the school default
+
+modules/School_Setup/MarkingPeriods.php
+- improved and simplified behavior when deleting
+
+modules/Students/Search.php
+- added focus to last name
+- added header_right, extra_header_left, and extra_header_right
+
+modules/Students/includes/General_Info.inc.php
+- cloaked password with *'s when using hidden fields
+
+modules/Users/Search.php
+- added focus to last name
+
+modules/Users/User.php
+- cloaked password with *'s when using hidden fields
+- changed email to $CentreNotifyAddress
+- disabled mysql query

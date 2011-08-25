@@ -1,0 +1,63 @@
+Centre School Information System - NEW_IN
+
+New in 2.10
+-----------
+
+Address Fields
+Contact Fields
+User Fields
+- These are to addresses, contacts, and users what student fields are to students.
+
+  Address fields extend the address data.  The advantage over just an ordinary
+  student field is that address can be shared by multiple students (ganged).  So
+  by using address fields in conjunction with ganged addresses you only need to
+  enter and update this data once.  For example, suppose you want to include the
+  county as part of the student record - all students living at the same address
+  are in the same county but if you add 'County' as a student field you will have
+  to enter the 'County' for each student at that address.  However, by adding
+  'County' as an address field you only enter it once for the family (assuming
+  the family is ganged to a single address).
+
+  Contact fields extend the contact data.  While this is already possible with
+  the existing contact information, this method is very unstructured and
+  clumsy.  With contact fields you can pre-define the contact info you want
+  and specify the data type.  The old-style contact information capability is also
+  still available.  The variable $use_contact in modules/Students/config.inc.php
+  can be set to false to disable the addition of any new old-style contact
+  information (existing information will still be displayed and can be maintained,
+  but the ability to add is disabled).
+
+  User fields is similar to student fields except for users.
+
+Teacher Comments
+- Teacher comments is converted to an ordinar student tab.
+- Access can be allowed from all profiles (admin, teacher, parent, and student)
+  if desired.
+
+Print Student Info
+- Converted to search/select style interface.
+- Added select checkboxes for each category so you can select what info to print.
+  The user is only offered categories they are allowed to access according to
+  their profile/permissions.
+
+Avery Labels
+- Expanded to two programs, 'Print Mailing Labels' and 'Print Student Labels'
+- Converted to PDF output
+- Converted to search/select style interface
+- Added starting label position
+  Mailing Labels
+  - Added option to address to contacts, student, or family
+    (family is all students at a ganged (shared) address)
+  Student Labels
+  - Includes student name and optionally teacher and room
+    Note: If the search did not specify a course period then the teacher and
+    room are for 'attendance' period (that is, the course schedule in the
+    period with the 'Used for Attendance' box checked).
+  - Student Labels are available to teachers too.
+    Note: Teachers always have a course period specified (their currently
+    selected course).
+
+Group by Famiily
+- Added 'group by family' option to admin student searches.
+  - A 'family' is students with ganged to anddress and with 'residence' checked.
+- Added preferences default setting for 'group by family'.

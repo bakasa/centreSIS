@@ -1,0 +1,46 @@
+Centre School Information System - NEW_IN
+
+New in 2.13
+-----------
+Hidden Field Underlines
+- Edittable items are dashed-underlined when using hidden fields
+
+Export Pull-Down Type
+- New type for student, address, contact, and user fields
+- Similar to Pull-Down type but exported value is specified which is used when
+  saving the list (nice for reports where a coded value is required for the
+  report but a verbose value is desired in the stored data.  This is the dual
+  of the Coded Pull-Down type.)
+- Select options are specified like the Coded Pull-Down type
+    value1|code1
+    value2|code2
+    ...
+  where value is stored/displayed and code exported (but there is
+    preferences option for which is exported)
+  (note: Coded Pull-Downs are specified
+    code1:value1
+    code2|value2
+    ...
+  where code is stored/exported and value displayed (but there is 
+    preferences option for which is exported)
+  )
+
+Gradebook Configuration
+- Teachers can suppress letter grades for all assignments or for assignments
+  below a minimum point value
+
+Parents
+- Teachers can view user information for parents associated with students
+
+Contacts Without Addresses
+- Better support for contacts without addresses
+
+Advanced Reports
+- More items
+- Additional criteria for addresses and contacts
+
+Input Final Grades
+- Additional configuration options in modules/Grades/config.inc.php
+
+Student and Staff ID's
+- Relabeled to 'Centre ID' to avoid confusion with oter ID's

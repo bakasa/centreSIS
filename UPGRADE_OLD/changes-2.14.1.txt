@@ -1,0 +1,20 @@
+Centre v2.14
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- bugfix: missing school_id column in food service transactions tables in upgrade.sql
+- bugfix: $exceptions in Students/Menu.php didn't match $menu
+- bugfix: $exceptions in Customs/Menu.php assigned with '+' instead of '+='
+- updated search widget for Student Billing, added SearchTerm display
+- disabled User selection in Food Service for student logins
+- changed Relation in AdvancedReport from text 1nput to pull-down
+- changed Grades/InputFinalGrades to input both letter grades and percent grades at the same time
+  removed $hide_ltr_pct config variable from Grades/config.inc.php
+  added $does_letter_percent variable to Grades/config.inc.php
+  added better support for schools to use only letter grades or percent grades configured by $does_letter_percent variable
+  added $teacher_allow_edit variable to Grades/config.inc.php
+- added ability to edit and copy calendars in School_Setup/Calendars
+- added warning if not exactly one default calendar defined in School_Setup/Calendars
+- bugfix: Widgets('all') colspan=2
+- bugfix: functions/Search.fnc.php, unset $_SESSION[student_id/staff_id] when $extra[new]==true
+- changed query in functions/MailingLabels.php to outer join so address is output even if no contacts at that address
+- feature: mailing labels can be generated for all mailing addresses

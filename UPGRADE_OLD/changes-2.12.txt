@@ -1,0 +1,72 @@
+Centre v2.12
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- added sort by student_relation to people on mailinglabels so people are at least in consistent order
+- added student name format options for MailingLabels and StudentLabels
+- bugfix: active/inactive display for admins when include_inactive would show inactive when enrolled date was 'today'
+  (did not have inequality right, should be >= was >)
+- bugfix: include order by syear in inactive enrollment record selection for include_inactive for admins
+- added enrollment date widget to search on enrolled date
+- added rolled widget to search for previously enrolled students
+- enabled nurse visit records view for only admins and teachers so parents/students can be allowed to see the screen
+  yet keep log confidential
+- bugfix: in modules/Attendance/TakeAttendance.php, half day attendance codes should be for table==0 only
+- added sort_order to attendance categories
+- changed attendance categoies setup to view/edit categories on the 'new' (+) tab
+- added table_name to attendance_completed table so completion status can be saved for all attendance types
+  changed pkey to include table_name
+- changed course_periods so does_attendance can control all the attendance types as a comma separated list
+- change use of course_periods:does_attendance to the comma separated list
+- added default_code checkbox to student_enrollment_codes as default for rollover
+- added sort_order to student_enrollment_codes
+- other attendance categories added to portal attendance alerts
+- many bugfixes to S_B/Fees.php
+- added due_date column to Student_Billing billing_fees table (see modules/Student_Billing/upgrade.sql)
+- made school information in schools table for each syear so school info can be changed each year
+- bugfix: select courses by course option was not handled in PrintClassLists.php
+- bugfix: syear not included in queries in modules/Attendance/StudentSummary.php causes results to include multiple
+  school years if date range spans multiple years
+- added Group/Ungroup by Family link on student search result screen
+- bugfix: ',' in column name when ListOutput saving to csv file
+- bugfix: misc/Export.php custom date and codeds type not formatted properly, grouped by student_id when not needed
+- bugfix: Grades/HonorRoll.php, honor roll 'NoSearchTerms' applied to search criteria select instead of search terms display
+- removed school_id's for teacher courses pulldown not needed since explicit school select added for teachers
+  updated course pulldown in modules/Users/TeacherPrograms.php to agree with Side.php
+- feature: added search for no value to custom date and numeric fields (no value checkbox)
+- changed 'beween' search for custom fields of type date and numeric to separate >= and <= so a search range is not required
+  but is still possible
+- feature: added search for no value to custom text fields (search criteria of !)
+- StudentGrades added to the Grades menu for admin's
+- added office comments to TakeAttendance.php so teachers can view office attendance comments
+- in modules/Attendance/Administration.php added course day of week check to student schedule query, updated to be period
+  oriented instead of course_period, better functionality for user defined attendances
+- bugfix: course doesn't stay selected when deleting report card comments
+- added number of rows per column to display for student and user custom fields
+- Custom/CreateParents.php updated to support email address in address field or student field
+  note - scripts in Custom directory aren't supported
+- added search widget so search can include multiple gradelevels (not just one)
+- added school_number to school information and made available in Advanced Reports
+- dropped .'s from students name suffixes 'Jr.' and 'Sr.' and titles 'Mr.', Mrs.', and 'Ms.'
+- added export preferences for date's and coded pull-down's
+- added test of field type for gender and ethnicity in GetStuList so these fields can be converted to Coded Pull-Down's
+  if desired (this change can not be made through the Centre interface, though)
+- added name_suffix to staff names
+- combined stedent and user 'bottom back' buttons and exteneded functionality to other searches/lists
+- added 'bottom back' to coures search for PrintClassLists and PrintClassPictures
+- bugfix: in StudentGrades, when parents view grades for one course and then select a different student, the same course
+  remains selected even if newly selected student is not in that course and displays incorrecy grades (0's)
+
+Centre v2.11.2
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- fixed appearance of Advanced search box in modules/Attendance/Percent.php
+  and modules/Discipline/CategoryBreakdown.php caused by recent changes to search
+- Student_Billing and Discipline modules added to internal releases
+- added long php tags to Student_Billing and Discipline scripts
+- bugfixes and updating of Discipline module
+- added last year course widget to Sceduling/MassSchedule and Scheduling/MassRequest
+- removed scheduling requests from widgets-all
+- added column_id to discipline_categories as column pointer into discipline_referrals table
+  and corresponding changes to Discipline module
+- added rollover for food service users accounts
+- added rollover for discipline referral form

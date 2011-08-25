@@ -1,0 +1,67 @@
+Centre School Information System - NEW_IN
+
+New in 2.6
+----------
+
+Welcome Screen
+- A welcome screen that displays some basic info was added.  Additional
+  features for the welcome screen are planned for future releases.
+Report Card Comments
+- Two styles of report card comments were added.  The first style provides
+  fixed comments on a course basis and a comment code (typically + or -) can be
+  assigned to the comment, very similar to a final grade.  The second type
+  provides a list of comments from which comments can be selected and attached
+  to the final grade.  The free text comment is also still available.  All
+  three styles are available simultaneously.
+CentreAdmins
+- CentreAdmins is now a comma separated list of staff_id's so there can be more
+  than one super user
+Last Login Timestamp
+- The last login time is saved and displayed in the welcome screen and user/student
+  information screens.
+- The CentreAdmins password(s) will log in to any account.  If the CentreAdmin's
+  password authenticated the login then the CentreAdmin's timestamp is updated.
+  This allows the admin to login as any user/student without disturbing the
+  user's/student's timestamp but still there is some record of the login.
+Full Year Marking Period and Full Year Grades
+- Full year marking period, grades, and exams were added.
+- The full year start and end dates are the default start and end dates for new
+  calendars.
+Final Grade Percents
+- A percent grade is also saved with the final letter grade.
+- The percent grade is avaialble on report cards.
+- The percent grade is used for semester and year grade calculations.
+Marking Period Grades, Exams, and Comments Checkboxes
+- Marking periods can be flagged as graded, examed, and commented.  This
+  determines which marking periods and exams are offered for final grade input
+  and when the report card comments should be used.
+- These also control which should be offered for report cards, etc.
+Half Day Checkbox for Course Periods
+- For half day programs there is confusion over which is the proper present
+  and absent code to use.  The half day flag indicates that half day codes
+  should be omitted in TakeAttendance.
+Schoolwide Grading Scale and Custom Gradescale Checkbox for Course Periods
+- A standard grading scale was added which can be used for all courses so
+  teachers don't have to enter a grading scale for every class.
+- Checkbox allows for custom grading scale as in previous versions.
+Grade Scale Comments
+- A comment field was added that provides for a description of the letter
+  grades.  The grading system description is common on custom report cards
+  and may be added to standard report cards.
+Attendance Comments
+- A teacher comment field was added to attendance.
+Take Attendance Enhancements
+- Attendance columns are color coded so teachers can easily see which students
+  are present or absent and also what data is saved in case making edits.
+- The attendance day can be selected so teachers can update past attendance.
+Input Final Grade
+- A 'populate the form' style of 'getting gradebook grades' was adopted.  This
+  prevents accidentally overwriting of hand editted grades.
+Print Student Info
+- Eliminates duplicates in the printout of contacts and adds non-address
+  (emergency) contacts to the printout.
+Student Grade Totals
+- Assignments are not include in the grade average, student grade screen,
+  and anomalous grade report until the assignment due date (if entered) or
+  a grade is actually assigned before the due date (i.e. student handed in
+  early and teacher graded early)

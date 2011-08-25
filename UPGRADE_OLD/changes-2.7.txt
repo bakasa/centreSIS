@@ -1,0 +1,44 @@
+Centre v2.7
+
+- Student Fields
+  added 'sort order' to control display order
+  changed display of fields so the various field types are displayed together
+    rather than all of one type, then the next type, etc so fields of
+    different types that go together can be placed together (except for long
+    text fields which are still separate)
+  added 'required' to colorize field titles when value is null
+  added new student field types
+    + auto pull-down - pull-down type that builds the select list automatically
+        similar to pull-down but the select list is only the default (static)
+          list, but other values used in the database are added to the list
+          (dynamic) - you can enter a new value by selecting the '---' from the
+          select list then editting, then the new value added to the list
+    + coded pull-down - pull-down type where the values are saved as codes
+  allow changing of field type between text, pull-down, and auto-pull-down
+
+- added PrintClassLists to teacher scheduling so tachers can do their own lists
+
+- added personalizations to standard report card comments
+    + ^n = nickname if not null, else first name
+    + ^s = his or her
+
+- added auto pull-downs to some fields on student address screen
+
+- added days and room to scheduling/print schedules
+
+- added failed login counters to staff and students
+
+- improved centre admin implementation
+
+- improved login and syear behavior
+    + users can select only years where they exist
+    + students can login only if currently enrolled
+    + students can select only years in which they were enrolled
+  semi-convenient 'if()' to force current year only if you don't want users
+    and students to select previous years
+
+- ordering applied to Schedule Report
+
+- Portal notes added
+
+- added title to user names

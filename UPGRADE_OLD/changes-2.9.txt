@@ -1,0 +1,52 @@
+Centre v2.9
+
+- bugfix: converted AllowUse() function to positive logic (oops, forgot to do when converting
+    profiles/permissions to positive logic in 2.8)
+- introduced multiple gradescales
+- NULL gradescale replaces courses:does_grades
+- updated CHANGELOG and INSTALL with the v2.8 changes (forgot in 2.8)
+- removed AllowEdit.fnc.php from top level dir (oops in 2.8)
+- moved 'Recalculate Daily Attendance' to Utilities category
+- bugfix: changed profile_id and comment from '2' to '3' in CreateParents.php (unsupported module)
+- added $htmldocAssetsPath to config.inc.php
+- added user preference to disable portal alerts
+- backed out changes to DBDate from 2.8
+- bugfix: Users:Preferences/StudentFields allows selection of categories not allowed by profile/permission
+- bugfix: update PortalNotes.php and Portal.php for profiles/permissions changes of 2.8
+- modified grade calculations to use outer joins to treat missing grades as 0 instead of excused
+    tried to apply this uniformly to all grade calculations
+- better handling of extra credit assignments in modules/Grades/Grades.php
+- changed assignment sorting in modules/Grades/Assignments.php to the user Preferences(ASSIGNMENT_SORTING)
+- changed course sorting in student grades to the school period sort order
+- changed report card grade codes sorting to sort by breakoff first
+- modified grade lookup in EnterEligibility.php to use id instead of title (since titles can be reused
+    with multiple gradescales and _makeLetterGrade can return the id)
+- PrintSchedules converted to search/select format
+- bugfix: formating of new student screen
+- added support for User pictures, added $UserPicturesPath variable to config.inc.php
+- added rollover_id (last year's staff_id) to User's screen
+- added new gradebook rounding option of 'no rounding' which is now the teacher default
+  existing teachers are set to NORMAL by upgrade.sql which is old default so rounding behavior is
+    unchanged for existing teachers
+- added PrintSchedules to teacher menu
+  upgrade adds permission for teachers already with permission to PrintClassLists
+- moved PrintSchedules,PrintClasslists,PrintRequests to the top of the Scheduling/Reports menus since
+    printing functions seem more used and the commonly used functions are easier to find at the top
+- moved teacher gradebook configuration under Grades/Setup, seems to make more sense
+- added marking period prefix to teacher / gradebook / final grade percentages so that all grades that make
+    sense can be included in the full year grade (using only the marking period id is not enough to be
+    unique if you want say the quarter grades to be averaged into both the semester grade and year grade)
+- quarter grades added to final grde weights in teacher gradebook configuration
+- final grade calculation for year and semester grades / get gradebook grades updated
+- GetMp.fnc.php marking period queries combined into single unioned query
+- bugfix: DOW omitted in functions/Attendance.php summation of minutes in the specified day
+- warning displayed in teacher gradebook assignments if due date is earlier than assigned date
+- student grade is grayed in teacher gradebook if grade is blank but assignment is not yet due
+- assignments not due excluded in grade calculations
+  assignments are 'due' if
+        (assigned_date is null or today>=assigned_date)
+    and (due_date is null      or today>=due_date)
+     or a grade is entered
+- in StudentGrades (parents and students view of student grades) ungraded assignments do not show up
+    until the day after they are due, this gives teachers a day to grade assignments before parents
+    would see them as a zero grade

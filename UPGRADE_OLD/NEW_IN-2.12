@@ -1,0 +1,57 @@
+Centre School Information System - NEW_IN
+
+New in 2.12
+-----------
+Mailing Labels
+- Added student name format options
+
+Searching
+- Added enrollment date search widget
+- Added rolled search widget to find stundents previously and not enrolled in
+  prior year
+- Added Group/Ungroup by Family link on student search result screen
+- Added search for No Value to custom field types date, number, and text
+- Replaced 'Between' searches with >=,<= to facilitate 'before', 'after', and
+  'between' searches
+
+Medical
+- Disabled nurse visit records for parents/students so parents can have access
+  to other medical info but keep visit records confidential.
+
+Attendance
+- Added sort order to attendance categories
+- Changed attendance categoies setup to view/edit categories on the 'new' (+) tab
+- Added attendance completed feature for user defined attendance categories
+- Attendance in coures setup can be enable for each attendance category
+- Other attendance categories added to portal alerts
+- Added office comments to TakeAttendance so teachers can view office comments
+
+Enrollment
+- Added default to enrollment codes for rollover
+- Added sort order to enrollment codes
+
+Schools
+- Made school information saved for each year so school info can be updated each
+  year
+- Added school_number so can be included in student reports
+
+Grades
+- Added StudentGrades to admin Grades menu
+
+Export Preferences
+- Added option to export Coded Pull-Down types as un-decoded value
+- Added option for exported date format
+
+Users
+- Added name_suffix for users
+
+
+New in 2.11.2
+-------------
+
+Scheduling
+- Can search on last year's class lists with Group Schedule and Group Requests
+- Useful when promoting students from say Algebra-1 to Algebra-2
+
+Rollover
+- Rollover for Discipline referral record and Food_Service users' accounts

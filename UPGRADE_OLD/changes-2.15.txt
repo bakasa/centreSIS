@@ -1,0 +1,27 @@
+Centre v2.15
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- bugfix: changed index on custom user fields from custom_ind# to staff_ind# to avoid conflict with students
+  however this conflicts with indexes already on staff so in centre.sql changed the sequence to start at 4 to avoid this conflict
+- delete user's food service account for when deleting a user
+- bugfix: can not create User food_service account
+- bugfix: apostrophe in student name
+- added ability to download one of multiple ListOutput tables on a page
+    some value is used to identify the table and passed in $options[save]
+- bugfix: date not handled properly in functions/ProperDate.fnc.php when year part is 4 digits
+- bugfix: attendance indicated as 'not today' after Save in modules/Attendance/TakeAttendance.php
+- bugfix: in Assignments.php and Assignments-new.php, the 'Apply to All' checkbox reverts to 'No' when Saving
+- improvement: in GradeBreakdown.php, include selection of all marking periods that are graded or examed
+- bugfix: User's school assignment is cleared when saving user info on tabs other than GeneralInfo
+- bugfix: auto submit dates don't pick up month, day, and year when changed with jscalendar
+- bugfix: autosubmit dates submit on move to different month or year with jscalendar (had to turn off jscalendar electric mode)
+- bugfix: marking period selection in GPARankList.php goes back to search screen
+- bugfix: exam marking periods should not be offered in GPARankList.php since they do not have associated gpa's and throw db error
+- added GPARankList.php to teacher Grades/Reports menu
+- corrected mispelling of 'Letter' in modules/Grades/Grades.php (thanks cdanik)
+- bugfix: incorrect missing attendance in login portal (thanks cdanik)
+- bugfix: Transcripts don't work for inactive students (thanks captinkid)
+- Food_Service: Added check when changing barcode to see if it is one already used and prompt to confirm reassign to current student/user
+- added passing $extra['grades']=grade_id to student Search selects the specified grade
+- feature: added copy calendar from a different school, useful when setting up multiple schools with a common calendar
+- removed file config.dist.inc from distribution

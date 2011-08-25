@@ -1,0 +1,34 @@
+Centre School Information System - NEW_IN
+
+New in 2.9.1
+------------
+
+Common Name
+- Users can select in Preferences to display student names as 'Given Name'
+  (Last, First Middle) or 'Common Nmae' (Last, Nickname if nickname is
+  non-blank else Last,First)
+- Note: old behavior is 'given name' but new default is 'common name'
+  See the UPGRADE file for db query to convert existing users to old behavior.
+- The student name field is now labeled 'Given Nmae'.  The 'common name' is
+  Nickname field which is actually a system field implemented as a student
+  field - the title is stored in the database.  In the default database
+  (centre.sql) this field is renamed from 'Nickname' to 'Common Name' to
+  emphasize the use as 'common name at school'.  Upgrade users can simply
+  rename this field in Students:Setup:StudentFields to emphasize the intended
+  use.
+
+Teacher gradebook configuration
+- The number of days after an assignment is due (due date) but before the
+  missing grade is visible to parents and students can be set
+- Default grade comment code can be set
+
+Parents/Students view of student grades
+- A count of ungraded assignemnts affecting the total is displayed in totals
+- Ungraded assignments are wxplicity identified with a red zero and comment
+  in assignment list
+
+Class pictures
+- Student pictures by can be printed by class
+
+Print schedules
+- Class oriented instead of student oriented (search by class)

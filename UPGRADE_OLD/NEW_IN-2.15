@@ -1,0 +1,16 @@
+Centre School Information System - NEW_IN
+
+New in 2.15
+-----------
+Multiple Report Card Comment Code Scales
+- The report card comment codes are moved from modules/Grades/config.inc.php
+  to the database.
+- Multiple code scales are possible.
+- Upgrade users shoud see the UPGRADE instructions for more details.
+
+Calendars
+- Added ability to copy calendars from other schools.  Useful for setting up
+  multiple schools which have the same calendar.
+
+School Short Name
+- A Short Name is added to the school setup.

@@ -1,0 +1,49 @@
+Centre School Information System - NEW_IN
+
+New in 2.7.1
+------------
+
+Student Fields
+- Two new student field types are added.  The 'auto pull-down' is a cross
+  between the 'text' and 'pull-down' types.  The defined pull-down is
+  augmented with values saved in the database.  This gives the flexibility
+  to enter anything yet the ease and consistency of selecting from a list.
+  To enter a new value, select the '---' value from the list and Save, then
+  the '---' will be edittable as regular text - change to the correct new
+  value and Save again and the field is back to a pull-down and includes
+  the new value.
+- Sort order is added to fields and categoris to control the tab order and
+  display order.
+- The display of the field data on the student screens is combined instead
+  of all of one type, then the next type, etc.  This allows, with the use
+  of the sort order, fields of different types that are logically related
+  to be located together.
+- A required checkbox is added to indicate the field should be filled in.
+  This does not actually -require- you to fill it in, but will highlight
+  the field title in red if it is blank.
+
+PrintClassLists
+- Print class lists is available to teachers so they can generate their
+  own lists.
+
+Report Card Comments
+- Personalizations are added to the standard report card comments.  The
+  following translations are implemented:
+  ^n = student nickname or, if null, first name
+  ^s = his or her or, if null, his/her
+
+Failed Login Counters
+- Failed attempts to staff and students accounts are counted and a
+  warning generated on the welcome screen if failed logins.
+
+Portal Notes
+- Admins can post messages to the welcome screen with scheduled duration
+  of display and control which to which user profiles the messages are
+  displayed
+
+Users
+- Added Mr/Mrs/Ms/Miss title to name
+
+misc
+- CreateParents.php script included in distribution but not included in
+  menu system because not ready for prime time and not supported

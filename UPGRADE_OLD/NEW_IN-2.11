@@ -1,0 +1,35 @@
+Centre School Information System - NEW_IN
+
+New in 2.11
+-----------
+
+Report Card Comment Categories
+- Report card comments can be divided into categories, useful for schools with a
+  large number of comments.
+
+Users Features
+- Better support for user searches and user lists and user fields
+
+User Fields Preferences
+- Expanded view available for user lists similar to student lists
+- User fields can be added to user searches and user lists in expanded view with the User
+  Fields tab in Users/Preferences
+
+Advanced Search Features
+- Search widgets and student/user fields can be accessed for searching with advnaced search
+
+Search Widgets
+- Search widgets can be added to basic search in Users/Preferences Widgets tabs or accessed
+  in advanced search (This will enable the search screens to be simplified since widgets can
+  be omitted from basic search and accessed in advanced search - see AdvancedReport)
+
+Header Color
+- Header color cna be set in Users/Preferences
+
+Honor Roll
+- Added Honor Roll script to create honor roll lists and certificated
+- GPA thresholds set in report card grades setup for 'honor' and 'high honor'
+
+School Selection for Teachers
+- Added explicit school selection for teachers similar to admins
+- Course selection includes only classesin selected school and active in selected quarter

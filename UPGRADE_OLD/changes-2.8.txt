@@ -1,0 +1,37 @@
+Centre v2.8
+
+- added centre version to header right on portal screen
+- added non-admin user profiles and permissions
+- allowing teachers to modify student data controlled via profiles and permissions
+- teachers, parents, students access to student tabs controlled via profiles and permissions
+- teachers, parents, students can edit student tab data, controlled via profiles and permissions
+- switched from negative logic to positive logic for user profiles and permissions
+- adopted a more modular structure for menu and modules
+- bugfix: single quote character in Description (title) of Contact info wrecks
+  output when using auto pulldowns
+- changed single quote substitution to &#39;
+- bugfix: Parent login does not default to current quarter
+- bugfix: title color in DateInput()
+- made some fields 'required' (red if blank) in school_setup MarkingPeriods
+- added "edit select" type to student fields
+- changed school state to longer string and phone to string from numeric
+  dropped use of school area code
+  added school website to school info
+- added MarkingPeriods, AddUsers (associated parents) to teacher menu
+- bugfix: added delete from students_join_users when deleting a user
+  orphaned data removed in upgrade
+- bugfix: order of arguments in strpos() in Inputs.php titles color logic
+- bugfix: correct highlight color choice in Preferences (66000->660000)
+- moved hash for preferences COLOR and HIGHLIGHT from code to database and made corresponding program changes
+- fixed comment sorting in report cards
+- added anomalous grades max threshold - set in gradebook configuration
+- bugfix: day of week handling in AddAbsences
+- bugfix: delete button missing for student fields on standard tabs
+- bugfix: student fields can be deleted with use-only profile and permissions
+- 0 point assignments function as extra credit assignments
+- added include_inactive checkbox to gradebook grades, input final grades, and
+  anomalous grades so teachers can view/edit data for dropped students
+- added gradebook grades to teacher programs
+- added menu item prefixed by HTTP:// opens in new window (http:// opens in main window already)
+- changed default behavior of DBDate()
+- replaced 'include inactive' with new approach - old approach is fundamentally flawed

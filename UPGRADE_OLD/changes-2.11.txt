@@ -1,0 +1,42 @@
+Centre v2.11
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- bugfix: 'group by family' option sometimes fails when ungrouping search result of only one family
+- sort by date in modules/Attendance/StudentSummary.php
+- changed student attendance query to incremental in modules/Attendance/DailySummary.php (per student query in _makeColor)
+  period select list includes only periods with at least one course period that does attendance
+- when deleting a course from a student schedule (end_date<start_date), added deletion of corresponding assignment grades
+- added non null constraint to marking periods in db
+- added honor roll cutoffs to grade scales in db and in ReportCardGrades.php and Rollover.php
+- synced diagnostic.php db connect string logic with database.inc.php
+- bugfix: initialize filled seats to zero when adding course periods
+- added mechanism to force student field on search screen
+- added honor roll
+- added sort order to course subjects
+- bugfix: add existing contact in student contacts and addresses would include people already associated with the student
+- added explicit school selection in the side frame for teachers
+- limit the course period selection for teachers to the selected school and marking period
+- added a preference setting for heading color
+- added report card comment categories
+- added color coding mechanism for report card comment categories
+- bugfix: all assignment grades in the marking period listed as anomalous after the end of the marking period
+- modified PreparePHP_SELF() to accept 'remove' and 'add' parameter lists
+- made teacher schedule tab list only courses at selected school and added checkbox for all schools
+- bugfix: converted grade completion to course_period based instead of period based because teachers can have more than
+- bugfix: attendance shown as incomplete only for days when the class meets
+  one class in a given period and marking period (because of day of week)
+- changed grades teacher completion to show both complete and incomplete grades
+- changed attendance teacher completion to show both complete and incomplete grades
+- added popup with course title to checks/x's on Grades and Attendance teacher completion
+- added people field information to the contact info popups
+- added next_school and calendar search widgets for student searches
+- added permissions search widget for user searches
+- feature: added Users/Preferences Widgets tab to add search widgets to basic student search for admins and teachers
+- feature: added Users/Preferences UserWidgets tab to add search widgets to basic user search for admins
+- feature: added Users/Preferences UserFields tab to add user field search/display features for users similar to students
+- feature: added advanced search feature to student searches for admins and teachers
+- feature: added advanced search feature to user searches for admins
+- bugfix: address field, people field, and user field date types could not be saved
+- added expanded view for user lists
+- bugfix: table bgcolor in MassSchedule.php, MassRequest.php, MassDrop.php
+- bugfix: birthdate (custom_200000004) column should be type date

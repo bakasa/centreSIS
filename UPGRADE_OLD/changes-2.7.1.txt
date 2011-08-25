@@ -1,0 +1,9 @@
+Centre v2.7.1
+
+- auto-pulldown for the info description on student addresses and contacts
+  screen made configurable to accommodate schools with crappy data
+- non-standard auto-puldown values colored in blue
+- auto-pulldowns and coded-pulldowns added searchable
+- data fields title text color selectable as a user preference
+  three colors available - gray, black, and centre blue
+- bugfixes

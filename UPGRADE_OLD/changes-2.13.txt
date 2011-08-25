@@ -1,0 +1,47 @@
+Centre v2.13
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- combined shool_years, school_semesters, school_quarters, and school_progress_periods tables into single school_marking_periods table
+- bugfix: teacher search criteria in TeacherPrograms extends to student search when teacher search result is auto-selected
+    solution - call appendSQL() and CustomFields() in Students/Search.inc.php rather than from GetStuList()
+- make corresponding change above to Users/Search.inc.php and GetStaffList()
+- bugfix: 'Advanced' feature in Attendance/Percent.php kinda broken, cleanup and adopt new search style
+- feature: added $hide_non_attendance_comment variable to modules/Grades/config.inc.php to suppress the Comment entry for
+    non-attendance-period classes
+- feature: added $commentsB_len variable to modules/Grades/config.inc.php to set the truncation length for comments in the
+    add comment pull-down, previously this value was hardcoded as 20
+- feature: added Export Pull-Down type to Student, Address, People, and User custom fields
+  Export Pull-Down is similar to Pull-Down type except a second value is specified to be used when downloading (saving) the list
+- added Preference to control export of Export Pull-Down values as stored value or export value
+- bugfix: some settings in Users/Preferences StudentListing tab can not be unchecked
+- bugfix: in StudentGrades.php, class name does not display in header when individual class grades are selected
+- simplified Users name code in Users/includes/General_Info.inc.php to reflect NOT NULL constraint on first_name and last_name
+    introduced in 2.12
+- simplified full_name query in functions/GetStaffList.fnc.php to reflect NOT NULL constraint on first_name and last_name
+    introduced in 2.12
+- simplified teacher name query in misc/Export.php for Schedule items
+- added dashed underlines below editable values when using hidden fields
+- changed 'Student ID' titles to 'Centre ID' to avoid confusion with other student id's
+- changed 'Staff ID' titles to 'Centre ID'
+- changed 'Group by Family' to group on subquery specifically for residence address
+- added 'not' options to advanced grades, calendar searches
+- titles for 'required' items colored red in course periods configuration
+- bugfix: teacher course pull-down in side menu includes marking period for full year courses
+- converted Grades.php, InputFinalGrades.php, and ProgressReports.php to use the weighted grades total grade calculation also for
+    unweighted grades
+  this will ensure better consistency between weighted and unweighted calcs (although there wasn't a known inconsistency) but
+    will enable grade breakdowns by assignment categories in the future
+- added 'attendance period teacher' item to advanced report
+  (the 'attendance period teacher' is considered the student's "teacher")
+- added residence/mailing/bus_pickup/bus_dropoff address select options to advanced reports
+- removed Custom/FamilyReport.php (unsupported script) because no longer needed since family grouping added to Centre
+- modified way 'contacts without an address' are represented in the database to be more like contacts with an address
+  enables contacts without an ddress to work better and more consistently
+  address row with address_id=0 added and links in students_join_address added for students with one of more contacts without an address
+- bugfix: StudentGrades.php shows some inactive courses
+- added student field types of codeds, autos, and exports to GroupAssignStudentInfo (AssignOtherInfo.php)
+- bugfix: multiple rows returned cb error when including teacher-room on advanced reports
+- added options to teacher gradebook configuration to suppress letter grades for all assignments or assignments with point value below
+    a minimum value
+- feature: teachers can search/view user information for self and parents associated with students in selected class
+- bugfix: teacher include inactive still not right

@@ -1,0 +1,36 @@
+Centre v2.9.1
+
+- bugfix: should save/restore $_SESSION[UserCoursePeriod] for teachers in PrintClassLists.php
+- bugfix: need to 'fake' profile_id of '0' for students in User.fnc.php
+- bugfix: in AllowEdit.fnc.php:AllowUse(), if(User(PROFILE_ID)) fails for students since profile_id=0, compare against '' instead
+- feature: added Users/Preferences:StudentListing setting to display student full_name using first_name or common_name (custom_200000002)
+  functions/User.fnc.php - added default NAME preference of 'Common'
+  functions/GetStuList.fnc.php - form student query based on NAME preference setting
+- feature: PrintClassPictures.php added to Scheduling (modules/Scheduling)
+- changed PrintClassLists to 'course oriented' instead of 'student oriented'
+- bugfix: functions/MailingLabel.php did not use the mailing address
+- bugfix: in AnomalousGrades, removed links to gradebook on not AllowUse for gradebook
+- added $options to AllowEdit.fnc.php:ProgramLink()
+- feature: added link in Schedule.php to print the current schedule
+- in Inputs.php:SelectInput() changed default of $allow_na to 'N/A' to allow a null ('') n/a value to be specified
+  changed uses of SelectInput accordingly (not as many of 'em as you might think)
+- bugfix: in modules/Grades/Configuration.php, typo in total percent calc generates false warning
+- bugfix: typo in $grades_RET query in modules/Grades/GradeBreakdown.php
+- bugfix: course_period_selection in modules/Users/TeacherPrograms.php (needs further review)
+- feature: number of days before ungraded assignment is is visible to Parents/Students is configurable by teachers in Gradebook configuration
+  note: default used to be 1 day but new default is zero days
+- bugfix: absence not associated with the correct course period when adding absences with modules/Attendance/AddAbsences.php
+- bugfix: school default grade rounding policy not applied properly in ProgramFunctions/_makeLetterGrade.fnc.php
+- bugfix: makeLetterGrade cache not properly loaded in modules/Grades/InputFinalGrades.php
+- bugfix: updated gradebook grade calculation in modules/Eligibility/EnterEligibility.php
+- bugfix: corrected $programconfig to array indexed by staff_id in modules/Eligibility/EnterEligibility.php
+- bugfix: absence not associated with the correct course period when adding absences with modules/Attendance/Administration.php
+- added option for ListOutput 'add link' to list first rather than last
+- modules/Grades/Assignments.php, 'add links' listed first if types, assignments greater than 5
+- feature: added default value setting for comment codes in Grades:Setup:Configuration (modules/Grades/Configuration.php)
+- changed AdvancedReport to search/select style
+- bugfix: sort_order in grades query im ProgramFunctions/_makeLetterGrade.fnc.php
+- Ungraded assignments identified in parent/student view of student grades.
+  A count of ungradeds affecting the total is displayed in grade totals.
+  A red zero and appended red comment is displayed in assignment details.
+- Half day attendance codes will not be added to half day classes in Attendance:AddAbsences (modules/Attendance/AddAbsences.php)

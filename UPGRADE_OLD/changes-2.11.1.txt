@@ -1,0 +1,14 @@
+Centre v2.11.1
+
+- updated version in Warehouse.php, copyright, INSTALL, UPGRADE, CHANGELOG
+- spelling correction in modules/Grades/Configuration.php
+- resturctured HonorRoll.php to use a 'local widget'
+- bugfix: change several Widgets('mailing_labels',true) to Widgets('mailing_labels') missed in 2.11
+- bugfix: student field search criteria listed twice in expanded view
+- added 'back to user list' and 'back to user search' buttons in lower frame
+- continued to restructure user searches to be more like student searches
+- restricted search on Users/Permissions to users with custom permissions via the profile search widget
+- converted Students/Letters.php (Print Letters) to search/select style
+- added PrintLetters to teacher menu
+- added list of available substitutions to Print Letters
+- bugfix: user preferred widgets not properly included on search screen
