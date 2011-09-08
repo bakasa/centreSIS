@@ -51,7 +51,7 @@ if(CONFIG_INC==0)
 		'Food_Service'=>false,
 		'Resources'=>false,
 		'Discipline'=>false,
-		'Billing'=>false,
+		'Billing'=>true,
 		'State_Reports'=>false,
 		'Custom'=>false
 	);
