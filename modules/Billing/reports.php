@@ -95,7 +95,7 @@ if($TAB == 2){
 			  (
 			   lower(S.last_name) like lower('%$username%')
 			   or lower(S.first_name) like lower('%$username%')
-		 	   or lower(concat(S.first_name, ' ',S.last_name)) like lower('%$username%')";
+		 	   or lower(S.first_name || ' ' || S.last_name) like lower('%$username%')";
 	if(is_numeric($username)){
 		$query .= " or S.student_id = $username ";
 	}
@@ -122,7 +122,7 @@ if($TAB == 2){
 			  (
 			   lower(S.last_name) like lower('%$username%')
 			   or lower(S.first_name) like lower('%$username%')
-		 	   or lower(concat(S.first_name, ' ',S.last_name)) like lower('%$username%')";
+		 	   or lower(S.first_name || ' ' || S.last_name) like lower('%$username%')";
 	if(is_numeric($username)){
 		$query .= " or S.student_id = $username ";
 	}
@@ -148,7 +148,7 @@ if($TAB == 2){
 			  (
 			   lower(S.last_name) like lower('%$username%')
 			   or lower(S.first_name) like lower('%$username%')
-		 	   or lower(concat(S.first_name, ' ', S.last_name)) like lower('%$username%')";
+		 	   or lower(S.first_name || ' ' || S.last_name) like lower('%$username%')";
 	if(is_numeric($username)){
 		$query .= " or S.student_id = $username ";
 	}
@@ -175,7 +175,7 @@ if($TAB == 2){
 			  (
 			   lower(S.last_name) like lower('%$username%')
 			   or lower(S.first_name) like lower('%$username%')
-		 	   or lower(concat(S.first_name, ' ',S.last_name)) like lower('%$username%')";
+		 	   or lower(S.first_name || ' ' || S.last_name) like lower('%$username%')";
 	if(is_numeric($username)){
 		$query .= " or S.student_id = $username ";
 	}
@@ -298,7 +298,7 @@ else{
 			  (
 			  	lower(S.last_name) like lower('%$username%')
 			  	or lower(S.first_name) like lower('%$username%')
-			  	or lower(concat(S.first_name, ' ', S.last_name)) like lower('%$username%')";
+			  	or lower(S.first_name || ' ' || S.last_name) like lower('%$username%')";
 	if(is_numeric($username)){
 		$query .= " or S.student_id = $username ";
 	}
