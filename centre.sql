@@ -5300,6 +5300,63 @@ CREATE TRIGGER srcg_mp_stats_update
     EXECUTE PROCEDURE t_update_mp_stats();
 
 
+
+---
+--- Billing module
+---
+
+CREATE SEQUENCE billing_payment_type_seq;
+CREATE TABLE billing_payment_type (
+  id INTEGER DEFAULT NEXTVAL('billing_payment_type_seq') NOT NULL,
+  type_id NUMERIC NOT NULL,
+  type_desc VARCHAR(255)
+);
+
+CREATE SEQUENCE billing_fee_seq;
+CREATE TABLE billing_fee (
+  id INTEGER DEFAULT NEXTVAL('billing_fee_seq') NOT NULL,
+  fee_id NUMERIC NOT NULL,
+  student_id NUMERIC NOT NULL,
+  amount NUMERIC NOT NULL,
+  module VARCHAR(255) NOT NULL,
+  inserted_by VARCHAR(255) NOT NULL,
+  waived_date DATE,
+  waived_by VARCHAR(255),
+  title VARCHAR(255) NOT NULL,
+  assigned_date DATE,
+  inserted_date DATE,
+  due_date DATE,
+  comment VARCHAR(255) NOT NULL,
+  waived integer DEFAULT 0
+);
+
+CREATE SEQUENCE billing_payment_seq;
+CREATE TABLE BILLING_PAYMENT (
+  payment_id NUMERIC NOT NULL,
+  student_id NUMERIC NOT NULL,
+  amount NUMERIC NOT NULL,
+  payment_type VARCHAR(255) NOT NULL,
+  comment VARCHAR(255) NOT NULL,
+  payment_date DATE,
+  refunded integer DEFAULT 0,
+  refund_date DATE
+);
+
+DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/fees.php';
+DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/reports.php';
+DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/billingAdmin.php';
+
+INSERT INTO `PROFILE_EXCEPTIONS` (`profile_id`, `modname`, `can_use`, `can_edit`) VALUES
+(0, 'Billing/reports.php', 'Y', NULL),
+(1, 'Billing/fees.php', 'Y', 'Y'),
+(1, 'Billing/reports.php', 'Y', 'Y'),
+(1, 'Billing/billingAdmin.php', 'Y', 'Y');
+
+INSERT INTO BILLING_PAYMENT_TYPE (type_id, type_desc) VALUES
+(1, 'Cash'),
+(2, 'Debit/Credit Card'),
+(3, 'Scholarship');
+
 --
 -- PostgreSQL database dump complete
 --
