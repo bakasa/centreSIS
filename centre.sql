@@ -5357,6 +5357,2245 @@ INSERT INTO BILLING_PAYMENT_TYPE (type_id, type_desc) VALUES
 (2, 'Debit/Credit Card'),
 (3, 'Scholarship');
 
+---
+--- Discipline module
+---
+
+CREATE TABLE DISCIPLINE_RECORD (
+  record_identifier VARCHAR(30) NOT NULL,
+  record_date DATE,
+  incident_id integer,
+  location_id integer,
+  school_id integer,
+  time_id integer,
+  facilities_id integer,
+  injury_id integer,
+  weapon_id integer,
+  reporter_id integer,
+  related_alcohol integer,
+  related_drug integer,
+  related_hate integer,
+  related_weapon integer,
+  related_gang integer,
+  related_bully integer,
+  reported_law integer,
+  cost DECIMAL,
+  open_closed integer DEFAULT 1
+);
+
+
+CREATE TABLE DISCIPLINE_LOCATION_LKUP (
+  location_code VARCHAR(10) NOT NULL,
+  location_id integer NOT NULL,
+  location_display VARCHAR(255),
+  location_description TEXT,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_REPORTER_LKUP (
+  reporter_code VARCHAR(10) NOT NULL,
+  reporter_id integer NOT NULL,
+  reporter_display VARCHAR(255),
+  reporter_description TEXT,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_TIME_LKUP (
+  time_code VARCHAR(10) NOT NULL,
+  time_id integer NOT NULL,
+  time_display VARCHAR(255),
+  time_description TEXT,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_INCIDENT_LKUP (
+  incident_code VARCHAR(10) NOT NULL,
+  incident_id integer NOT NULL,
+  incident_display VARCHAR(255),
+  incident_description TEXT,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_SCHOOL_LKUP (
+  school_code VARCHAR(10) NOT NULL,
+  school_id integer NOT NULL,
+  School_description VARCHAR(255) NOT NULL,
+  District_code VARCHAR(10) NOT NULL,
+  State_code VARCHAR(10) NOT NULL,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_WEAPON_LKUP (
+  weapon_code VARCHAR(10) NOT NULL,
+  weapon_id integer NOT NULL,
+  weapon_display VARCHAR(255) NOT NULL,
+  weapon_description TEXT,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_INJURY_LKUP (
+  injury_code VARCHAR(10) NOT NULL,
+  injury_id integer NOT NULL,
+  injury_display VARCHAR(255) NOT NULL,
+  injury_description TEXT,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_FACILITIES_LKUP (
+  facilities_code VARCHAR(10) NOT NULL,
+  facilities_id integer NOT NULL,
+  facilities_display VARCHAR(255) NOT NULL,
+  facilities_description TEXT,
+  hidden integer NOT NULL DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_DISCIPLINE_LKUP (
+  discipline_id NUMERIC NOT NULL,
+  discipline_code VARCHAR(10),
+  discipline_display VARCHAR(255),
+  discipline_description TEXT,
+  hidden integer DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE (
+  discipline_id integer,
+  incident_identifier VARCHAR(30),
+  perpetrator_id integer,
+  discipline_id_type integer,
+  start_date DATE,
+  end_date DATE,
+  related_special_ed integer,
+  related_zero_policy integer,
+  full_year_expulsion integer,
+  short_expulsion integer,
+  hidden integer DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_PERPETRATOR (
+  perpetrator_id NUMERIC NOT NULL,
+  incident_identifier VARCHAR(30),
+  perpetrator_name VARCHAR(255),
+  perpetrator_user_id integer,
+  perpetrator_type_id integer,
+  injury_id integer,
+  hidden integer DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_PERPETRATOR_LKUP (
+  perpetrator_id NUMERIC NOT NULL,
+  perpetrator_code VARCHAR(10),
+  perpetrator_display VARCHAR(255),
+  perpetrator_description TEXT,
+  hidden integer DEFAULT 0
+);
+
+CREATE TABLE discipline_victim (
+  victim_id NUMERIC NOT NULL,
+  incident_identifier VARCHAR(30),
+  victim_name VARCHAR(255),
+  victim_type_id integer,
+  injury_id integer,
+  hidden integer DEFAULT 0
+);
+
+CREATE TABLE DISCIPLINE_VICTIM_LKUP (
+  victim_id NUMERIC NOT NULL,
+  victim_code VARCHAR(10),
+  victim_display VARCHAR(255),
+  victim_description text,
+  hidden integer DEFAULT 0
+);
+
+INSERT INTO DISCIPLINE_FACILITIES_LKUP (
+  facilities_code,
+  facilities_id,
+  facilities_description,
+  facilities_display
+)
+VALUES
+('999', 1, 'N/A', 'N/A');
+
+INSERT INTO DISCIPLINE_SCHOOL_LKUP (
+  school_code,
+  school_id,
+  School_description,
+  District_code,
+  State_code
+)
+VALUES
+('999', 1, 'N/A', '999','999');
+
+
+DELETE FROM PROFILE_EXCEPTIONS where modname='Discipline/codeEditor.php';
+DELETE FROM PROFILE_EXCEPTIONS where modname='Discipline/dashboard.php';
+DELETE FROM PROFILE_EXCEPTIONS where modname='Discipline/incidenteditor.php';
+
+INSERT INTO PROFILE_EXCEPTIONS (profile_id, modname, can_use, can_edit) VALUES
+(1, 'Discipline/codeEditor.php', 'Y', 'Y'),
+(1, 'Discipline/dashboard.php', 'Y', 'Y'),
+(1, 'Discipline/incidenteditor.php', 'Y', 'Y');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+VALUES
+('100', 1 ,
+'The student was prohibited from riding the school bus.',
+'Bus suspension');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('110', 2,
+'The student was permanently (i.e., for at least one semester) reassigned to another school facility or program that allowed him/her to continue to participate in the general curriculum at a school setting, including students receiving prescribed special education services who continued to receive these services.', 
+'Change of placement (long-term)');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('120', 3,
+'The student was assigned to an interim alternative setting that allowed him/her to continue to participate in the general curriculum at a school setting pending an expulsion hearing called as a consequence of the incident. Included here students receiving prescribed special education services who continued to receive these services.', 
+'Change of placement (reassignment), pending an expulsion hearing');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('130', 4,
+'The student was assigned, as a result of an expulsion hearing, to an interim alternative setting that allowed him/her to continue to participate in the general curriculum at a school setting. Included here students receiving prescribed special education services who continue to receive these services.', 
+'Change of placement (reassignment), resulting from an expulsion hearing');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('140', 5,
+'The student was removed from his or her regular classroom and assigned to an interim alternative setting that allowed him/her to continue to participate in the general curriculum at a school setting for a period of time less than one semester. Included here students receiving prescribed special education services who continue to receive these services.', 
+'Change of placement (reassignment), temporary');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('150', 6,
+'The student was assigned to perform community service (e.g., cleanup work).', 
+'Community service');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('160', 7,
+'An administrator discussed the incident with the student and issued a warning regarding the consequences of subsequent offenses.', 
+'Conference with and warning to student');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('170', 8,
+'An administrator discussed the incident with the student, issued a warning regarding the consequences of subsequent offenses, and contacted the parent/guardian to discuss the incident.', 
+'Conference with and warning to student and parent/guardian');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('180', 9,
+'Taking away an item(s) defined as prohibited by school or district policy.', 
+'Confiscation of contraband');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('190', 10,
+'The student was required to participate in conflict resolution or anger management counseling or classes.', 
+'Conflict resolution or anger management services mandated');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('200', 11,
+'The student was physically punished (e.g., paddled) in accordance with state laws where legal.', 
+'Corporal punishment');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('210', 12,
+'The student was required to participate in a counseling program.', 
+'Counseling mandated');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('220', 13,
+'The student received a mark of poor conduct.', 
+'Demerit');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('230', 14,
+'The student was assigned to before- or after-school detention or detention at lunch.', 
+'Detention');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('240', 15,
+'The student was removed from his or her regular classroom, barred from school grounds, and the principal asked the school district to expel the student.', 
+'Expulsion recommendation');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('250', 16,
+'The student was expelled from his/her regular school setting with arrangements for the provision of education services.', 
+'Expulsion with services');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('260', 17,
+'The student was expelled from all school district settings, with total cessation of educational services.', 
+'Expulsion without services');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('270', 18,
+'The student was referred to juvenile justice authorities.', 
+'Juvenile justice referral');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('280', 19,
+'The incident was reported to law enforcement officials.', 
+'Law enforcement referral');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('290', 20,
+'The student was required to submit a formal letter of apology.', 
+'Letter of apology');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('300', 21,
+'The student lost a privilege (e.g., recess, parking).', 
+'Loss of privileges');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('310', 22,
+'The student was required to participate in a physical activity (e.g., running laps, pushups).', 
+'Physical activity');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('320', 23,
+'The student was rebuked.', 
+'Reprimand');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('330', 24,
+'The student was required to make restitution for the damages caused by the incident.', 
+'Restitution');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('340', 25,
+'The student was assigned to attend Saturday school.', 
+'Saturday school');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('350', 26,
+'The student was restricted from school or school functions.', 
+'School probation');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('360', 27,
+'The student was required to participate in substance abuse counseling.', 
+'Substance abuse counseling mandated');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('370', 28,
+'The student was required to participate in substance abuse treatment.', 
+'Substance abuse treatment mandated');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('380', 29,
+'The student was assigned to a suspension after-school program.', 
+'Suspension after school');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('390', 30,
+'The student was removed from his or her regular classroom and assigned to an in-school-suspension program.', 
+'Suspension, in-school');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('400', 31,
+'The student was removed from his or her regular classroom and barred from school grounds for a specified length of time and continued to receive educational services.', 
+'Suspension, out-of-school, with services');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('410', 32,
+'The student was removed from his or her regular classroom and barred from school grounds for a specified length of time and did not receive educational services.', 
+'Suspension, out-of-school, without services');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('420', 33,
+'The student received an official appraisal from school personnel that indicated unsatisfactory behavior.', 
+'Unsatisfactory behavior grade');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('430', 34,
+'The student was assigned to a work detail.', 
+'Work detail');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('440', 35,
+'No action was taken in response to the incident.', 
+'No Action');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('997',36,
+'There was a consequence to the perpetrator because of his or her actions, but none of the above codes apply.', 
+'Other');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('998', 37,
+'No consequences resulted from the perpetrator''s actions.', 
+'None');
+
+INSERT INTO DISCIPLINE_DISCIPLINE_LKUP
+( discipline_code,
+  discipline_id,
+  discipline_description,
+  discipline_display
+)
+values
+('999',38,
+'It is unknown if any consequences resulted from the perpetrator''s actions.', 
+'Unknown');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1000', 1,
+'Violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, or consumption of intoxicating alcoholic beverages or substances represented as alcohol. Suspicion of being under the influence of alcohol may be included if it results in disciplinary action.', 
+'Alcohol');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1010', 2,
+'Selling alcoholic beverages.', 
+'Sale of alcohol');
+
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1020', 3,
+'Distributing (i.e., giving away) alcoholic beverages.', 
+'Distribution of alcohol');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1030', 4,
+'Drinking alcoholic beverages.', 
+'Drinking alcohol');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1040', 5,
+'Having alcoholic beverages in one''s pocket(s), bag(s), car, locker, etc.', 
+'Possession of alcohol');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1050', 6,
+'Exhibiting behaviors that suggests that an individual consumed alcohol.', 
+'Suspicion of alcohol use');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1097', 7,
+'The incident cannot be coded in one of the above categories but did involve an alcohol violation.', 
+'Other alcohol');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1100', 8,
+'To unlawfully and intentionally damage, or attempt to damage, any school or personal property by fire or incendiary device. Firecrackers, fireworks, and trashcan fires would be included in this category if they were contributing factors to a damaging fire.', 
+'Arson (Setting a Fire)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1200', 9,
+'Violation of state, school district, or school policy relating to attendance.', 
+'Attendance Policy Violation (Not Attending School or Classes as Required)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1300', 10,
+'Touching or striking of another person against his or her will or intentionally causing bodily harm to an individual.', 
+'Battery (Physical Attack/Harm)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1400', 11,
+'Unlawful entry or attempted entry into a building or other structure with the intent to commit a crime.', 
+'Burglary/Breaking and Entering (Stealing Property/Unlawful Entry)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1500', 12,
+'Any act that disrupts the orderly conduct of a school function; behavior which substantially disrupts the orderly learning environment.', 
+'Disorderly Conduct (Disruptive Behavior)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1600', 13,
+'Unlawful use, cultivation, manufacture, distribution, sale, solicitation, purchase, possession, transportation, or importation of any controlled drug (e.g., demerol, morphine) or narcotic substance.', 
+'Drugs Excluding Alcohol and Tobacco (Illegal Drug Possession, Sale, Use/Under the Influence)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1700', 14,
+'Mutual participation in an incident involving physical violence, where there is no major injury.', 
+'Fighting (Mutual Altercation)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1800', 15,
+'Repeatedly annoying or attacking a student or group of students or other personnel which creates an intimidating or hostile educational or work environment.', 
+'Harassment, Nonsexual (Physical, Verbal, or Psychological)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('1900', 16,
+'Unwelcome sexual advances, requests for sexual favors, other physical or verbal conduct or communication of a sexual nature, including gender-based harassment that creates an intimidating, hostile, or offensive educational or work environment.', 
+'Harassment, Sexual (Unwelcome Sexual Conduct)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2000', 17,
+'Killing a human being.', 
+'Homicide (Murder or Manslaughter)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2100', 18,
+'Use, possession, or distribution of any prescription or over-the-counter medication (e.g., aspirin, cough syrups, caffeine pills, nasal sprays) in violation of school policy.', 
+'Inappropriate Use of Medication (Prescription or over-the-counter)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2200', 19,
+'Unwillingness to submit to authority, refusal to respond to a reasonable request, or other situations in which a student is disobedient.', 
+'Insubordination (Disobedience)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2300', 20,
+'Unlawful seizure, transportation, and/or detention of a person against his/her will, or of a minor without the consent of his/her custodial parent(s) or legal guardian. This category includes hostage-taking.', 
+'Kidnapping (Abduction)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2400', 21,
+'Language or actions, written, oral, physical, or electronic, in violation of community or school standards.', 
+'Obscene Behavior');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2500', 22,
+'Confrontation, tussle, or physical aggression that does not result in injury.', 
+'Physical Altercation, Minor (Pushing, Shoving)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2600', 23,
+'The taking of, or attempting to take, anything of value that is owned by another person or organization under confrontational circumstances by force or threat of force or violence and/or by putting the victim in fear. A key difference between robbery and theft is that the threat of physical harm or actual physical harm is involved in a robbery.', 
+'Robbery(Taking of Things by Force)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2700', 24,
+'Any threat (verbal, written, or electronic) by a person to bomb or use other substances or devices for the purpose of exploding, burning, causing damage to a school building or school property, or to harm students or staff.', 
+'School Threat (Threat of Destruction or Harm)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2800', 25,
+'Oral, anal, or vaginal penetration forcibly or against the person''s will or where the victim is incapable of giving consent. Includes rape, fondling, indecent liberties, child molestation, and sodomy.', 
+'Sexual Battery (Sexual assault)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('2900', 26,
+'Sexual intercourse, sexual contact, or other behavior intended to result in sexual gratification without force or threat of force. Code statutory rape here', 
+'Sexual Offenses, Other (Lewd Behavior, Indecent Exposure)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3000', 27,
+'Act or instance of taking one''s own life voluntarily and intentionally.', 
+'Suicide');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3100', 28,
+'The unlawful taking of property belonging to another person without threat, violence or bodily harm. Electronic theft of data should be coded here. Do not include dealing in stolen goods in this category', 
+'Theft (Stealing Personal or School Property)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3200', 29,
+'Physical, verbal, written, or electronic action which immediately creates fear of harm, without displaying a weapon and without subjecting the victim to actual physical attack.', 
+'Threat/Intimidation (Causing Fear of Harm)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3300', 30,
+'Possession, use, distribution, or sale of tobacco products.', 
+'Tobacco (Possession or Use)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3400', 31,
+'To enter or remain on a public school campus or school board facility without authorization or invitation and with no lawful purpose for entry.', 
+'Trespassing (Unlawful or Unauthorized Presence)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3500', 32,
+'Willful destruction or defacement of school or personal property.', 
+'Vandalism (Damage to School or Personal Property)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3600', 33,
+'This category comprises misbehavior not captured elsewhere. Problem behaviors could include dress code violations, running in the halls, possession of contraband, cheating, lying to authorities, or falsifying records.', 
+'Violation of School Rules (Disobeying School Policy)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('3700', 34,
+'Possession of an instrument or object to inflict harm on other persons. Both firearms and other weapons should be coded here.', 
+'Weapons Possession (Firearms and Other Weapons)');
+
+INSERT INTO DISCIPLINE_INCIDENT_LKUP
+( incident_code,
+  incident_id,
+  incident_description,
+  incident_display
+)
+values
+('9000', 35,
+'Any significant incident resulting in disciplinary action not classified previously. Offenses could include bribery, fraud, embezzlement, forgery, resisting arrest, gambling, extortion, or dealing in stolen property.', 
+'Other Offenses (e.g., Forgery, Extortion)');
+
+INSERT INTO DISCIPLINE_INJURY_LKUP
+( injury_code,
+  injury_id,
+  injury_description,
+  injury_display
+)
+values
+('10', 1,
+'At least one participant received a minor physical injury as a result of the incident. A minor injury is one that does not require professional medical attention such as a scrape on the body, knee or elbow; and/or minor bruising. Medical attention from the school nurse qualifies the injury as minor unless further medical attention is required.', 
+'Minor injury');
+
+INSERT INTO DISCIPLINE_INJURY_LKUP
+( injury_code,
+  injury_id,
+  injury_description,
+  injury_display
+)
+values
+('20', 2,
+'At least one participant received a major physical injury as a result of the incident. A major injury is one that requires professional medical attention which may include, but is not limited to, a bullet wound, a stab or puncture wound, fractured or broken bones, concussions, cuts requiring stitches, and any other injury with profuse or excessive bleeding.', 
+'Major injury');
+
+INSERT INTO DISCIPLINE_INJURY_LKUP
+( injury_code,
+  injury_id,
+  injury_description,
+  injury_display
+)
+values
+('96', 3,
+'No one was physically injured during the course of the incident.', 
+'No injury');
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+1,
+'100', 
+'On Campus', 
+'On Campus'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+2,
+'101', 
+'Administrative offices', 
+'The incident occurred in a school office (e.g., main office, principal''s office).'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+3,
+'102', 
+'Cafeteria', 
+'The incident occurred in the cafeteria or in another area where students eat meals.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+4,
+'103', 
+'Classroom', 
+'The incident occurred inside a classroom.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+5,
+'104', 
+'Hallway or stairs', 
+'The incident occurred in a hallway or stairwell.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+6,
+'105', 
+'Locker room or gym', 
+'he incident occurred in a locker room or gym facility.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+7,
+'106', 
+'Restroom', 
+'The incident occurred in a bathroom.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+8,
+'107', 
+'Library/Media center', 
+'The incident occurred in a library or media center.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+9,
+'108', 
+'Computer lab', 
+'The incident occurred in a computer lab.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+10,
+'109', 
+'Auditorium', 
+'The incident occurred in an auditorium.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+11,
+'129', 
+'Other inside area', 
+'The incident occurred in another area inside the school building(s).'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+12,
+'130', 
+'Athletic field or playground', 
+'The incident occurred on an athletic field or playground.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+13,
+'131', 
+'Stadium', 
+'The incident occurred in a stadium.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+14,
+'132', 
+'Parking lot', 
+'The incident occurred in the school parking lot.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+15,
+'197', 
+'Other outside area', 
+'The locale where the incident occurred cannot be captured by one of the above categories, but did take place on campus.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+16,
+'200', 
+'Off Campus', 
+'Off Campus.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+17,
+'201', 
+'Bus stop',
+'The incident occurred at a bus stop.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+18,
+'202', 
+'School bus',
+'The incident occurred on a school bus.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+19,
+'203', 
+'Walking to or from school',
+'The incident occurred while students were walking to or from school.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+20,
+'210', 
+'Other School',
+'The incident occurred at another school in the district.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+21,
+'297', 
+'Other off-campus location',
+'The location where the incident occurred cannot be captured by one of the above categories, but took place off campus.'
+);
+
+INSERT INTO DISCIPLINE_LOCATION_LKUP
+(
+  location_id, 
+  location_code, 
+  location_display, 
+  location_description
+)
+VALUES (
+22,
+'999', 
+'Unknown',
+'The incident occurred at an unknown location.'
+);
+
+INSERT INTO DISCIPLINE_PERPETRATOR_LKUP
+( perpetrator_code,
+  perpetrator_id,
+  perpetrator_description,
+  perpetrator_display
+)
+values
+('100', 1,
+'The perpetrator was an individual who was enrolled in an instructional program in a school at the time the incident occurred.', 
+'Student');
+
+INSERT INTO DISCIPLINE_PERPETRATOR_LKUP
+( perpetrator_code,
+  perpetrator_id,
+  perpetrator_description,
+  perpetrator_display
+)
+values
+('200', 2,
+'The perpetrator was a member of the professional staff at the school at the time the incident occurred.', 
+'Professional Staff');
+
+INSERT INTO DISCIPLINE_PERPETRATOR_LKUP
+( perpetrator_code,
+  perpetrator_id,
+  perpetrator_description,
+  perpetrator_display
+)
+values
+('300', 3,
+'The perpetrator was an administrator in the school (or school district) at the time the incident occurred.', 
+'Administrator');
+
+INSERT INTO DISCIPLINE_PERPETRATOR_LKUP
+( perpetrator_code,
+  perpetrator_id,
+  perpetrator_description,
+  perpetrator_display
+)
+values
+('400', 4,
+'The perpetrator was another school staff member (e.g., school support personnel, maintenance personnel) in the school at the time the incident occurred.', 
+'Other School Staff');
+
+INSERT INTO DISCIPLINE_PERPETRATOR_LKUP
+( perpetrator_code,
+  perpetrator_id,
+  perpetrator_description,
+  perpetrator_display
+)
+values
+('500', 5,
+'The perpetrator was a law enforcement officer at the time the incident occurred.', 
+'Law Enforcement Officer');
+
+INSERT INTO DISCIPLINE_PERPETRATOR_LKUP
+( perpetrator_code,
+  perpetrator_id,
+  perpetrator_description,
+  perpetrator_display
+)
+values
+('600', 6,
+'The perpetrator was an individual who did not attend or work for the school (e.g., parent, community member).', 
+'Nonschool Personnel');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('100', 1, 'Student.', 'Student');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('110',
+2,
+'The incident was reported by a regularly enrolled student in the school where the incident was reported at the time the incident occurred.', 
+'Regular Student enrolled in the school where the incident occurred');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('120',
+3,
+'The incident was reported by a student who, at the time the incident occurred, was enrolled in a school other than the one where the incident was reported.', 
+'Student enrolled in another school');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('130',
+4,
+'The incident was reported by a student who was suspended or expelled from regular classes in the school at the time the incident occurred.', 
+'Suspended or expelled student');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('197',
+5,
+'The type of reporter cannot be captured by one of the above codes, but the incident was reported by a student.', 
+'Other student');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('200',
+6,
+'Professional Staff.', 
+'Professional Staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('210',
+7,
+'The incident was reported by a teacher in the school at the time the incident occurred.', 
+'Teacher');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('220',
+8,
+'The incident was reported by a substitute teacher in the school at the time the incident occurred.', 
+'Substitute');
+
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('230',
+9,
+'The incident was reported by a media specialist or librarian in the school at the time the incident occurred.', 
+'Media specialist/Librarian');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('240',
+10,
+'The incident was reported by a school counselor (e.g., guidance counselor) in the school at the time the incident occurred.', 
+'Counselor');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('250',
+11,
+'The incident was reported by a social worker or school psychologist in the school at the time the incident occurred.', 
+'Social worker/School psychologist');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('260',
+12,
+'The incident was reported by a member of the medical staff in the school at the time the incident occurred.', 
+'Medical staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('297',
+13,
+'The type of reporter cannot be captured by one of the above codes, but the incident was reported by a professional staff member.', 
+'Other professional staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('300',
+14,
+'Administrator.', 
+'Administrator');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('310',
+15,
+'The incident was reported by the principal or head of the school at the time the incident occurred.', 
+'Principal/Head of school');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('320',
+16,
+'The incident was reported by an assistant principal or vice-principal in the school at the time the incident occurred.', 
+'Assistant principal/ Vice principal');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('330',
+17,
+'The incident was reported by a dean in the school at the time the incident occurred.', 
+'Dean');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('340',
+18,
+'The incident was reported by a district level administrator in the school district at the time the incident occurred.', 
+'District level administrator');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('350',
+19,
+'The incident was reported by a school board member in the school district at the time the incident occurred.', 
+'School board member');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('397',
+20,
+'The type of reporter cannot be captured by one of the above codes, but the incident was reported by an administrator.', 
+'Other administrator');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('400',
+21,
+'Other School Staff', 
+'Other School Staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('410',
+22,
+'The incident was reported by a bus driver or member of the transportation staff in the school at the time the incident occurred.', 
+'Bus driver/ Transportation staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('420',
+23,
+'The incident was reported by a member of the clerical staff in the school at the time the incident occurred.', 
+'Clerical staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('430',
+24,
+'The incident was reported by a member of the custodial staff in the school at the time the incident occurred.', 
+'Custodial staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('440',
+25,
+'The incident was reported by a member of the food service staff in the school at the time the incident occurred.', 
+'Food service staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('450',
+26,
+'The incident was reported by a paraprofessional, aide, or assistant in the school at the time the incident occurred.', 
+'Paraprofessional, aide, assistant');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('460',
+27,
+'The incident was reported by a security officer (for law enforcement officers see code 500) in the school at the time the incident occurred.', 
+'Security personnel');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('497',
+28,
+'The type of reporter cannot be captured by one of the above codes, but the incident was reported by a school staff member.', 
+'Other staff');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('500',
+29,
+'Law Enforcement Officer', 
+'Law Enforcement Officer');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('510',
+30,
+'The incident was reported by a municipal law enforcement officer (e.g., town, city, county police officer, school resource officer, or sheriff) assigned to the school.', 
+'Municipal law enforcement officer assigned to the school');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('520',
+31,
+'The incident was reported by a municipal law enforcement officer (e.g., town, city, county police officer, school resource officer, or sheriff) not assigned to the school.', 
+'Municipal law enforcement officer not assigned to the school');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('530',
+32,
+'The incident was reported by a school district police officer (i.e., directly employed by the school district) assigned to the school for some or all of the school day at the time the incident occurred.', 
+'School district police officer assigned to the school');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('540',
+33,
+'The incident was reported by a school district police officer (i.e., directly employed by the school district) not assigned to the school for some or all of the school day at the time the incident occurred.', 
+'School district police officer not assigned to the school');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('597',
+34,
+'The type of reporter cannot be captured by one of the above codes, but the incident was reported by a law enforcement officer.', 
+'Other law enforcement officer');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('600',
+35,
+'Nonschool Personnel', 
+'Nonschool Personnel');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('610',
+36,
+'The incident was reported by a parent or guardian of a student.', 
+'Parent/guardian');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('620',
+37,
+'The incident was reported by a representative of a visiting school (e.g., teacher, coach).', 
+'Representative of visiting school');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('630',
+38,
+'The incident was reported by another adult in the community.', 
+'Other adult');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('640',
+39,
+'The incident was reported by a nonstudent youth (e.g., dropout).', 
+'Nonstudent youth');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('697',
+40,
+'The type of reporter cannot be captured by one of the above codes, but the incident was reported by nonschool personnel.', 
+'Other nonschool personnel');
+
+INSERT INTO DISCIPLINE_REPORTER_LKUP
+( reporter_code,
+  reporter_id,
+  reporter_description,
+  reporter_display
+)
+values
+('999',
+41,
+'Use this code for incidents that were anonymously reported.', 
+'Unkown');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('110', 1, 'The incident occurred before the start of regular classes.', 'Before classes');
+
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('120', 2, 'The incident occurred during a regular class period.', 'During class');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('130', 3, 'The incident occurred while students were in transit between regular classes.', 'During passing');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('140', 4, 'The incident occurred during lunch or recess.', 'During lunch/recess');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('150', 5, 'The incident occurred after the end of regular classes.', 'After classes');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('197', 6, 'The time when the incident occurred cannot be captured by the above categories, but did take place during school hours.', 'Other time during school hours');
+
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('200', 7, 'The incident occurred while students were on the way to or from school.', 'In Transit');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('210', 8, 'The incident occurred while students were on their way to school.', 'On the way to school');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('220', 9, 'The incident occurred while students were on their way from school.', 'On the way from school');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('300', 10, 'Select from specific codes below. Use these codes for incidents that occurred outside of school hours at times when students were not in transit to or from school.', 'Outside School Hours');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('310', 11, 'The incident occurred during a school-sponsored activity. Examples might include athletic events, academic clubs or other school programs.', 'School-sponsored activity');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('320', 12, 'The incident did not occur during a school-sponsored event, but it involved one or more students.', 'Nonschool-sponsored activity');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('397', 13, 'The time when the incident occurred cannot be captured by the above categories, but did take place outside school hours.', 'Other');
+
+INSERT INTO DISCIPLINE_TIME_LKUP 
+( time_code,
+  time_id,
+  time_description,
+  time_display)
+values
+('999', 14, 'It is unknown when the incident occurred.', 'Unknown');
+
+INSERT INTO DISCIPLINE_VICTIM_LKUP
+( victim_code,
+  victim_id,
+  victim_description,
+  victim_display
+)
+values
+('100', 1,
+'The victim was an individual who was enrolled in an instructional program in a school at the time the incident occurred.', 
+'Student');
+
+INSERT INTO DISCIPLINE_VICTIM_LKUP
+( victim_code,
+  victim_id,
+  victim_description,
+  victim_display
+)
+values
+('200', 2,
+'The victim was a member of the professional staff at the school at the time the incident occurred.', 
+'Professional Staff');
+
+INSERT INTO DISCIPLINE_VICTIM_LKUP
+( victim_code,
+  victim_id,
+  victim_description,
+  victim_display
+)
+values
+('300', 3,
+'The victim was an administrator in the school (or school district) at the time the incident occurred.', 
+'Administrator');
+
+INSERT INTO DISCIPLINE_VICTIM_LKUP
+( victim_code,
+  victim_id,
+  victim_description,
+  victim_display
+)
+values
+('400', 4,
+'The victim was another school staff member (e.g., school support personnel, maintenance personnel) in the school at the time the incident occurred.', 
+'Other School Staff');
+
+INSERT INTO DISCIPLINE_VICTIM_LKUP
+( victim_code,
+  victim_id,
+  victim_description,
+  victim_display
+)
+values
+('500', 5,
+'The victim was a law enforcement officer at the time the incident occurred.', 
+'Law Enforcement Officer');
+
+INSERT INTO DISCIPLINE_VICTIM_LKUP
+( victim_code,
+  victim_id,
+  victim_description,
+  victim_display
+)
+values
+('600', 6,
+'The victim was an individual who did not attend or work for the school (e.g., parent, community member).', 
+'Nonschool Personnel');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('10',
+1,
+'Select from specific codes below. A firearm is any weapon which will, is designed to, or may readily be converted to expel a projectile by the action of an explosive; the frame or receiver of any such weapon; any firearm muffler or firearm silencer; or any machine gun.', 
+'Firearm');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('11',
+2,
+'The weapon involved was a handgun or pistol.', 
+'Handgun');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('12',
+3,
+'The weapon involved was a shotgun or rifle.', 
+'Shotgun/rifle');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('13',
+4,
+'The weapon involved was another type of firearm.', 
+'Other type of firearm (e.g., bombs, grenades, or starter pistols)');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('20',
+5,
+'The weapon involved was a knife.',
+'Knife');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('21',
+6,
+'The weapon involved was a knife with a blade less than 2.5 inches in length.', 
+'Knife with blade length less than 2.5 inches');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('22',
+7,
+'The weapon involved was a knife with a blade at least 2.5 inches in length, but less than 3 inches in length.', 
+'Knife with blade length at least 2.5 inches,but less than 3 inches');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('23',
+8,
+'The weapon involved was a knife with a blade 3 inches or greater in length.', 
+'Knife with blade length greater than or equal to 3 inches');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('29',
+9,
+'The weapon involved was another type of knife.', 
+'Other knife');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('30',
+10,
+'The weapon involved was another type of sharp object, (e.g., razor blade, ice pick, dirk, Chinese star, other pointed instrument [used as a weapon]).', 
+'Other Sharp Objects');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('40',
+11,
+'The weapon involved was another known object (e.g., chain, nunchakus, brass knuckle, billy club, electrical weapon or device [stun gun], BB or pellet gun).', 
+'Other Object');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('50',
+12,
+'The weapon involved was a substance (e.g., mace, tear gas) that was used as a weapon.',
+'Substance Used as Weapon');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('97',
+13,
+'The incident involved a weapon other than those described above.',
+'Other');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('98',
+14,
+'No weapon was used in the incident.',
+'No Weapon');
+
+INSERT INTO DISCIPLINE_WEAPON_LKUP
+( weapon_code,
+  weapon_id,
+  weapon_description,
+  weapon_display
+)
+values
+('99',
+15,
+'A weapon was used in the incident, but the type is unknown.',
+'Unknown Weapon');
+
 --
 -- PostgreSQL database dump complete
 --
