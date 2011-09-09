@@ -287,6 +287,9 @@ echo '  <link rel="stylesheet" type="text/css" media="all" href="assets/jscalend
   <script type="text/javascript" src="assets/jscalendar/calendar.js"></script>
   <script type="text/javascript" src="assets/jscalendar/lang/calendar-en.js"></script>
   <script type="text/javascript" src="assets/jscalendar/calendar-setup.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.js"></script>
+  <script type="text/javascript" src="assets/js/prototype.js"></script>
+  <script type="text/javascript" src="assets/js/billing.js"></script>
   <script type="text/javascript" src="assets/tipmessage/main15.js"></script>';
 
 			break;
