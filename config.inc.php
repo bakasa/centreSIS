@@ -1,5 +1,5 @@
 <?php
-if(CONFIG_INC==0)
+if(!defined('CONFIG_INC'))
 {
 	define('CONFIG_INC',1);
 	// IgnoreFiles should contain any names of files or folders
