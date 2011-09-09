@@ -34,7 +34,7 @@ if(!defined('CONFIG_INC'))
 	$DefaultSyear = '2009';
 	$CentreLocales = array('es_VE.utf8','en_US');	// Add other languages you want to support here, ex: 'fr_FR', 'es_ES', 'it_IT', ...
 						// Language packs can be obtained by sending an email to info@centresis.org
-	$LocalePath = $staticpath.'locale'; // Path were the language packs are stored. You need to restart Apache at each change in this directory
+	$LocalePath = $CentrePath.'locale'; // Path were the language packs are stored. You need to restart Apache at each change in this directory
 
 	// You get a CentreInstallKey when registering you installation on the centresis.org website in the Centre Directory
 	// This will enable access to online resources (documentation, newsgroup, translations, etc.) directly from within Centre
