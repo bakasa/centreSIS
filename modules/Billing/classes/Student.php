@@ -46,7 +46,7 @@ class Student{
 				  (
 				  lower(S.last_name) like lower('%$value%')
 				  or lower(S.first_name) like lower('%$value%')
-				  or lower(concat(S.first_name, ' ', S.last_name)) like lower('%$value%')
+				  or lower(S.first_name || ' ' || S.last_name) like lower('%$value%')
                   )";
 
 				  if(is_numeric($value)){
