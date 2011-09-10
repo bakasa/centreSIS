@@ -28,12 +28,20 @@
 #**************************************************************************
 header("Content-Type: text/xml");
 
+error_reporting(1);
+
+session_name('CentreSIS');
 session_start();
 
 require '../../../config.inc.php';
+require '../../../database.inc.php';
 require '../../../functions/Current.php';
+require '../../../functions/PopTable.php';
+require '../../../functions/DrawTab.fnc.php';
 require '../../../functions/DBGet.fnc.php';
 require '../../../functions/User.fnc.php';
+require '../../../functions/ParseML.fnc.php';
+require '../../../functions/ProgramTitle.fnc.php';
 
 require '../classes/Auth.php';
 require '../classes/Student.php';
