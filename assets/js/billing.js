@@ -157,7 +157,7 @@ billing.buildStudentInformation = function(){
 	
 	totalFee      = parseFloat(totalFee);
 	totalPayment  = parseFloat(totalPayment);
-    var balance   = billing.formatCurrency((totalFee - totalPayment));
+    var balance   = billing.formatCurrency((totalPayment - totalFee));
 		
 	var html = 'Student: '+billing.STUDENT.last+', '+billing.STUDENT.first+
 	  	   '<br/>'+
@@ -585,7 +585,7 @@ billing.buildStudentInformation = function(){
 	
 	totalFee      = parseFloat(totalFee);
 	totalPayment  = parseFloat(totalPayment);
- 	var balance   = billing.formatCurrency((totalFee - totalPayment));
+ 	var balance   = billing.formatCurrency((totalPayment - totalFee));
 
 	var html = 'Student: '+billing.STUDENT.last+', '+billing.STUDENT.first+
 	  	   '<br/>'+
