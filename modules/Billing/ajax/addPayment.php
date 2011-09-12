@@ -55,9 +55,9 @@ if($auth->checkAdmin($profile, $staffId))
 	$studentId = $_REQUEST['STUDENT_ID'];
 	$amount    = $_REQUEST['AMOUNT'];
 	$comment   = $_REQUEST['COMMENT'];
-	$mon	   = $_REQUEST['DATE_Month'];
-	$day	   = $_REQUEST['DATE_Day'];
-	$yr	       = $_REQUEST['DATE_Year'];
+	$mon	   = $_REQUEST['month_date'];
+	$day	   = $_REQUEST['day_date'];
+	$yr	       = $_REQUEST['year_date'];
 	$type_     = $_REQUEST['TYPE'];
 
     $monthnames = array(1 => 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC');

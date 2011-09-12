@@ -306,7 +306,7 @@ if($tab == 2){
 			echo '<option value="'.$row['TYPE_DESC'].'">'.$row['TYPE_DESC'].'</option>';
 	}
 	echo '</select></td></tr>
-		  	<tr><td>Date:</td><td>'.buildDateSelect('DATE', 89).'</td></tr>
+		  	<tr><td>Date:</td><td>'.PrepareDate(date('Y-m-d'),'_date').'</td></tr>
 		  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
 		  	<tr><td colspan="2" align="center"><input type="button" onclick="billing.savePayment();" style="cursor:pointer;" value="Add Payment" /> <input type="button" value="Cancel" style="cursor:pointer;" onclick="billing.hideAddPayment();" /></td></tr>
 		  	</table>
