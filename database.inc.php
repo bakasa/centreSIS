@@ -420,14 +420,6 @@ function db_show_error($sql,$failnote,$additional='')
 	PopTable('footer');
 	echo "<!-- SQL STATEMENT: \n\n $sql \n\n -->";
 
-	if(false && function_exists('mysql_query'))
-	{
-		$link = @mysql_connect('augie.miller-group.net','centre_log','centre_log');
-		@mysql_select_db('centre_log');
-		@mysql_query("INSERT INTO SQL_ERROR_LOG (HOST_NAME,IP_ADDRESS,LOGIN_DATE,VERSION,PHP_SELF,DOCUMENT_ROOT,SCRIPT_NAME,MODNAME,USERNAME,SQL,REQUEST) values('$_SERVER[SERVER_NAME]','$_SERVER[SERVER_ADDR]','".date('Y-m-d')."','$CentreVersion','$_SERVER[PHP_SELF]','$_SERVER[DOCUMENT_ROOT]','$_SERVER[SCRIPT_NAME]','$_REQUEST[modname]','".User('USERNAME')."','$sql','".ShowVar($_REQUEST,'Y', 'N')."')");
-		@mysql_close($link);
-	}
-
 	if($CentreNotifyAddress)
 	{
 		$message = "System: $CentreTitle \n";
