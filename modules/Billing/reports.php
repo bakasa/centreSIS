@@ -54,7 +54,7 @@ if($TAB == 2){
 			  	  <td class="tab_header_right_active"/></tr></tbody>
 			  </table></td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
-	echo '<img style="float:left;cursor:pointer;" onclick="billing.showTransactionsPDF();" src="modules/Billing/images/icon-pdf.gif" /><div style="width:600px;" align="center">';
+	echo '<img style="float:left;cursor:pointer;" onclick="billing.showTransactionsPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center">';
 
 	echo '<form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(2);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(2);" value="All Students" />
 		  <table><tr><td><font style="font-weight:bold;">Begin</font>&nbsp;'.buildDateSelect('BEGIN', 89, true,$beginD).'</td>
@@ -270,7 +270,7 @@ else{
 		  <td class="tab_header_right"/></tr></tbody></table>
 		  </td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
-	echo '<img style="float:left;cursor:pointer;" onclick="billing.showBalancesPDF();" src="modules/Billing/images/icon-pdf.gif" /><div style="width:600px;" align="center"><form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(1);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(1);" value="All Students" /></form><br/>
+	echo '<img style="float:left;cursor:pointer;" onclick="billing.showBalancesPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center"><form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(1);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(1);" value="All Students" /></form><br/>
 		  <table style="width:550px;" cellspacing="0" cellpadding="1">
 			<thead style="border:solid 2px black;background-color:#09C;font-weight:bold;">
 			<tr>
@@ -443,7 +443,7 @@ function buildDateSelect($name, $id, $begin, $p_date){
 		}
 	}
 
-	$html = $html.'</select><img onclick="MakeDate(\''.$id.'\',this);" id="calSelect_'.$id.'" style="cursor:pointer;" src="assets/calendar.gif"/>';
+	$html = $html.'</select><img onclick="MakeDate(\''.$id.'\',this);" id="calSelect_'.$id.'" style="cursor:pointer;" src="assets/jscalendar/img.gif"/>';
 	return $html;
 }
 ?>

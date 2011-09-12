@@ -402,7 +402,7 @@ function buildDateSelect($name, $id){
 		}
 	}
 
-	$html = $html.'</select><img onclick="MakeDate(\''.$id.'\',this);" id="calSelect_'.$id.'" style="cursor:pointer;" src="assets/calendar.gif"/>';
+	$html = $html.'</select><img onclick="MakeDate(\''.$id.'\',this);" id="calSelect_'.$id.'" style="cursor:pointer;" src="assets/jscalendar/img.gif"/>';
 	return $html;
 }
 
