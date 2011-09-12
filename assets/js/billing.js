@@ -70,27 +70,27 @@ billing.formatCurrency = function(num) {
 }
 
 billing.showBalances = function(){
-	check_content('ajax.php?modname=Billing/reports.php&TAB=1');
+	window.location.href='Modules.php?modname=Billing/reports.php&TAB=1';
 };
 
 billing.showDaliyTrans = function(){
-	check_content('ajax.php?modname=Billing/reports.php&TAB=2');
+	window.location.href='Modules.php?modname=Billing/reports.php&TAB=2';
 };
 
 billing.showPayments = function(){
-	check_content('ajax.php?modname=Billing/fees.php&TAB=2');
+	window.location.href='Modules.php?modname=Billing/fees.php&TAB=2';
 };
 
 billing.showFees = function(){
-	check_content('ajax.php?modname=Billing/fees.php&TAB=1');
+	cwindow.location.href='Modules.php?modname=Billing/fees.php&TAB=1';
 };
 
 billing.showMassFees = function(){
-	check_content('ajax.php?modname=Billing/fees.php&TAB=3');
+	window.location.href='Modules.php?modname=Billing/fees.php&TAB=3';
 };
 
 billing.showMassPayments = function(){
-	check_content('ajax.php?modname=Billing/fees.php&TAB=4');
+	window.location.href='Modules.php?modname=Billing/fees.php&TAB=4';
 };
 
 /*Fee Section*/
@@ -856,14 +856,14 @@ billing.submitMassPaymentForm = function(){
 billing.filterTransReport = function(tab){
 	var form = $('filterFrm');
 	var data = form.serialize();
-	check_content('ajax.php?modname=Billing/reports.php&TAB='+tab+'&'+data)
+	window.location.href='Modules.php?modname=Billing/reports.php&TAB='+tab+'&'+data;
 };
 
 billing.filterTransReportAll = function(tab){
 	$('studentFilterTB').value = '';
 	var form = $('filterFrm');
 	var data = form.serialize();
-	check_content('ajax.php?modname=Billing/reports.php&TAB='+tab+'&'+data)
+	window.location.href='Modules.php?modname=Billing/reports.php&TAB='+tab+'&'+data;
 };
 
 billing.showTransactionsPDF = function(){
