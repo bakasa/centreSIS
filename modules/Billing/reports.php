@@ -32,12 +32,15 @@ $TAB = $_REQUEST['TAB'];
 
 if($TAB == 2){
 
-	if(isset($_REQUEST['BEGIN_Month'])||isset($_REQUEST['BEGIN_Day'])){
-		$beginDate =date('Y-m-d',strtotime($_REQUEST['BEGIN_Year'].'-'.$_REQUEST['BEGIN_Month'].'-'.$_REQUEST['BEGIN_Day']));
-	     $endDate   =date('Y-m-d',strtotime($_REQUEST['END_Year'].'-'.$_REQUEST['END_Month'].'-'.$_REQUEST['END_Day']));
-        $beginD = $_REQUEST['BEGIN_Month'].'/'.$_REQUEST['BEGIN_Day'].'/'.$_REQUEST['BEGIN_Year'];
-        $endD = $_REQUEST['END_Month'].'/'.$_REQUEST['END_Day'].'/'.$_REQUEST['END_Year'];
-    }
+	$beginDate = date('Y-m-01');
+	$endDate = date('Y-m-d');
+	
+	if(isset($_REQUEST['year_min']) && isset($_REQUEST['month_min']) && isset($_REQUEST['day_min']))
+		$beginDate = date('Y-m-d',strtotime($_REQUEST['year_min'].'-'.$_REQUEST['month_min'].'-'.$_REQUEST['day_min']));
+		
+	if(isset($_REQUEST['year_max']) && isset($_REQUEST['month_max']) && isset($_REQUEST['day_max']))	
+		$endDate   = date('Y-m-d',strtotime($_REQUEST['year_max'].'-'.$_REQUEST['month_max'].'-'.$_REQUEST['day_max']));
+
 	$username = $_REQUEST['USERNAME'];
 
 
@@ -57,8 +60,8 @@ if($TAB == 2){
 	echo '<img style="float:left;cursor:pointer;" onclick="billing.showTransactionsPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center">';
 
 	echo '<form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(2);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(2);" value="All Students" />
-		  <table><tr><td><font style="font-weight:bold;">Begin</font>&nbsp;'.buildDateSelect('BEGIN', 89, true,$beginD).'</td>
-		  <td><font style="font-weight:bold;">End</font>&nbsp;'.buildDateSelect('END', 90, false, $endD).'</td><td><input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(2);" value="Filter Date" /></td></tr>
+		  <table><tr><td><font style="font-weight:bold;">Begin</font>&nbsp;'.PrepareDate($beginDate,'_min').'</td>
+		  <td><font style="font-weight:bold;">End</font>&nbsp;'.PrepareDate($endDate, '_max').'</td><td><input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(2);" value="Filter Date" /></td></tr>
 		  </table></form>
 		  <table style="width:550px;" cellspacing="0" cellpadding="1">
 			<thead style="border:solid 2px black;background-color:#09C;font-weight:bold;">
@@ -257,7 +260,6 @@ if($TAB == 2){
 	}
 
 	echo '<tr><td style="font-weight:bold;">Total</td><td style="font-weight:bold;">$'.number_format($feeBal,2).'</td><td style="font-weight:bold;">$'.number_format($paymentBal,2).'</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></div>';
-
 }
 else{
 	$username = $_REQUEST['USERNAME'];
