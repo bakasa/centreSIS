@@ -59,8 +59,8 @@ if($tab == 3){
 		  	<table>
 		  	<tr><td>Title:</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
 		  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
-		  	<tr><td>Assigned:</td><td>'.buildDateSelect('ASSIGNED', 89).'</td></tr>
-		  	<tr><td>Due Date:</td><td>'.buildDateSelect('DUE', 91).'</td></tr>
+		  	<tr><td>Assigned:</td><td>'.PrepareDate(date('Y-m-d'),'_assigned').'</td></tr>
+		  	<tr><td>Due Date:</td><td>'.PrepareDate(date('Y-m-d'),'_due').'</td></tr>
 		  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
 		    </table>
 		  	<table style="width:550px;" cellspacing="0" cellpadding="0">

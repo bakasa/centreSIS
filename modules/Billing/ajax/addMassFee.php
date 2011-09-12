@@ -57,12 +57,12 @@ if($auth->checkAdmin($profile, $staffId))
 	$title      = $_REQUEST['TITLE'];
 	$comment    = $_REQUEST['COMMENT'];
 	$module     = $_REQUEST['MODULE'];
-	$assMon	    = $_REQUEST['ASSIGNED_Month'];
-	$assDay	    = $_REQUEST['ASSIGNED_Day'];
-	$assYr	    = $_REQUEST['ASSIGNED_Year'];
-	$dueMon     = $_REQUEST['DUE_Month'];
-	$dueDay     = $_REQUEST['DUE_Day'];
-	$dueYr      = $_REQUEST['DUE_Year'];
+	$assMon	    = $_REQUEST['month_assigned'];
+	$assDay	    = $_REQUEST['day_assigned'];
+	$assYr	    = $_REQUEST['year_assigned'];
+	$dueMon     = $_REQUEST['month_due'];
+	$dueDay     = $_REQUEST['day_due'];
+	$dueYr      = $_REQUEST['year_due'];
 	$username   = User('USERNAME');
 
     $monthnames = array(1 => 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC');
