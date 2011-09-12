@@ -152,7 +152,7 @@ if($tab == 4){
 	}
 
    echo'</select></td></tr>
-		  	<tr><td>Date:</td><td>'.buildDateSelect('DATE', 89).'</td></tr>
+		  	<tr><td>Date:</td><td>'.PrepareDate(date('Y-m-d'),'_date').'</td></tr>
 		  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
 		  	</table>
 		  	<table style="width:550px;" cellspacing="0" cellpadding="0">
