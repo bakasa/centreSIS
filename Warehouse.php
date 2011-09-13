@@ -1,7 +1,7 @@
 <?php
-if(WAREHOUSE_PHP==0)
+if(!isset($WAREHOUSE_PHP))
 {
-	define("WAREHOUSE_PHP",1);
+	$WAREHOUSE_PHP = 1;
     $CentreVersion = '3.0.1';
 	$staticpath = dirname(__FILE__).'/';
 
