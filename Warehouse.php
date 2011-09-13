@@ -39,8 +39,12 @@ if(!isset($WAREHOUSE_PHP))
     // Internationalization
 	$locale = "es_VE.utf8";
 	
-    if (!empty($_GET['locale'])) $_SESSION['locale'] = $_GET['locale'];
-    $locale = $_SESSION['locale'];
+    if (!empty($_GET['locale']))
+    { 
+    	$_SESSION['locale'] = $_GET['locale'];
+    	$locale = $_SESSION['locale'];
+    }
+    
     putenv("LC_ALL=$locale");
     setlocale(LC_ALL, $locale);
     bindtextdomain("centre", $LocalePath);    //binds the messages domain to the locale folder
