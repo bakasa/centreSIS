@@ -30,7 +30,7 @@ if(!isset($WAREHOUSE_PHP))
     if ($_SERVER['SCRIPT_NAME']!='/index.php')
         session_set_cookie_params(0,dirname($_SERVER['SCRIPT_NAME']).'/'); //,'',$false,$true);
 	session_start();
-	if(!$_SESSION['STAFF_ID'] && !$_SESSION['STUDENT_ID'] && strpos($_SERVER['PHP_SELF'],'index.php')===false)
+	if(!isset($_SESSION['STAFF_ID']) && !isset($_SESSION['STUDENT_ID']) && strpos($_SERVER['PHP_SELF'],'index.php')===false)
 	{
 		header('Location: index.php');
 		exit;
