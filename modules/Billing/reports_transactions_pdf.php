@@ -28,6 +28,8 @@
 #**************************************************************************
 require_once('fpdf.php');
 
+error_reporting(1);
+
 class PDF extends FPDF
 {
 
@@ -73,12 +75,18 @@ class PDF extends FPDF
 	}
 }
 
+session_name("CentreSIS");
 session_start();
 
 require '../../config.inc.php';
-require '../../functions/User.fnc.php';
-require '../../functions/DBGet.fnc.php';
+require '../../database.inc.php';
 require '../../functions/Current.php';
+require '../../functions/PopTable.php';
+require '../../functions/DrawTab.fnc.php';
+require '../../functions/DBGet.fnc.php';
+require '../../functions/User.fnc.php';
+require '../../functions/ParseML.fnc.php';
+require '../../functions/ProgramTitle.fnc.php';
 
 require 'classes/Auth.php';
 require 'classes/Fee.php';
@@ -91,9 +99,9 @@ if($auth->checkAdmin($profile, $staffId))
 {
 	$records = array();
 
-	if(isset($_REQUEST['BEGIN_Month'])){
-		$beginDate = $_REQUEST['BEGIN_Month'].'/'.$_REQUEST['BEGIN_Day'].'/'.$_REQUEST['BEGIN_Year'];
-		$endDate   = $_REQUEST['END_Month'].'/'.$_REQUEST['END_Day'].'/'.$_REQUEST['END_Year'];
+	if(isset($_REQUEST['month_begin'])){
+		$beginDate = $_REQUEST['month_begin'].'/'.$_REQUEST['day_begin'].'/'.$_REQUEST['year_begin'];
+		$endDate   = $_REQUEST['month_end'].'/'.$_REQUEST['day_end'].'/'.$_REQUEST['year_end'];
 	}
 	$username = $_REQUEST['USERNAME'];
 
