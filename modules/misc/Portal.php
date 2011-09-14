@@ -3,8 +3,6 @@
 
 // Include vendor libraries
 global $CentrePath;
-require_once($CentrePath.'vendors/IXR_Library.inc.php');
-require_once($CentrePath.'vendors/simplepie/simplepie.inc');
  
 if(!UserSyear())
 {
@@ -35,7 +33,7 @@ if($_REQUEST['failed_login'])
 switch (User('PROFILE'))
 {
 	case 'admin':
-		DrawHeader($welcome.'<BR>&nbsp;'._('You are an <b>Administrator</b> on the system.<BR>').PHPCheck().versionCheck());
+		DrawHeader($welcome.'<BR>&nbsp;'._('You are an <b>Administrator</b> on the system.<BR>').PHPCheck());
 
         $notes_RET = DBGet(DBQuery("SELECT s.TITLE AS SCHOOL,date(pn.PUBLISHED_DATE) AS PUBLISHED_DATE,'<B>'||pn.TITLE||'</B>' AS TITLE,pn.CONTENT FROM PORTAL_NOTES pn,SCHOOLS s,STAFF st WHERE pn.SYEAR='".UserSyear()."' AND pn.START_DATE<=CURRENT_DATE AND (pn.END_DATE>=CURRENT_DATE OR pn.END_DATE IS NULL) AND st.STAFF_ID='".User('STAFF_ID')."' AND (st.SCHOOLS IS NULL OR position(','||pn.SCHOOL_ID||',' IN st.SCHOOLS)>0) AND (st.PROFILE_ID IS NULL AND position(',admin,' IN pn.PUBLISHED_PROFILES)>0 OR st.PROFILE_ID IS NOT NULL AND position(','||st.PROFILE_ID||',' IN pn.PUBLISHED_PROFILES)>0) AND s.ID=pn.SCHOOL_ID AND s.SYEAR=pn.SYEAR ORDER BY pn.SORT_ORDER,pn.PUBLISHED_DATE DESC"),array('PUBLISHED_DATE'=>'ProperDate','CONTENT'=>'_nl2br'));
 
@@ -54,8 +52,6 @@ switch (User('PROFILE'))
 			ListOutput($events_RET,array('DAY'=>_('Day'),'SCHOOL_DATE'=>_('Date'),'TITLE'=>_('Event'),'DESCRIPTION'=>_('Description'),'SCHOOL'=>_('School')),_('Day With Upcoming Events'),_('Days With Upcoming Events'),array(),array('SCHOOL_DATE'),array('save'=>false,'search'=>false));
 			echo '</p>';
 		}
-
-        RSSOutput(USER('PROFILE'));
         
 		if(Preferences('HIDE_ALERTS')!='Y')
 		{
@@ -123,8 +119,6 @@ switch (User('PROFILE'))
 			echo '</p>';
 		}
 
-        RSSOutput(USER('PROFILE'));
-
 		if(Preferences('HIDE_ALERTS')!='Y')
 		{
 		// warn if missing attendances
@@ -178,8 +172,6 @@ switch (User('PROFILE'))
 			echo '</p>';
 		}
 
-        RSSOutput(USER('PROFILE'));
-
 		if($CentreModules['Food_Service'] && Preferences('HIDE_ALERTS')!='Y')
 		{
 		// warn if students with low food service balances
@@ -226,8 +218,6 @@ switch (User('PROFILE'))
 			echo '</p>';
 		}
 
-        RSSOutput(USER('PROFILE'));
-
 		echo '<p>&nbsp;'._('Happy learning...').'</p>';
 	break;
 }
@@ -246,29 +236,4 @@ function PHPCheck() {
     return $ret;
 }
 
-function versionCheck() {
-    global $CentreVersion, $CentreInstallKey;
-
-    $versionString = 'core:'.$CentreVersion;
-    $client = new IXR_Client('http://go.centresis.org/xmlrpc.php');
-    if (!$client->query('version.check', array($CentreInstallKey, $versionString))) {
-        return('&nbsp;<strong>An error occurred - '.$client->getErrorCode().":".$client->getErrorMessage().'</strong>');
-    }
-    return '&nbsp;'.$client->getResponse();
-}
-
-function RSSOutput($profile) {
-    if (!in_array($profile,array('admin', 'teacher', 'parent', 'student'))) return;
-    $feed = new SimplePie('http://www.centresis.org/index.php/portal-'.$profile.'?format=feed&type=rss');
-    $feed->handle_content_type();
-
-    $i=1;   
-    $items_RET = array();
-    foreach ($feed->get_items() as $item) {
-        $items_RET[$i++] = array('DATE'=>$item->get_date('n/j/y'),'TITLE'=>$item->get_title(),'DESCRIPTION'=>$item->get_description());
-        if ($i==5) break;
-    }
-    if (!empty($items_RET))
-        ListOutput($items_RET,array('DATE'=>_('Date'),'TITLE'=>_('Title'),'DESCRIPTION'=>_('Description')),$feed->get_title(),$feed->get_title(),array(),array(),array('centre'=>true,'save'=>false,'search'=>false));
-}
 ?>
