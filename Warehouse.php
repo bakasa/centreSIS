@@ -300,19 +300,22 @@ echo '  <link rel="stylesheet" type="text/css" media="all" href="assets/jscalend
 			case "footer":
 				echo '</TD></TR></TABLE>';
 
-				for($i=1;$i<=$_CENTRE['PrepareDate'];$i++)
+				if (isset($_CENTRE['PrepareDate']))
 				{
-					echo '<script type="text/javascript">
-				Calendar.setup({
-					monthField     :    "monthSelect'.$i.'",
-					dayField       :    "daySelect'.$i.'",
-					yearField      :    "yearSelect'.$i.'",
-					ifFormat       :    "%d-%b-%y",
-					button         :    "trigger'.$i.'",
-					align          :    "Tl",
-					singleClick    :    true
-				});
-			</script>';
+					for($i=1;$i<=$_CENTRE['PrepareDate'];$i++)
+					{
+						echo '<script type="text/javascript">
+							Calendar.setup({
+								monthField     :    "monthSelect'.$i.'",
+								dayField       :    "daySelect'.$i.'",
+								yearField      :    "yearSelect'.$i.'",
+								ifFormat       :    "%d-%b-%y",
+								button         :    "trigger'.$i.'",
+								align          :    "Tl",
+								singleClick    :    true
+							});
+						</script>';
+					}
 				}
 				echo '</BODY>';
 				echo '</HTML>';
