@@ -1,120 +1,151 @@
 <?php
 error_reporting(1);
 require_once('Warehouse.php');
-if($_REQUEST['modfunc']=='logout')
-{
-	if($_SESSION)
-	{
-		session_destroy();
-		header("Location: $_SERVER[PHP_SELF]?modfunc=logout".(($_REQUEST['reason'])?'&reason='.$_REQUEST['reason']:''));
-	}
-}
-elseif($_REQUEST['modfunc']=='create_account')
-{
-	if(!$ShowCreateAccount)
-		unset($_REQUEST['modfunc']);
-}
 
-if($_REQUEST['USERNAME'] && $_REQUEST['PASSWORD'])
-{
-	$_REQUEST['USERNAME'] = DBEscapeString($_REQUEST['USERNAME']);
-	$_REQUEST['PASSWORD'] = DBEscapeString($_REQUEST['PASSWORD']);
+$displayLogin = false;
+$displayPanel = false;
 
-	$login_RET = DBGet(DBQuery("SELECT USERNAME,PROFILE,STAFF_ID,LAST_LOGIN,FAILED_LOGIN FROM STAFF WHERE SYEAR='$DefaultSyear' AND UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]') AND UPPER(PASSWORD)=UPPER('$_REQUEST[PASSWORD]')"));
-	if(!$login_RET)
-		$student_RET = DBGet(DBQuery("SELECT s.USERNAME,s.STUDENT_ID,s.LAST_LOGIN,s.FAILED_LOGIN FROM STUDENTS s,STUDENT_ENROLLMENT se WHERE UPPER(s.USERNAME)=UPPER('$_REQUEST[USERNAME]') AND UPPER(s.PASSWORD)=UPPER('$_REQUEST[PASSWORD]') AND se.STUDENT_ID=s.STUDENT_ID AND se.SYEAR='$DefaultSyear' AND CURRENT_DATE>=se.START_DATE AND (CURRENT_DATE<=se.END_DATE OR se.END_DATE IS NULL)"));
-	if(!$login_RET && !$student_RET && $CentreAdmins)
+if (isset($_REQUEST['modfunc']))
+{
+	$displayPanel = true;
+	
+	if($_REQUEST['modfunc']=='logout')
 	{
-		$admin_RET = DBGet(DBQuery("SELECT STAFF_ID FROM STAFF WHERE PROFILE='admin' AND SYEAR='$DefaultSyear' AND STAFF_ID IN ($CentreAdmins) AND UPPER(PASSWORD)=UPPER('$_REQUEST[PASSWORD]')"));
-		if($admin_RET)
+		$displayPanel = false;
+		$displayLogin = true;
+		
+		if($_SESSION)
 		{
-			$login_RET = DBGet(DBQuery("SELECT USERNAME,PROFILE,STAFF_ID,LAST_LOGIN,FAILED_LOGIN FROM STAFF WHERE SYEAR='$DefaultSyear' AND UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]')"));
-			if(!$login_RET)
-				$student_RET = DBGet(DBQuery("SELECT s.USERNAME,s.STUDENT_ID,s.LAST_LOGIN,s.FAILED_LOGIN FROM STUDENTS s,STUDENT_ENROLLMENT se WHERE UPPER(s.USERNAME)=UPPER('$_REQUEST[USERNAME]') AND se.STUDENT_ID=s.STUDENT_ID AND se.SYEAR='$DefaultSyear' AND CURRENT_DATE>=se.START_DATE AND (CURRENT_DATE<=se.END_DATE OR se.END_DATE IS NULL)"));
+			session_destroy();
+			header("Location: $_SERVER[PHP_SELF]?modfunc=logout".(($_REQUEST['reason'])?'&reason='.$_REQUEST['reason']:''));
 		}
 	}
-	if($login_RET && ($login_RET[1]['PROFILE']=='admin' || $login_RET[1]['PROFILE']=='teacher' || $login_RET[1]['PROFILE']=='parent'))
-	{
-		$_SESSION['STAFF_ID'] = $login_RET[1]['STAFF_ID'];
-		$_SESSION['LAST_LOGIN'] = $login_RET[1]['LAST_LOGIN'];
-		$failed_login = $login_RET[1]['FAILED_LOGIN'];
-		if($admin_RET)
-			DBQuery("UPDATE STAFF SET LAST_LOGIN=CURRENT_TIMESTAMP WHERE STAFF_ID='".$admin_RET[1]['STAFF_ID']."'");
-		else
-			DBQuery("UPDATE STAFF SET LAST_LOGIN=CURRENT_TIMESTAMP,FAILED_LOGIN=NULL WHERE STAFF_ID='".$login_RET[1]['STAFF_ID']."'");
-
-		if(Config('LOGIN')=='No')
+	else if($_REQUEST['modfunc']=='create_account')
+	{	
+		if(!$ShowCreateAccount)
 		{
-			if(!$_REQUEST['submit'])
+			unset($_REQUEST['modfunc']);
+			
+			$displayPanel = false;
+			$displayLogin = true;
+		}
+		else
+		{
+			Warehouse('header');
+			$_CENTRE['allow_edit'] = true;
+			if(!$_REQUEST['staff']['USERNAME'])
 			{
-				Warehouse('header');
-				echo "<FORM action=index.php method=POST><INPUT type=hidden name=USERNAME value='$_REQUEST[USERNAME]'><INPUT type=hidden name=PASSWORD value='$_REQUEST[PASSWORD]'>";
-				PopTable('header',_('Confirm Successful Installation'));
-				echo '<CENTER>';
-				echo '<h4>'._('You have successfully installed Centre/SIS Student Information System.').'<BR>'._('Since this is your first login, Centre/SIS would like to tell our servers that you have successfully installed the software.').' '._('Is this OK?').'</h4>'._('You will not see this message again.').'<BR>';
-				echo '<BR><INPUT type=submit name=submit value="'._('OK').'"><INPUT type=submit name=submit value="'._('Cancel').'">';
-				echo '</CENTER>';
-				PopTable('footer');
-				echo '</FORM>';
+				$_REQUEST['staff_id'] = 'new';
+				include('modules/Users/User.php');
 				Warehouse('footer_plain');
-				exit;
 			}
-			elseif($_REQUEST['submit']==_('OK'))
-			{
-				DBQuery("UPDATE CONFIG SET LOGIN='Yes'");
-				@mail('info@centresis.org','NEW CENTRE INSTALL',"INSERT INTO CENTRE_LOG (HOST_NAME,IP_ADDRESS,LOGIN_DATE,VERSION,PHP_SELF,DOCUMENT_ROOT,SCRIPT_NAME) values('$_SERVER[SERVER_NAME]','$_SERVER[SERVER_ADDR]','".date('Y-m-d')."','$CentreVersion','$_SERVER[PHP_SELF]','$_SERVER[DOCUMENT_ROOT]','$_SERVER[SCRIPT_NAME]')");
-				if(function_exists('mysql_query'))
-				{
-					$link = @mysql_connect('go.centresis.org','centre_log','centre_log');
-					@mysql_select_db('centre_log');
-					@mysql_query("INSERT INTO install_log (HOST_NAME,IP_ADDRESS,LOGIN_DATE,VERSION,PHP_SELF,DOCUMENT_ROOT,SCRIPT_NAME) values('$_SERVER[SERVER_NAME]','$_SERVER[SERVER_ADDR]','".date('Y-m-d')."','$CentreVersion','$_SERVER[PHP_SELF]','$_SERVER[DOCUMENT_ROOT]','$_SERVER[SCRIPT_NAME]')");
-					@mysql_close($link);
-				}
+			else
+			{	
+				$_REQUEST['modfunc'] = 'update';
+				include('modules/Users/User.php');
+				$note[] = _('Your account has been created.').' '._('You will be notified when it has been verified by a school administrator.').' '._('You will then be able to log in.');
+				session_destroy();
 			}
-			elseif($_REQUEST['submit']==_('Cancel'))
-				DBQuery("UPDATE CONFIG SET LOGIN='Y'");
 		}
 	}
-	elseif($login_RET && $login_RET[1]['PROFILE']=='none')
-		$error[] = _('Your account has not yet been activated.').' '._('You will be notified when it has been verified by a school administrator.');
-	elseif($student_RET)
-	{
-		$_SESSION['STUDENT_ID'] = $student_RET[1]['STUDENT_ID'];
-		$_SESSION['LAST_LOGIN'] = $student_RET[1]['LAST_LOGIN'];
-		$failed_login = $student_RET[1]['FAILED_LOGIN'];
-		if($admin_RET)
-			DBQuery("UPDATE STAFF SET LAST_LOGIN=CURRENT_TIMESTAMP WHERE STAFF_ID='".$admin_RET[1]['STAFF_ID']."'");
-		else
-			DBQuery("UPDATE STUDENTS SET LAST_LOGIN=CURRENT_TIMESTAMP,FAILED_LOGIN=NULL WHERE STUDENT_ID='".$student_RET[1]['STUDENT_ID']."'");
-	}
-	else
-	{
-		DBQuery("UPDATE STAFF SET FAILED_LOGIN=".db_case(array('FAILED_LOGIN',"''",'1','FAILED_LOGIN+1'))." WHERE UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]') AND SYEAR='$DefaultSyear'");
-		DBQuery("UPDATE STUDENTS SET FAILED_LOGIN=".db_case(array('FAILED_LOGIN',"''",'1','FAILED_LOGIN+1'))." WHERE UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]')");
-		$error[] = _('Incorrect username or password.').'<BR><CENTER>'._('Please try logging in again.').'</CENTER>';
-	}
 }
-
-if($_REQUEST['modfunc']=='create_account')
+else
 {
-	Warehouse('header');
-	$_CENTRE['allow_edit'] = true;
-	if(!$_REQUEST['staff']['USERNAME'])
+	if(isset($_REQUEST['USERNAME']) && isset($_REQUEST['PASSWORD']))
 	{
-		$_REQUEST['staff_id'] = 'new';
-		include('modules/Users/User.php');
-		Warehouse('footer_plain');
+		$_REQUEST['USERNAME'] = DBEscapeString($_REQUEST['USERNAME']);
+		$_REQUEST['PASSWORD'] = DBEscapeString($_REQUEST['PASSWORD']);
+
+		$login_RET = DBGet(DBQuery("SELECT USERNAME,PROFILE,STAFF_ID,LAST_LOGIN,FAILED_LOGIN FROM STAFF WHERE SYEAR='$DefaultSyear' AND UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]') AND UPPER(PASSWORD)=UPPER('$_REQUEST[PASSWORD]')"));
+		if(!$login_RET)
+			$student_RET = DBGet(DBQuery("SELECT s.USERNAME,s.STUDENT_ID,s.LAST_LOGIN,s.FAILED_LOGIN FROM STUDENTS s,STUDENT_ENROLLMENT se WHERE UPPER(s.USERNAME)=UPPER('$_REQUEST[USERNAME]') AND UPPER(s.PASSWORD)=UPPER('$_REQUEST[PASSWORD]') AND se.STUDENT_ID=s.STUDENT_ID AND se.SYEAR='$DefaultSyear' AND CURRENT_DATE>=se.START_DATE AND (CURRENT_DATE<=se.END_DATE OR se.END_DATE IS NULL)"));
+		if(!$login_RET && !$student_RET && $CentreAdmins)
+		{
+			$admin_RET = DBGet(DBQuery("SELECT STAFF_ID FROM STAFF WHERE PROFILE='admin' AND SYEAR='$DefaultSyear' AND STAFF_ID IN ($CentreAdmins) AND UPPER(PASSWORD)=UPPER('$_REQUEST[PASSWORD]')"));
+			if($admin_RET)
+			{
+				$login_RET = DBGet(DBQuery("SELECT USERNAME,PROFILE,STAFF_ID,LAST_LOGIN,FAILED_LOGIN FROM STAFF WHERE SYEAR='$DefaultSyear' AND UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]')"));
+				if(!$login_RET)
+					$student_RET = DBGet(DBQuery("SELECT s.USERNAME,s.STUDENT_ID,s.LAST_LOGIN,s.FAILED_LOGIN FROM STUDENTS s,STUDENT_ENROLLMENT se WHERE UPPER(s.USERNAME)=UPPER('$_REQUEST[USERNAME]') AND se.STUDENT_ID=s.STUDENT_ID AND se.SYEAR='$DefaultSyear' AND CURRENT_DATE>=se.START_DATE AND (CURRENT_DATE<=se.END_DATE OR se.END_DATE IS NULL)"));
+			}
+		}
+		if($login_RET && ($login_RET[1]['PROFILE']=='admin' || $login_RET[1]['PROFILE']=='teacher' || $login_RET[1]['PROFILE']=='parent'))
+		{
+			$displayPanel = true;
+			
+			$_SESSION['STAFF_ID'] = $login_RET[1]['STAFF_ID'];
+			$_SESSION['LAST_LOGIN'] = $login_RET[1]['LAST_LOGIN'];
+			$failed_login = $login_RET[1]['FAILED_LOGIN'];
+			if($admin_RET)
+				DBQuery("UPDATE STAFF SET LAST_LOGIN=CURRENT_TIMESTAMP WHERE STAFF_ID='".$admin_RET[1]['STAFF_ID']."'");
+			else
+				DBQuery("UPDATE STAFF SET LAST_LOGIN=CURRENT_TIMESTAMP,FAILED_LOGIN=NULL WHERE STAFF_ID='".$login_RET[1]['STAFF_ID']."'");
+
+			if(Config('LOGIN')=='No')
+			{
+				if(!$_REQUEST['submit'])
+				{
+					Warehouse('header');
+					echo "<FORM action=index.php method=POST><INPUT type=hidden name=USERNAME value='$_REQUEST[USERNAME]'><INPUT type=hidden name=PASSWORD value='$_REQUEST[PASSWORD]'>";
+					PopTable('header',_('Confirm Successful Installation'));
+					echo '<CENTER>';
+					echo '<h4>'._('You have successfully installed Centre/SIS Student Information System.').'<BR>'._('Since this is your first login, Centre/SIS would like to tell our servers that you have successfully installed the software.').' '._('Is this OK?').'</h4>'._('You will not see this message again.').'<BR>';
+					echo '<BR><INPUT type=submit name=submit value="'._('OK').'"><INPUT type=submit name=submit value="'._('Cancel').'">';
+					echo '</CENTER>';
+					PopTable('footer');
+					echo '</FORM>';
+					Warehouse('footer_plain');
+					exit;
+				}
+				elseif($_REQUEST['submit']==_('OK'))
+				{
+					DBQuery("UPDATE CONFIG SET LOGIN='Yes'");
+					@mail('info@centresis.org','NEW CENTRE INSTALL',"INSERT INTO CENTRE_LOG (HOST_NAME,IP_ADDRESS,LOGIN_DATE,VERSION,PHP_SELF,DOCUMENT_ROOT,SCRIPT_NAME) values('$_SERVER[SERVER_NAME]','$_SERVER[SERVER_ADDR]','".date('Y-m-d')."','$CentreVersion','$_SERVER[PHP_SELF]','$_SERVER[DOCUMENT_ROOT]','$_SERVER[SCRIPT_NAME]')");
+					if(function_exists('mysql_query'))
+					{
+						$link = @mysql_connect('go.centresis.org','centre_log','centre_log');
+						@mysql_select_db('centre_log');
+						@mysql_query("INSERT INTO install_log (HOST_NAME,IP_ADDRESS,LOGIN_DATE,VERSION,PHP_SELF,DOCUMENT_ROOT,SCRIPT_NAME) values('$_SERVER[SERVER_NAME]','$_SERVER[SERVER_ADDR]','".date('Y-m-d')."','$CentreVersion','$_SERVER[PHP_SELF]','$_SERVER[DOCUMENT_ROOT]','$_SERVER[SCRIPT_NAME]')");
+						@mysql_close($link);
+					}
+				}
+				elseif($_REQUEST['submit']==_('Cancel'))
+					DBQuery("UPDATE CONFIG SET LOGIN='Y'");
+			}
+		}
+		elseif($login_RET && $login_RET[1]['PROFILE']=='none')
+		{
+			$displayLogin = true;
+			$error[] = _('Your account has not yet been activated.').' '._('You will be notified when it has been verified by a school administrator.');
+		}
+		elseif($student_RET)
+		{
+			$displayPanel = true;
+			
+			$_SESSION['STUDENT_ID'] = $student_RET[1]['STUDENT_ID'];
+			$_SESSION['LAST_LOGIN'] = $student_RET[1]['LAST_LOGIN'];
+			$failed_login = $student_RET[1]['FAILED_LOGIN'];
+			if($admin_RET)
+				DBQuery("UPDATE STAFF SET LAST_LOGIN=CURRENT_TIMESTAMP WHERE STAFF_ID='".$admin_RET[1]['STAFF_ID']."'");
+			else
+				DBQuery("UPDATE STUDENTS SET LAST_LOGIN=CURRENT_TIMESTAMP,FAILED_LOGIN=NULL WHERE STUDENT_ID='".$student_RET[1]['STUDENT_ID']."'");
+		}
+		else
+		{
+			$displayLogin = true;
+			
+			DBQuery("UPDATE STAFF SET FAILED_LOGIN=".db_case(array('FAILED_LOGIN',"''",'1','FAILED_LOGIN+1'))." WHERE UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]') AND SYEAR='$DefaultSyear'");
+			DBQuery("UPDATE STUDENTS SET FAILED_LOGIN=".db_case(array('FAILED_LOGIN',"''",'1','FAILED_LOGIN+1'))." WHERE UPPER(USERNAME)=UPPER('$_REQUEST[USERNAME]')");
+			$error[] = _('Incorrect username or password.').'<BR><CENTER>'._('Please try logging in again.').'</CENTER>';
+		}
+		
+		
 	}
 	else
-	{
-		$_REQUEST['modfunc'] = 'update';
-		include('modules/Users/User.php');
-		$note[] = _('Your account has been created.').' '._('You will be notified when it has been verified by a school administrator.').' '._('You will then be able to log in.');
-		session_destroy();
-	}
+		$displayLogin = true;
 }
 
-if(!$_SESSION['STAFF_ID'] && !$_SESSION['STUDENT_ID'] && $_REQUEST['modfunc']!='create_account')
+if($displayLogin)
 {
 	Warehouse('header');
 	echo "<BODY leftmargin=2 marginwidth=2 background=assets/bg.gif onLoad='document.loginform.USERNAME.focus()'>";
@@ -177,7 +208,7 @@ if(!$_SESSION['STAFF_ID'] && !$_SESSION['STUDENT_ID'] && $_REQUEST['modfunc']!='
 	echo "<br>";
 	Warehouse("footer");
 }
-elseif($_REQUEST['modfunc']!='create_account')
+elseif($displayPanel)
 {
 	echo "
 		<HTML>
