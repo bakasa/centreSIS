@@ -74,7 +74,7 @@ function DBQuery($sql)
 		break;
 		case 'postgres':
             // TRANSLATION: do NOT translate these since error messages need to stay in English for technical support
-			$sql = ereg_replace("([,\(=])[\r\n\t ]*''",'\\1NULL',$sql);
+			$sql = preg_replace("/([,\(=])[\r\n\t ]*''/",'\\1NULL',$sql);
 			$result = @pg_exec($connection,$sql);
 			if($result===false)
 			{
@@ -86,7 +86,7 @@ function DBQuery($sql)
             // TRANSLATION: do NOT translate these since error messages need to stay in English for technical support
 			mysql_query("SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE");
 			mysql_query("SET SESSION SQL_MODE='ANSI'");
-			$sql = ereg_replace("([,\(=])[\r\n\t ]*''",'\\1NULL',$sql);
+			$sql = preg_replace("/([,\(=])[\r\n\t ]*''/",'\\1NULL',$sql);
 			$result = mysql_query($sql);
 			if($result===false)
 			{
@@ -182,7 +182,7 @@ function db_trans_query($connection,$sql)
 	}
 	elseif($DatabaseType=='postgres')
 	{
-		$sql = ereg_replace("([,\(=])[\r\n\t ]*''",'\\1NULL',$sql);
+		$sql = preg_replace("/([,\(=])[\r\n\t ]*''/",'\\1NULL',$sql);
 		$result = pg_query($connection,$sql);
 		if($result===false)
 		{
