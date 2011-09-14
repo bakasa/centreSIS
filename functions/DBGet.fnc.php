@@ -27,6 +27,7 @@ function DBGet($QI,$functions=array(),$index=array())
 	$index_count = count($index);
 	$tmp_THIS_RET = $THIS_RET;
 
+	$s = 0;
 	$results = array();
 	while($RET=db_fetch_row($QI))
 	{
