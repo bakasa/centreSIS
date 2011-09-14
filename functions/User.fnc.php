@@ -6,7 +6,7 @@ function User($item)
 	if(!$_SESSION['UserSyear'])
 		$_SESSION['UserSyear'] = $DefaultSyear;
 
-	if(!$_CENTRE['User'] || $_SESSION['UserSyear']!=$_CENTRE['User'][1]['SYEAR'])
+	if(!isset($_CENTRE['User']) || $_SESSION['UserSyear']!=$_CENTRE['User'][1]['SYEAR'])
 	{
 		if($_SESSION['STAFF_ID'])
 		{

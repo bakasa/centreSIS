@@ -1,57 +1,60 @@
 <?php
-error_reporting(1);
 include "./Warehouse.php";
-if($_REQUEST['modfunc']=='print')
+
+if (isset($_REQUEST['modfunc']))
 {
-	$_REQUEST = $_SESSION['_REQUEST_vars'];
-	$_REQUEST['_CENTRE_PDF'] = true;
-	if(strpos($_REQUEST['modname'],'?')!==false)
-		$modname = substr($_REQUEST['modname'],0,strpos($_REQUEST['modname'],'?'));
-	else
-		$modname = $_REQUEST['modname'];
-	if(!$htmldocPath)
-		$_CENTRE['allow_edit'] = false;
-	ob_start();
-	include('languages/English/'.$modname);
-	include('modules/'.$modname);
-	if($htmldocPath)
+	if($_REQUEST['modfunc']=='print')
 	{
-		if($htmldocAssetsPath)
-			$html = eregi_replace('</?CENTER>','',str_replace('assets/',$htmldocAssetsPath,ob_get_contents()));
+		$_REQUEST = $_SESSION['_REQUEST_vars'];
+		$_REQUEST['_CENTRE_PDF'] = true;
+		if(strpos($_REQUEST['modname'],'?')!==false)
+			$modname = substr($_REQUEST['modname'],0,strpos($_REQUEST['modname'],'?'));
 		else
-			$html = eregi_replace('</?CENTER>','',ob_get_contents());
-		ob_end_clean();
-
-		// get a temp filename, and then change its extension from .tmp to .html to make htmldoc happy.
-		$temphtml=tempnam('','html');
-		$temphtml_tmp=substr($temphtml, 0, strrpos($temphtml, ".")).'html';
-		rename($temphtml_tmp, $temphtml);
-
-		$fp=@fopen($temphtml,"w+");
-		if (!$fp)
-			die("Can't open $temphtml");
-		fputs($fp,'<HTML><HEAD><TITLE></TITLE></HEAD><BODY>'.$html.'</BODY></HTML>');
-		@fclose($fp);
-
-		header("Cache-Control: public");
-		header("Pragma: ");
-		header("Content-Type: application/pdf");
-		header("Content-Disposition: inline; filename=\"".ProgramTitle().".pdf\"\n");
-
-		$orientation = 'portrait';
-		if($_REQUEST['expanded_view'] || $_SESSION['orientation'] == 'landscape')
+			$modname = $_REQUEST['modname'];
+		if(!$htmldocPath)
+			$_CENTRE['allow_edit'] = false;
+		ob_start();
+		include('languages/English/'.$modname);
+		include('modules/'.$modname);
+		if($htmldocPath)
 		{
-			$orientation = 'landscape';
-			unset($_SESSION['orientation']);
+			if($htmldocAssetsPath)
+				$html = eregi_replace('</?CENTER>','',str_replace('assets/',$htmldocAssetsPath,ob_get_contents()));
+			else
+				$html = eregi_replace('</?CENTER>','',ob_get_contents());
+			ob_end_clean();
+
+			// get a temp filename, and then change its extension from .tmp to .html to make htmldoc happy.
+			$temphtml=tempnam('','html');
+			$temphtml_tmp=substr($temphtml, 0, strrpos($temphtml, ".")).'html';
+			rename($temphtml_tmp, $temphtml);
+
+			$fp=@fopen($temphtml,"w+");
+			if (!$fp)
+				die("Can't open $temphtml");
+			fputs($fp,'<HTML><HEAD><TITLE></TITLE></HEAD><BODY>'.$html.'</BODY></HTML>');
+			@fclose($fp);
+
+			header("Cache-Control: public");
+			header("Pragma: ");
+			header("Content-Type: application/pdf");
+			header("Content-Disposition: inline; filename=\"".ProgramTitle().".pdf\"\n");
+
+			$orientation = 'portrait';
+			if($_REQUEST['expanded_view'] || $_SESSION['orientation'] == 'landscape')
+			{
+				$orientation = 'landscape';
+				unset($_SESSION['orientation']);
+			}
+			passthru("$htmldocPath --webpage --quiet -t pdf14 --jpeg --no-links --$orientation --footer t --header . --left 0.5in --top 0.5in \"$temphtml\"");
+			@unlink($temphtml);
 		}
-		passthru("$htmldocPath --webpage --quiet -t pdf14 --jpeg --no-links --$orientation --footer t --header . --left 0.5in --top 0.5in \"$temphtml\"");
-		@unlink($temphtml);
-	}
-	else
-	{
-		$html = eregi_replace('</?CENTER>','',ob_get_contents());
-		ob_end_clean();
-		echo '<HTML><HEAD><TITLE></TITLE></HEAD><BODY>'.$html.'</BODY></HTML>';
+		else
+		{
+			$html = eregi_replace('</?CENTER>','',ob_get_contents());
+			ob_end_clean();
+			echo '<HTML><HEAD><TITLE></TITLE></HEAD><BODY>'.$html.'</BODY></HTML>';
+		}
 	}
 }
 else
@@ -82,7 +85,7 @@ else
 	echo '<CENTER>';
 
 	echo '<TABLE><TR>';
-	if($_SESSION['List_PHP_SELF'] && (User('PROFILE')=='admin' || User('PROFILE')=='teacher')) {
+	if(isset($_SESSION['List_PHP_SELF']) && (User('PROFILE')=='admin' || User('PROFILE')=='teacher')) {
         switch ($_SESSION['Back_PHP_SELF']) {
             case 'student': $back_button = 'back.gif';   $back_text = _('Back to Student List'); break;
             case 'staff':   $back_button = 'back_g.gif'; $back_text = _('Back to User List'); break;
@@ -91,7 +94,7 @@ else
         }
 		echo '<TD width=24><A HREF='.$_SESSION['List_PHP_SELF'].'&bottom_back=true target=body><IMG SRC=assets/'.$back_button.' border=0 vspace=0></A></TD><TD valign=middle class=BottomButton><A HREF='.$_SESSION['List_PHP_SELF'].'&bottom_back=true target=body>'.$back_text.'</A></TD>';
     }
-	if($_SESSION['Search_PHP_SELF'] && (User('PROFILE')=='admin' || User('PROFILE')=='teacher')) {
+	if(isset($_SESSION['Search_PHP_SELF']) && (User('PROFILE')=='admin' || User('PROFILE')=='teacher')) {
         switch ($_SESSION['Back_PHP_SELF']) {
             case 'student': $back_button = 'back.gif';   $back_text = _('Back to Student Search'); break;
             case 'staff':   $back_button = 'back_g.gif'; $back_text = _('Back to User Search'); break;
