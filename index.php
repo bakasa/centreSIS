@@ -4,6 +4,7 @@ require_once('Warehouse.php');
 
 $displayLogin = false;
 $displayPanel = false;
+$ShowCreateAccount = false; /// TODO: CREATE_ACCOUNT 
 
 if (isset($_REQUEST['modfunc']))
 {
@@ -17,7 +18,7 @@ if (isset($_REQUEST['modfunc']))
 		if($_SESSION)
 		{
 			session_destroy();
-			header("Location: $_SERVER[PHP_SELF]?modfunc=logout".(($_REQUEST['reason'])?'&reason='.$_REQUEST['reason']:''));
+			header("Location: $_SERVER[PHP_SELF]?modfunc=logout".(isset($_REQUEST['reason'])?'&reason='.$_REQUEST['reason']:''));
 		}
 	}
 	else if($_REQUEST['modfunc']=='create_account')
@@ -152,10 +153,15 @@ if($displayLogin)
 	echo "<br><br>";
 	PopTable("header",_('Centre Login'), "width=55%", "5");
 	echo '<CENTER>';
-	if($_REQUEST['reason'])
+	if(isset($_REQUEST['reason']))
 		$note[] = _('You must have javascript enabled to use Centre.');
-	echo ErrorMessage($error,_('Error'));
-	echo ErrorMessage($note,_('Note'));
+		
+	if (isset($error))
+		echo ErrorMessage($error,_('Error'));
+		
+	if (isset($note))
+		echo ErrorMessage($note,_('Note'));
+	
 	echo '</CENTER>';
 	echo "<table border=0>
 	<tr>
