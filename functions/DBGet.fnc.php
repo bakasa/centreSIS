@@ -43,7 +43,7 @@ function DBGet($QI,$functions=array(),$index=array())
 			$s++; // 1-based if no index specified
 		foreach($RET as $key=>$value)
 		{
-			if($functions[$key] && function_exists($functions[$key]))
+			if(isset($functions[$key]) && function_exists($functions[$key]))
 			{
 				if($index_count)
 					eval('$results'.$ind.'[$this_ind][$key] = $functions[$key]($value,$key);');
