@@ -1,5 +1,5 @@
 <?php
-if(!$_CENTRE['Menu'])
+if(!isset($_CENTRE['Menu']))
 {
 	foreach($CentreModules as $module=>$include)
 		if($include)
@@ -25,7 +25,7 @@ if(!$_CENTRE['Menu'])
 		{
 			if(!is_numeric($program))
 			{
-				if($_CENTRE['AllowUse'][$program] && ($profile!='admin' || !$exceptions[$modcat][$program] || AllowEdit($program)))
+				if($_CENTRE['AllowUse'][$program] && ($profile!='admin' || !isset($exceptions[$modcat][$program]) || AllowEdit($program)))
 					$_CENTRE['Menu'][$modcat][$program] = $title;
 			}
 			else
