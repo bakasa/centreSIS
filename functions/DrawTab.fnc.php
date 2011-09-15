@@ -8,7 +8,7 @@ function DrawTab($title,$link='',$tabcolor='',$textcolor='#FFFFFF',$type='',$rol
 	if(!$tabcolor)
 		$tabcolor = Preferences('HEADER');
 
-	$block_table .= "<table border=0 cellspacing=0 cellpadding=0>";
+	$block_table = "<table border=0 cellspacing=0 cellpadding=0>";
 	$block_table .= "  <tr style='background-color:$tabcolor' id=tab[".preg_replace('/[^a-zA-Z0-9]/','_',$link)."]>";
 	$block_table .= "    <td height=14><IMG SRC=assets/left_corner$type.gif border=0></td><td height=14 class=\"BoxHeading\" valign=middle>";
 	if($link)
