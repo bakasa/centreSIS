@@ -3,7 +3,7 @@
 function Config($item)
 {	global $_CENTRE,$CentreTitle,$DefaultSyear;
 
-	if(!$_CENTRE['Config'])
+	if(!isset($_CENTRE['Config']))
 	{
 		$QI=DBQuery("SELECT LOGIN,TITLE,SYEAR FROM CONFIG");
 		$_CENTRE['Config'] = DBGet($QI);
