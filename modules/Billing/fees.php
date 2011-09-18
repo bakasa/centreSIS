@@ -39,26 +39,7 @@ DrawHeader(SubmitButton("Fees","", "onclick=billing.showFees()")
 if($tab == 3){
 	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
 
-	echo '<table class="tab_header_bg" cellspacing="0" style="cursor:pointer;" cellpadding="0" border="0" onclick="billing.showFees();" align="left">
-			    <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			    <td class="drawinactivetab_header" align="left" valign="middle">Fees</td>
-			    <td class="tab_header_right"/></tr></tbody>
-			  </table>
-			  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showPayments();" cellspacing="0" cellpadding="0" border="0" align="left">
-			  			  		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			  			  		  <td class="drawinactivetab_header" align="left" valign="middle">Payments</td>
-		  	  <td class="tab_header_right"/></tr></tbody></table>
-			  <table class="tab_header_bg_active" cellspacing="0" cellpadding="0" border="0" align="left">
-			  			      <tbody><tr id="tab[]" class="tab_header_bg_active">
-			  			  	  <td class="tab_header_left_active"/><td class="drawtab_header" align="left" valign="middle">Mass Fees</td>
-			  			  	  <td class="tab_header_right_active"/></tr></tbody>
-			  </table>
-			  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showMassPayments();" cellspacing="0" cellpadding="0" border="0" align="left">
-			  		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			  		  <td class="drawinactivetab_header" align="left" valign="middle">Mass Payments</td>
-		  	  <td class="tab_header_right"/></tr></tbody></table>
-
-			  </td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+	echo '</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
 	echo '<div style="width:600px;" align="center">
 			<form id="newMassFeeFrm">
@@ -125,26 +106,7 @@ else
 if($tab == 4){
 	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
 
-	echo '<table class="tab_header_bg" cellspacing="0" style="cursor:pointer;" cellpadding="0" border="0" onclick="billing.showFees();" align="left">
-			    <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			    <td class="drawinactivetab_header" align="left" valign="middle">Fees</td>
-			    <td class="tab_header_right"/></tr></tbody>
-			  </table>
-			  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showPayments();" cellspacing="0" cellpadding="0" border="0" align="left">
-			  			  		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			  			  		  <td class="drawinactivetab_header" align="left" valign="middle">Payments</td>
-		  	  <td class="tab_header_right"/></tr></tbody></table>
-			  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showMassFees();" cellspacing="0" cellpadding="0" border="0" align="left">
-			  			  			  		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			  			  			  		  <td class="drawinactivetab_header" align="left" valign="middle">Mass Fees</td>
-		  	  <td class="tab_header_right"/></tr></tbody></table>
-			  <table class="tab_header_bg_active" cellspacing="0" cellpadding="0" border="0" align="left">
-			  			  			      <tbody><tr id="tab[]" class="tab_header_bg_active">
-			  			  			  	  <td class="tab_header_left_active"/><td class="drawtab_header" align="left" valign="middle">Mass Payments</td>
-			  			  			  	  <td class="tab_header_right_active"/></tr></tbody>
-			  </table>
-
-			  </td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+	echo '</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
 	echo '<div style="width:600px;" align="center">
 			<form id="newMassPaymentFrm">
@@ -215,22 +177,9 @@ if($tab == 4){
 }
 else
 if($tab == null || $tab == 1){
-	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left"><table class="tab_header_bg_active" cellspacing="0" cellpadding="0" border="0" align="left"><tbody><tr id="tab[]" class="tab_header_bg_active"><td class="tab_header_left_active"/><td class="drawtab_header" align="left" valign="middle">Fees</td><td class="tab_header_right_active"/></tr></tbody></table>';
+	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
 
-	echo '<table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showPayments();" cellspacing="0" cellpadding="0" border="0" align="left">
-		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-		  <td class="drawinactivetab_header" align="left" valign="middle">Payments</td>
-		  <td class="tab_header_right"/></tr></tbody></table>
-		  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showMassFees();" cellspacing="0" cellpadding="0" border="0" align="left">
-		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-		  <td class="drawinactivetab_header" align="left" valign="middle">Mass Fees</td>
-		  <td class="tab_header_right"/></tr></tbody></table>
-		  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showMassPayments();" cellspacing="0" cellpadding="0" border="0" align="left">
-		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-		  <td class="drawinactivetab_header" align="left" valign="middle">Mass Payments</td>
-		  <td class="tab_header_right"/></tr></tbody></table>
-
-		  </td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+	echo '</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
 	echo '<div style="width:600px;" align="center">
 			<div>Search Students:<input type="text" id="studentSearchTB" size="30" /> <input style="cursor:pointer;" onclick="billing.searchStudents();" type="button" value="Search" /></div>
@@ -273,26 +222,7 @@ else
 if($tab == 2){
 	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
 
-	echo '<table class="tab_header_bg" cellspacing="0" style="cursor:pointer;" cellpadding="0" border="0" onclick="billing.showFees();" align="left">
-			    <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			    <td class="drawinactivetab_header" align="left" valign="middle">Fees</td>
-			    <td class="tab_header_right"/></tr></tbody>
-			  </table>
-			  <table class="tab_header_bg_active" cellspacing="0" cellpadding="0" border="0" align="left">
-			      <tbody><tr id="tab[]" class="tab_header_bg_active">
-			  	  <td class="tab_header_left_active"/><td class="drawtab_header" align="left" valign="middle">Payments</td>
-			  	  <td class="tab_header_right_active"/></tr></tbody>
-			  </table>
-			  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showMassFees();" cellspacing="0" cellpadding="0" border="0" align="left">
-			  		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			  		  <td class="drawinactivetab_header" align="left" valign="middle">Mass Fees</td>
-			  		  <td class="tab_header_right"/></tr></tbody></table>
-			  		  <table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showMassPayments();" cellspacing="0" cellpadding="0" border="0" align="left">
-			  		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			  		  <td class="drawinactivetab_header" align="left" valign="middle">Mass Payments</td>
-		  		<td class="tab_header_right"/></tr></tbody></table>
-
-			  </td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+	echo '</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
 	echo '<div style="width:600px;" align="center">
 			<div>Search Students:<input type="text" id="studentSearchTB" size="30" /> <input style="cursor:pointer;" onclick="billing.searchStudents_payment();" type="button" value="Search" /></div>
