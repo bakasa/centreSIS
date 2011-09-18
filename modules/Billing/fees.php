@@ -31,7 +31,11 @@ $tab = $_REQUEST['TAB'];
 //2 = payment
 
 DrawHeader(ProgramTitle());
-
+DrawHeader(SubmitButton("Fees","", "onclick=billing.showFees()")
+	.SubmitButton("Payments","", "onclick=billing.showPayments()")
+	.SubmitButton("Mass Fees","", "onclick=billing.showMassFees()")
+	.SubmitButton("Mass Payments","","onclick=billing.showMassPayments()"));
+	
 if($tab == 3){
 	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
 
