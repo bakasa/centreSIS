@@ -31,6 +31,8 @@ $TAB = $_REQUEST['TAB'];
 // 1 Balance
 
 DrawHeader(ProgramTitle());
+DrawHeader(SubmitButton("Balances","","onclick=billing.showBalances()")
+	.SubmitButton("Daily Transaction","","onclick=billing.showDaliyTrans()"));
 
 if($TAB == 2){
 
@@ -48,16 +50,7 @@ if($TAB == 2){
 
 	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
 
-	echo '<table class="tab_header_bg" cellspacing="0" style="cursor:pointer;" cellpadding="0" border="0" onclick="billing.showBalances();" align="left">
-			    <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-			    <td class="drawinactivetab_header" align="left" valign="middle">Balances</td>
-			    <td class="tab_header_right"/></tr></tbody>
-			  </table>
-			  <table class="tab_header_bg_active" cellspacing="0" cellpadding="0" border="0" align="left">
-			      <tbody><tr id="tab[]" class="tab_header_bg_active">
-			  	  <td class="tab_header_left_active"/><td class="drawtab_header" align="left" valign="middle">DailyTransactions</td>
-			  	  <td class="tab_header_right_active"/></tr></tbody>
-			  </table></td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+	echo '</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
 	echo '<img style="float:left;cursor:pointer;" onclick="billing.showTransactionsPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center">';
 
@@ -266,13 +259,8 @@ if($TAB == 2){
 else{
 	$username = $_REQUEST['USERNAME'];
 
-	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left"><table class="tab_header_bg_active" cellspacing="0" cellpadding="0" border="0" align="left"><tbody><tr id="tab[]" class="tab_header_bg_active"><td class="tab_header_left_active"/><td class="drawtab_header" align="left" valign="middle">Balances</td><td class="tab_header_right_active"/></tr></tbody></table>';
-
-	echo '<table class="tab_header_bg" style="cursor:pointer;" onclick="billing.showDaliyTrans();" cellspacing="0" cellpadding="0" border="0" align="left">
-		  <tbody><tr id="tab[]" class="tab_header_bg"><td class="tab_header_left"/>
-		  <td class="drawinactivetab_header" align="left" valign="middle">Daily Transactions</td>
-		  <td class="tab_header_right"/></tr></tbody></table>
-		  </td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">
+		</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
 	echo '<img style="float:left;cursor:pointer;" onclick="billing.showBalancesPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center"><form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(1);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(1);" value="All Students" /></form><br/>
 		  <table style="width:550px;" cellspacing="0" cellpadding="1">
