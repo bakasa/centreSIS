@@ -82,7 +82,7 @@ billing.showPayments = function(){
 };
 
 billing.showFees = function(){
-	cwindow.location.href='Modules.php?modname=Billing/fees.php&TAB=1';
+	window.location.href='Modules.php?modname=Billing/fees.php&TAB=1';
 };
 
 billing.showMassFees = function(){
