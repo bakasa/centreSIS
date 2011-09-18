@@ -30,6 +30,8 @@ $tab = $_REQUEST['TAB'];
 //1 or null = fee
 //2 = payment
 
+DrawHeader(ProgramTitle());
+
 if($tab == 3){
 	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
 

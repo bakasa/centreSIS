@@ -30,6 +30,8 @@ $TAB = $_REQUEST['TAB'];
 // 2 Daily Transactions
 // 1 Balance
 
+DrawHeader(ProgramTitle());
+
 if($TAB == 2){
 
 	$beginDate = date('Y-m-01');
