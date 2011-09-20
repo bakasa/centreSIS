@@ -52,9 +52,7 @@ if($TAB == 2){
 
 	echo '</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
-	echo '<img style="float:left;cursor:pointer;" onclick="billing.showTransactionsPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center">';
-
-	echo '<form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(2);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(2);" value="All Students" />
+	echo '<form id="filterFrm">
 		  <table><tr><td><font style="font-weight:bold;">Begin</font>&nbsp;'.PrepareDate($beginDate,'_min').'</td>
 		  <td><font style="font-weight:bold;">End</font>&nbsp;'.PrepareDate($endDate, '_max').'</td><td><input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(2);" value="Filter Date" /></td></tr>
 		  </table></form>
