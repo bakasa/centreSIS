@@ -29,46 +29,56 @@
 
 DrawHeader(ProgramTitle());
 
-echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">';
+if ($_REQUEST['search_modfunc'] == 'list')
+{
+	Search('student_id');
+}
+else
+{
+	if (isset($_REQUEST['student_id']))
+	{
+		$studentId = $_REQUEST['student_id'];
+		
+		$query = "SELECT
+                  fee_id,
+                  amount,
+                  title,
+                  assigned_date AS assigned_date,
+                  due_date AS due_date,
+                  comment,
+                  waived
+                  FROM
+                  BILLING_FEE
+                  WHERE
+                  student_id = $studentId
+                  ORDER BY fee_id";
 
-echo '</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+		$trans_RET = DBGet(DBQuery($query));
 
-echo '<div style="width:600px;" align="center">
-		<div>Search Students:<input type="text" id="studentSearchTB" size="30" /> <input style="cursor:pointer;" onclick="billing.searchStudents();" type="button" value="Search" /></div>
-	  	<div id="searchResultsDiv"></div>
-	  	<br/>
-	  	<h3 id="selectedStuH">
-	  	Student: No Student Selected
-	  	</h3>
-	  	<div id="addFeeDiv" style="display:none;">
-	  	<form id="newFeeFrm">
-	  	<table>
-	  	<tr><td>Title:</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
-	  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
-	  	<tr><td>Assigned:</td><td>'.PrepareDate(date('Y-m-d'), '_assigned').'</td></tr>
-	  	<tr><td>Due Date:</td><td>'.PrepareDate(date('Y-m-d'), '_due').'</td></tr>
-	  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
-	  	<tr><td colspan="2" align="center"><input type="button" onclick="billing.saveFee();" style="cursor:pointer;" value="Add Fee" /> <input type="button" value="Cancel" style="cursor:pointer;" onclick="billing.hideAddFee();" /></td></tr>
-	  	</table>
-	  	</form>
-	  	</div>
-	  	<div id="feesTblDiv">
-	  	<table style="width:550px;" cellspacing="0" cellpadding="0">
-			<thead style="border:solid 2px black;background-color:#09C;font-weight:bold;">
-			<tr align="center">
-				<td style="color:#FFF;">Title</td>
-				<td style="color:#FFF;">Amount</td>
-				<td style="color:#FFF;">Assigned</td>
-				<td style="color:#FFF;">Due</td>
-				<td style="color:#FFF;">Comment</td>
-				<td style="color:#FFF;">Action</td>
-			</tr>
-			</thead>
-			<tr><td colspan="6" style="background-color:#FFFF99">No Student Selected</td></tr>
-	  	</table>
-	  	</div>
-  </div>';
-
-echo '</td></tr></tbody></table></td></tr><tr><td class="block_left_corner"/><td class="block_middle"/><td class="block_right_corner"/></tr><tr><td class="clear" colspan="3"/></tr></tbody></table>';
+		$query = "SELECT SUM(amount) AS total_fee FROM BILLING_FEE WHERE student_id = $studentId and waived = 0;";
+		
+		$totalFee = "0";
+		$fee_RET = DBGet(DBQuery($query));
+		
+		if (!empty($fee_RET) && $fee_RET[1]['TOTAL_FEE'] != NULL)
+			$totalFee = $fee_RET[1]['TOTAL_FEE'];
+			
+		$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail\",
+			\"blank\",\"width=500,height=300\"); return false;'");
+		
+		array_push($trans_RET,array('TITLE'=>$buttonAdd));
+		
+		echo '<p><b>Student: </b></p><p><b>Fee Balance: </b>'.number_format($totalFee,2).'</p>';
+		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','ASSIGNED_DATE'=>'Assigned Date',
+			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','WAIVED'=>'Waived'),'Fee','Fees');
+	}
+	else if ($_REQUEST['modfunc'] == 'detail')
+	{
+	}
+	else
+	{
+		Search('student_id');
+	}
+}
 
 ?>
