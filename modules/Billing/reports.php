@@ -255,6 +255,8 @@ if($TAB == 2){
 	}
 
 	echo '<tr><td style="font-weight:bold;">Total</td><td style="font-weight:bold;">$'.number_format($feeBal,2).'</td><td style="font-weight:bold;">$'.number_format($paymentBal,2).'</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></div>';
+	
+	echo '</td></tr></tbody></table></td></tr><tr><td class="block_left_corner"/><td class="block_middle"/><td class="block_right_corner"/></tr><tr><td class="clear" colspan="3"/></tr></tbody></table>';
 }
 else{
 	$username = $_REQUEST['USERNAME'];
@@ -262,16 +264,7 @@ else{
 	echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left">
 		</td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
 
-	echo '<img style="float:left;cursor:pointer;" onclick="billing.showBalancesPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center"><form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(1);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(1);" value="All Students" /></form><br/>
-		  <table style="width:550px;" cellspacing="0" cellpadding="1">
-			<thead style="border:solid 2px black;background-color:#09C;font-weight:bold;">
-			<tr>
-				<td style="color:#FFF;">Student</td>
-				<td style="color:#FFF;">Student ID</td>
-				<td style="color:#FFF;">Grade</td>
-				<td style="color:#FFF;">Balance</td>
-			</tr>
-			</thead>';
+	echo '<img style="float:left;cursor:pointer;" onclick="billing.showBalancesPDF();" src="assets/icon-pdf.gif" /><div style="width:600px;" align="center"><form id="filterFrm"><font style="font-weight:bold;">Student</font>&nbsp;<input id="studentFilterTB" name="USERNAME" value="'.$username.'" type="text" size="30" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReport(1);" value="Filter Student" />&nbsp;&nbsp;<input style="cursor:pointer;" type="button" onclick="billing.filterTransReportAll(1);" value="All Students" /></form><br/>';
 
 	$query = "SELECT
 			  S.last_name,
@@ -296,31 +289,29 @@ else{
 	}
 	$query .= ") and SE.school_id = ".UserSchool()." order by S.last_name";
 
-	$result = DBQuery($query);
-	$counter = 0;
-	while($row = db_fetch_row($result)){
+	
+	echo '</div>';
+	
+	echo '</td></tr></tbody></table></td></tr><tr><td class="block_left_corner"/><td class="block_middle"/><td class="block_right_corner"/></tr><tr><td class="clear" colspan="3"/></tr></tbody></table>';
 
-		$fName  = $row['FIRST_NAME'];
-		$lName  = $row['LAST_NAME'];
-		$middle = $row['MIDDLE_NAME'];
-		$grade  = $row['TITLE'];
-		$id     = $row['STUDENT_ID'];
+	
+	$student_RET = DBGet(DBQuery($query));
+	
+	foreach ( $student_RET as &$student)
+	{
+		$studentID = $student['STUDENT_ID'];
+		$student['STUDENT'] = $student['LAST_NAME'].' '.$student['FIRST_NAME'].' '.$student['MIDDLE_NAME'];
+		
+		$payment_RET = DBGet(DBQuery("SELECT SUM(amount) as total_payment FROM BILLING_PAYMENT WHERE student_id = $studentID and refunded = 0;"));
+		$fee_RET = DBGet(DBQuery("SELECT SUM(amount) as total_fee FROM BILLING_FEE WHERE student_id = $studentID and waived = 0;"));
 
-		$query2 ="SELECT SUM(amount) as total_payment FROM BILLING_PAYMENT WHERE student_id = $id and refunded = 0;";
-		$result2 = DBQuery($query2);
-		$row2 = db_fetch_row($result2);
-		$totalPayment = $row2['TOTAL_PAYMENT'];
-		if($totalPayment == null){
-			$totalPayment = "0";
-		}
-
-		$query3 ="SELECT SUM(amount) as total_fee FROM BILLING_FEE WHERE student_id = $id and waived = 0;";
-		$result3 = DBQuery($query3);
-		$row3 = db_fetch_row($result3);
-		$totalFee = $row3['TOTAL_FEE'];
-		if($totalFee == null){
-			$totalFee = "0";
-		}
+		$totalPayment = "0";
+		if (isset($payment_RET[1]['TOTAL_PAYMENT']))
+			$totalPayment = $payment_RET[1]['TOTAL_PAYMENT'];
+		
+		$totalFee = "0";
+		if (isset($fee_RET[1]['TOTAL_FEE']))
+			$totalFee = $fee_RET[1]['TOTAL_FEE'];
 
 		$totalPayment = str_replace(",", "", $totalPayment);
 		$totalFee     = str_replace(",", "", $totalFee);
@@ -329,24 +320,15 @@ else{
 
 		$balance = $totalFee - $totalPayment;
 		$balance = number_format($balance, 2);
-
-		if($counter % 2 == 0){
-			echo '<tr style="background-color:#FFFF99">';
-		}
-		else{
-			echo '<tr>';
-		}
-		echo '<td >'.$lName.', '.$fName.' '.$middle.'.</td>
-				<td>'.$id.'</td>
-				<td>'.$grade.'</td>
-				<td>'.$balance.'</td>
-			 </tr>';
-		$counter++;
+		
+		$student['BALANCE'] = $balance;
 	}
-	echo '</table></div>';
+	
+	echo '<p>';
+	ListOutput($student_RET,array('STUDENT'=>'Student','STUDENT_ID'=>'Student ID','TITLE'=>'Grade','BALANCE'=>'Balance'),
+		'Student','Students',array('save'=>1,));
+	echo '</p>';
 }
-
-echo '</td></tr></tbody></table></td></tr><tr><td class="block_left_corner"/><td class="block_middle"/><td class="block_right_corner"/></tr><tr><td class="clear" colspan="3"/></tr></tbody></table>';
 
 
 ?>
