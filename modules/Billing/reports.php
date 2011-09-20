@@ -281,7 +281,7 @@ else{
 	
 	echo '<p>';
 	ListOutput($student_RET,array('STUDENT'=>'Student','STUDENT_ID'=>'Student ID','TITLE'=>'Grade','BALANCE'=>'Balance'),
-		'Student','Students',array('save'=>1,));
+		'Student','Students',array('save'=>1));
 	echo '</p>';
 }
 
