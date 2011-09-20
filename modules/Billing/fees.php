@@ -74,6 +74,25 @@ else
 	}
 	else if ($_REQUEST['modfunc'] == 'detail')
 	{
+		$title = 'New Fee';
+		
+		echo '<br>';
+		PopTable('header',$title);
+		echo '<div id="addFeeDiv" align=center>
+		  	<form id="newFeeFrm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new".' method=post>
+		  	<table>
+		  	<tr><td>Title:</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
+		  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
+		  	<tr><td>Assigned:</td><td>'.PrepareDate(date('Y-m-d'), '_assigned').'</td></tr>
+		  	<tr><td>Due Date:</td><td>'.PrepareDate(date('Y-m-d'), '_due').'</td></tr>
+		  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
+		  	<tr><td colspan="2" align="center">
+		  		<input type=submit name=button;" style="cursor:pointer;" value="Add Fee" /> 
+		  	</td></tr>
+		  	</table>
+		  	</form>
+		  	</div>';
+		  PopTable('footer');
 	}
 	else
 	{
