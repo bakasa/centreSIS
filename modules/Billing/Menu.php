@@ -27,16 +27,24 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #**************************************************************************
 $menu['Billing']['admin'] = array(
+						1=>'Reports',
 						'Billing/reports.php'=>'Reports',
-						'Billing/fees.php'=>'Transactions',
-						'Billing/billingAdmin.php'=>'Admin'
+						2=>'Transactions',
+						'Billing/fees.php'=>'Fees',
+						'Billing/payments.php'=>'Payments',
+						'Billing/mass_fees.php'=>'Mass Fees',
+						'Billing/mass_payments.php'=>'Mass Payments',
+						3=>'Config',
+						'Billing/billingAdmin.php'=>'Payment Options'
 					);
 
 $menu['Billing']['teacher'] = array(
+						1=>'Reports',
 						'Billing/reports.php'=>'Reports',
 					);
 
 $menu['Billing']['parent'] = array(
+						1=>'Reports',
 						'Billing/reports.php'=>'Reports',
 					);
 ?>

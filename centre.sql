@@ -5343,12 +5343,18 @@ CREATE TABLE BILLING_PAYMENT (
 );
 
 DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/fees.php';
+DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/payments.php';
+DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/mass_fees.php';
+DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/mass_payments.php';
 DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/reports.php';
 DELETE FROM PROFILE_EXCEPTIONS where modname='Billing/billingAdmin.php';
 
-INSERT INTO `PROFILE_EXCEPTIONS` (`profile_id`, `modname`, `can_use`, `can_edit`) VALUES
+INSERT INTO PROFILE_EXCEPTIONS (profile_id, modname, can_use, can_edit) VALUES
 (0, 'Billing/reports.php', 'Y', NULL),
 (1, 'Billing/fees.php', 'Y', 'Y'),
+(1, 'Billing/payments.php', 'Y', 'Y'),
+(1, 'Billing/mass_fees.php', 'Y', 'Y'),
+(1, 'Billing/mass_payments.php', 'Y', 'Y'),
 (1, 'Billing/reports.php', 'Y', 'Y'),
 (1, 'Billing/billingAdmin.php', 'Y', 'Y');
 
