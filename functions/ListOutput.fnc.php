@@ -460,7 +460,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						$direction = -1 * $_REQUEST['LO_direction'];
 					else
 						$direction = 1;
-					echo "<TD bgcolor=".($options['header_colors'][$key]?$options['header_colors'][$key]:$options['header_color'])."><DIV id=LOx$i style='position: relative;'></DIV>";
+					echo "<TD align=center bgcolor=".($options['header_colors'][$key]?$options['header_colors'][$key]:$options['header_color'])."><DIV id=LOx$i style='position: relative;'></DIV>";
 					echo "<A ";
 					if($options['sort'])
 						echo "HREF=$PHP_tmp_SELF&page=$_REQUEST[page]&LO_sort=$key&LO_direction=$direction&LO_search=".urlencode($_REQUEST['LO_search']);
@@ -614,7 +614,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						}
 						else
 						{
-							echo "<TD bgcolor=$color class=LO_field>";
+							echo "<TD bgcolor=$color class=LO_field align=center>";
 							if($key=='FULL_NAME')
 								echo '<DIV id=LOy'.($count-$br).' height=100% style="position: relative;">';
 							if($color==Preferences('HIGHLIGHT'))
