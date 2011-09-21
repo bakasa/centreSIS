@@ -94,6 +94,42 @@ else
 		  	</div>';
 		  PopTable('footer');
 	}
+	else if ($_REQUEST['modfunc'] == 'new')
+	{
+		include 'modules/Billing/classes/Auth.php';
+		include 'modules/Billing/classes/Fee.php';
+
+		$auth = new Auth();
+		$staffId = User('STAFF_ID');
+		$profile = User('PROFILE');
+
+		if($auth->checkAdmin($profile, $staffId))
+		{
+			$module    = "Billing";
+			$studentId = $_REQUEST['STUDENT_ID'];;
+			$amount    = $_REQUEST['AMOUNT'];
+			$title     = $_REQUEST['TITLE'];
+			$comment   = $_REQUEST['COMMENT'];
+			$assMon	   = $_REQUEST['month_assigned'];
+			$assDay	   = $_REQUEST['day_assigned'];
+			$assYr	   = $_REQUEST['year_assigned'];
+			$dueMon    = $_REQUEST['month_due'];
+			$dueDay    = $_REQUEST['day_due'];
+			$dueYr     = $_REQUEST['year_due'];
+			$username  = User('USERNAME');
+
+			$monthnames = array(1 => 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC');
+			$dueMon = array_search($dueMon,$monthnames);
+			$dueDate = $dueMon.'/'.$dueDay.'/'.$dueYr;
+			$assMon = array_search($assMon,$monthnames);
+			$assignedDate = $assMon.'/'.$assDay.'/'.$assYr;
+
+			Fee::addFee($amount,$title,$studentId,$dueDate,$assignedDate,$comment,$module,$username);
+		}
+
+		echo '<SCRIPT language=javascript>opener.document.location = "Modules.php?modname='.$_REQUEST['modname']
+			."&student_id=$studentId".'"; window.close();</script>';
+	}
 	else
 	{
 		Search('student_id');
