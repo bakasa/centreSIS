@@ -35,51 +35,14 @@ if ($_REQUEST['search_modfunc'] == 'list')
 }
 else
 {
-	if (isset($_REQUEST['student_id']))
-	{
-		$studentId = $_REQUEST['student_id'];
-		
-		$query = "SELECT
-                  fee_id,
-                  amount,
-                  title,
-                  assigned_date AS assigned_date,
-                  due_date AS due_date,
-                  comment,
-                  waived
-                  FROM
-                  BILLING_FEE
-                  WHERE
-                  student_id = $studentId
-                  ORDER BY fee_id";
-
-		$trans_RET = DBGet(DBQuery($query));
-
-		$query = "SELECT SUM(amount) AS total_fee FROM BILLING_FEE WHERE student_id = $studentId and waived = 0;";
-		
-		$totalFee = "0";
-		$fee_RET = DBGet(DBQuery($query));
-		
-		if (!empty($fee_RET) && $fee_RET[1]['TOTAL_FEE'] != NULL)
-			$totalFee = $fee_RET[1]['TOTAL_FEE'];
-			
-		$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail\",
-			\"blank\",\"width=500,height=300\"); return false;'");
-		
-		array_push($trans_RET,array('TITLE'=>$buttonAdd));
-		
-		echo '<p><b>Student: </b></p><p><b>Fee Balance: </b>'.number_format($totalFee,2).'</p>';
-		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','ASSIGNED_DATE'=>'Assigned Date',
-			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','WAIVED'=>'Waived'),'Fee','Fees');
-	}
-	else if ($_REQUEST['modfunc'] == 'detail')
+	if ($_REQUEST['modfunc'] == 'detail')
 	{
 		$title = 'New Fee';
 		
 		echo '<br>';
 		PopTable('header',$title);
 		echo '<div id="addFeeDiv" align=center>
-		  	<form id="newFeeFrm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new".' method=post>
+		  	<form id="newFeeFrm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new&student_id=$_REQUEST[student_id]".' method=post>
 		  	<table>
 		  	<tr><td>Title:</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
 		  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
@@ -106,7 +69,7 @@ else
 		if($auth->checkAdmin($profile, $staffId))
 		{
 			$module    = "Billing";
-			$studentId = $_REQUEST['STUDENT_ID'];;
+			$studentId = $_REQUEST['student_id'];;
 			$amount    = $_REQUEST['AMOUNT'];
 			$title     = $_REQUEST['TITLE'];
 			$comment   = $_REQUEST['COMMENT'];
@@ -129,6 +92,44 @@ else
 
 		echo '<SCRIPT language=javascript>opener.document.location = "Modules.php?modname='.$_REQUEST['modname']
 			."&student_id=$studentId".'"; window.close();</script>';
+	}
+	else if (isset($_REQUEST['student_id']))
+	{
+		$studentId = $_REQUEST['student_id'];
+		
+		$query = "SELECT
+                  fee_id,
+                  amount,
+                  title,
+                  assigned_date AS assigned_date,
+                  due_date AS due_date,
+                  comment,
+                  waived
+                  FROM
+                  BILLING_FEE
+                  WHERE
+                  student_id = $studentId
+
+                  ORDER BY fee_id";
+
+		$trans_RET = DBGet(DBQuery($query));
+
+		$query = "SELECT SUM(amount) AS total_fee FROM BILLING_FEE WHERE student_id = $studentId and waived = 0;";
+		
+		$totalFee = "0";
+		$fee_RET = DBGet(DBQuery($query));
+		
+		if (!empty($fee_RET) && $fee_RET[1]['TOTAL_FEE'] != NULL)
+			$totalFee = $fee_RET[1]['TOTAL_FEE'];
+			
+		$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail&student_id=$studentId\",
+			\"blank\",\"width=500,height=300\"); return false;'");
+		
+		array_push($trans_RET,array('TITLE'=>$buttonAdd));
+		
+		echo '<p><b>Student: </b></p><p><b>Fee Balance: </b>'.number_format($totalFee,2).'</p>';
+		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','ASSIGNED_DATE'=>'Assigned Date',
+			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','WAIVED'=>'Waived'),'Fee','Fees');
 	}
 	else
 	{
