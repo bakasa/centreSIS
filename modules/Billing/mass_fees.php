@@ -22,12 +22,37 @@ if (isset($_REQUEST['search_modfunc']))
 {
 	 if ($_REQUEST['search_modfunc'] == 'list')
 	 {
-	 	Search('student_id');
+	 	$extra['SELECT'] .= ",s.STUDENT_ID AS CHECKBOX";
+		$extra['link'] = array('FULL_NAME'=>false);
+		$extra['functions'] = array('CHECKBOX'=>'_makeChooseCheckbox');
+		$extra['columns_before'] = array('CHECKBOX'=>'</A><INPUT type=checkbox value=Y name=controller checked 
+			onclick="checkAll(this.form,this.form.controller.checked,\'st_arr\');"><A>');
+		$extra['options']['search'] = false;
+		$extra['new'] = true;
+	
+		echo "<FORM action=Modules.php?modname=$_REQUEST[modname]&modfunc=detail method=POST>";
+	 	Search('student_id',$extra);
+	 	echo '<BR><CENTER><INPUT type=submit value="Add Mass Fee"></CENTER>';
+	 	echo '</form>';
 	 }
 }
 else
 {
-	Search('student_id');
+	$displaySearch = false;
+	
+	if (isset($_REQUEST['modfunc']))
+	{
+		if ($_REQUEST['modfunc'] == 'detail')
+		{
+		}
+		else
+			$displaySearch = true;
+	}
+	else
+		$displaySearch = true;
+	
+	if ($displaySearch)
+		Search('student_id');
 }
 	
 function _makeChooseCheckbox($value,$title)
