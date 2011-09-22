@@ -18,6 +18,8 @@
 
 DrawHeader(ProgramTitle());
 
+require 'modules/Billing/student.fnc.php';
+
 if ($_REQUEST['search_modfunc'] == 'list')
 {
 	Search('student_id');
@@ -170,6 +172,7 @@ else
 		$columns = array('AMOUNT'=>'Amount','PAYMENT_TYPE'=>'Type','PAYMENT_DATE'=>'Date','INSERTED_BY'=>'Inserted By','REFUND_DATE'=>'Refunded Date',
 			'REFUND_BY'=>'Refund By','COMMENT'=>'Comment','ACTION'=>'Action');
 		
+		DrawHeader('<b>Student: </b>'.getStudentName($studentId).'&nbsp<b>Payment Balance: </b>'.number_format($totalPayment,2));
 		ListOutput($trans_RET,$columns,'payment','payments',$link);
 	}
 	
