@@ -28,28 +28,8 @@
 #**************************************************************************
 class Payment{
 
-	public static function deletePayment($id){
-			$query = "DELETE FROM BILLING_PAYMENT where payment_id = $id";
-			if(DBQuery($query)){
-				return true;
-			}
-			else{
-				return false;
-			}
-	}
-
 	public static function refundPayment($id){
 			$query = "UPDATE BILLING_PAYMENT SET refunded = 1, refund_date = current_timestamp WHERE payment_id = $id";
-			if(DBQuery($query)){
-				return true;
-			}
-			else{
-				return false;
-			}
-	}
-
-	public static function removeRefund($id){
-			$query = "UPDATE BILLING_PAYMENT SET refunded = 0 WHERE payment_id = $id";
 			if(DBQuery($query)){
 				return true;
 			}
