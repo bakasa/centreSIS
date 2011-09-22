@@ -68,6 +68,37 @@ else
 		}
 		else if ($_REQUEST['modfunc'] == 'save')
 		{
+			require 'modules/Billing/classes/Auth.php';
+			require 'modules/Billing/classes/Payment.php';
+
+			$auth = new Auth();
+			$staffId = User('STAFF_ID');
+			$profile = User('PROFILE');
+
+			if($auth->checkAdmin($profile, $staffId))
+			{
+				$studentIds = unserialize(stripslashes($_REQUEST['students']));
+				$amount     = $_REQUEST['AMOUNT'];
+				$comment    = $_REQUEST['COMMENT'];
+				$mon	    = $_REQUEST['month_date'];
+				$day	    = $_REQUEST['day_date'];
+				$yr	        = $_REQUEST['year_date'];
+				$type_      = $_REQUEST['TYPE'];
+
+				$monthnames = array(1 => 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC');
+				$assMon = array_search($mon,$monthnames);
+
+				$date_      = $mon.'/'.$day.'/'.$yr;
+
+				Payment::addMassPayment($amount,$type_,$studentIds,$date_,$comment);
+			}
+			
+			/// clear _REQUEST variable and only leave modname
+			$modName = $_REQUEST['modname'];
+			
+			unset($_REQUEST);
+			$_REQUEST['modname'] = $modName;
+			
 			$displaySearch = true;
 		}
 		else
