@@ -24,6 +24,9 @@ if ($_REQUEST['search_modfunc'] == 'list')
 }
 else
 {
+	$displaySearch = false;
+	$displayList = false;
+	
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
 		$title = "Add payment";
@@ -102,9 +105,16 @@ else
 			
 				Payment::refundPayment($Id);
 			}
+			
+			$displayList = true;
 		}
 	}
 	else if (isset($_REQUEST['student_id']))
+		$displayList = true;
+	else
+		$displaySearch = true;
+		
+	if ($displayList)
 	{
 		$studentId = $_REQUEST['student_id'];
 		
@@ -156,10 +166,9 @@ else
 		
 		ListOutput($trans_RET,$columns,'payment','payments',$link);
 	}
-	else
-	{
+	
+	if ($displaySearch)
 		Search('student_id');
-	}
 }
   
  ?>
