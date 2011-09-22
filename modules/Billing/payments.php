@@ -75,13 +75,15 @@ else
 			$day	   = $_REQUEST['day_date'];
 			$yr	       = $_REQUEST['year_date'];
 			$type_     = $_REQUEST['TYPE'];
+			
+			$username  = User('USERNAME');
 
 			$monthnames = array(1 => 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC');
 			$mon = array_search($mon,$monthnames);
 
 			 $date_ = $mon.'/'.$day.'/'.$yr;
 
-			Payment::addPayment($amount,$type_,$studentId,$date_,$comment);
+			Payment::addPayment($amount,$type_,$studentId,$date_,$comment,$username);
 		}
 		
 		echo '<SCRIPT language=javascript>opener.document.location = "Modules.php?modname='.$_REQUEST['modname']
@@ -103,7 +105,7 @@ else
 				$Id = $_REQUEST['id'];
 				$username  = User('USERNAME');
 			
-				Payment::refundPayment($Id);
+				Payment::refundPayment($Id,$username);
 			}
 			
 			$displayList = true;

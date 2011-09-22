@@ -28,8 +28,8 @@
 #**************************************************************************
 class Payment{
 
-	public static function refundPayment($id){
-			$query = "UPDATE BILLING_PAYMENT SET refunded = 1, refund_date = current_timestamp WHERE payment_id = $id";
+	public static function refundPayment($id, $user){
+			$query = "UPDATE BILLING_PAYMENT SET refunded = 1, refund_date = current_timestamp, refund_by = $user WHERE payment_id = $id";
 			if(DBQuery($query)){
 				return true;
 			}
@@ -38,20 +38,21 @@ class Payment{
 			}
 	}
 
-	public static function addPayment($amount,$type_,$studentId,$date_,$comment){
+	public static function addPayment($amount,$type_,$studentId,$date_,$comment,$user){
 			$amount   = mysql_escape_string($amount);
 			$comment  = mysql_escape_string($comment);
 			$type_    = mysql_escape_string($type_);
 
 			$query = "INSERT INTO BILLING_PAYMENT
-					  (payment_id, student_id, amount, payment_type, payment_date, comment)
+					  (payment_id, student_id, amount, payment_type, payment_date, comment, inserted_by)
 					  VALUES
 					  (".db_seq_nextval('BILLING_PAYMENT_SEQ').",
 					  $studentId,
 					  '$amount',
 					  '$type_',
                       '".date('Y-m-d',strtotime($date_))."',
-					  '$comment');";
+					  '$comment',
+					  '$user');";
 			if(DBQuery($query)){
 				return true;
 			}
@@ -61,7 +62,7 @@ class Payment{
 
 	}
 
-	public static function addMassPayment($amount,$type_,$studentIds,$date_,$comment){
+	public static function addMassPayment($amount,$type_,$studentIds,$date_,$comment,$user){
 				$amount   = mysql_escape_string($amount);
 				$comment  = mysql_escape_string($comment);
 				$type_    = mysql_escape_string($type_);
@@ -69,14 +70,15 @@ class Payment{
 				foreach($studentIds as $id){
 
 					$query = "INSERT INTO BILLING_PAYMENT
-							  (payment_id, student_id, amount, payment_type, payment_date, comment)
+							  (payment_id, student_id, amount, payment_type, payment_date, comment, inserted_by)
 							  VALUES
 							  (".db_seq_nextval('BILLING_PAYMENT_SEQ').",
 							  $id,
 							  '$amount',
 							  '$type_',
                               '".date('Y-m-d',strtotime($date_))."',
-							  '$comment');";
+							  '$comment',
+							  '$user');";
 
 					DBQuery($query);
 				}

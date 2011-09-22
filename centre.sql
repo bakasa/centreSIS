@@ -5336,9 +5336,11 @@ CREATE TABLE BILLING_PAYMENT (
   student_id NUMERIC NOT NULL,
   amount NUMERIC NOT NULL,
   payment_type VARCHAR(255) NOT NULL,
+  inserted_by VARCHAR(255) NOT NULL,
   comment VARCHAR(255) NOT NULL,
   payment_date DATE,
   refunded integer DEFAULT 0,
+  refund_by VARCHAR(255),
   refund_date DATE
 );
 
