@@ -189,7 +189,7 @@ if($TAB == 2){
 		{
 			$totalPayment -= $amount;
 			$payment = number_format(-$amount,2);
-			$comment = 'Refund';
+			$comment = '<b><font color=red>Refund</font></b>'.' - '.$trans['COMMENT'];
 		}
 		else if ($type == 'F')
 		{
@@ -201,7 +201,7 @@ if($TAB == 2){
 		{
 			$totalFee -= $amount;
 			$fee = number_format(-$amount,2);
-			$comment = 'Waived';
+			$comment = '<b><font color=red>Waived</font></b>'.' - '.$trans['COMMENT'];
 		}
 		
 		$transReport[$i]['FEE'] = $fee;
