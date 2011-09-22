@@ -29,38 +29,10 @@
 
 DrawHeader(ProgramTitle());
 
-echo '<table cellspacing="0" cellpadding="0"><tbody><tr><td width="9"/><td class="block_stroke" align="left"></td></tr><tr><td class="block_topleft_corner"/><td class="block_topmiddle"/><td class="block_topright_corner"/></tr><tr><td class="block_left" rowspan="2"/><td class="block_bg"/><td class="block_right" rowspan="2"/></tr><tr><td><table class="block_bg" width="100%" cellspacing="0" cellpadding="5"><tbody><tr><td class="block_bg">';
+$type_RET = DBGet(DBQuery("SELECT type_id, type_desc as desc FROM BILLING_PAYMENT_TYPE ORDER BY type_desc"));
 
-echo '<div align="center" style="width:600px;" id="main"><div align="center" id="edit_new_Area"</div>';
-echo '<table style="width:300px;" cellspacing="0" cellpadding="1">
-			<thead style="border:solid 2px black;background-color:#09C;font-weight:bold;">
-			<tr>
-				<td style="color:#FFF;">Description</td>
-				<td style="color:#FFF;">Delete</td>
-			</tr>
-			</thead>';
+$columns = array('DESC'=>'Description','ACTION'=>'Action');
 
-$query = "SELECT type_id, type_desc FROM BILLING_PAYMENT_TYPE ORDER BY type_desc";
-$result = DBQuery($query);
-$counter = 0;
-while($row = db_fetch_row($result)){
+ListOutput($type_RET,$columns,'Payment Option','Payment Options');
 
-	if($counter % 2 == 0){
-		echo '<tr style="background-color:#FFFF99">';
-	}
-	else{
-		echo '<tr>';
-	}
-
-	echo '<td>'.$row['TYPE_DESC'].'</td>
-		  <td><a href="javascript:billing.deletePaymentType('.$row['TYPE_ID'].');">Delete</a></td>
-		  </tr>';
-
-}
-
-
-echo '<tr><td colspan="3"><a align="left" href="javascript:billing.showNewPaymentType();">[+] Add New</a></td></tr></table></div>';
-
-
-echo '</td></tr></tbody></table></td></tr><tr><td class="block_left_corner"/><td class="block_middle"/><td class="block_right_corner"/></tr><tr><td class="clear" colspan="3"/></tr></tbody></table>';
 ?>
