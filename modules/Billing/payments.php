@@ -125,6 +125,7 @@ else
 			  amount,
 			  comment,
 		      payment_date AS payment_date,
+		      inserted_by,
 			  refunded,
 			  refund_date,
 			  payment_type
@@ -163,9 +164,9 @@ else
 			\"blank\",\"width=500,height=300\"); return false;'");
 		
 		$link['add']['html'] = array('AMOUNT'=>$buttonAdd,'PAYMENT_TYPE'=>'',
-			'PAYMENT_DATE'=>'','REFUND_DATE'=>'','COMMENT'=>'','ACTION'=>'');
+			'PAYMENT_DATE'=>'','INSERTED_BY'=>'','REFUND_DATE'=>'','COMMENT'=>'','ACTION'=>'');
 			
-		$columns = array('AMOUNT'=>'Amount','PAYMENT_TYPE'=>'Type','PAYMENT_DATE'=>'Date','REFUND_DATE'=>'Refunded Date',
+		$columns = array('AMOUNT'=>'Amount','PAYMENT_TYPE'=>'Type','PAYMENT_DATE'=>'Date','INSERTED_BY'=>'Inserted By','REFUND_DATE'=>'Refunded Date',
 			'COMMENT'=>'Comment','ACTION'=>'Action');
 		
 		ListOutput($trans_RET,$columns,'payment','payments',$link);
