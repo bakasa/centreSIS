@@ -35,6 +35,10 @@ if ($_REQUEST['search_modfunc'] == 'list')
 }
 else
 {
+	/// if a fee has been deleted just display selected student list.
+	if ($_REQUEST['delete_ok'])
+		unset($_REQUEST['modfunc']);
+		
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
 		$title = 'New Fee';
@@ -93,6 +97,26 @@ else
 		echo '<SCRIPT language=javascript>opener.document.location = "Modules.php?modname='.$_REQUEST['modname']
 			."&student_id=$studentId".'"; window.close();</script>';
 	}
+	else if ($_REQUEST['modfunc'] == 'remove')
+	{
+		if (DeletePrompt('fee','waive'))
+		{
+			include 'modules/Billing/classes/Auth.php';
+			include 'modules/Billing/classes/Fee.php';
+
+			$auth = new Auth();
+			$staffId = User('STAFF_ID');
+			$profile = User('PROFILE');
+
+			if($auth->checkAdmin($profile, $staffId))
+			{
+				$feeId = $_REQUEST['fee_id'];
+				$username  = User('USERNAME');
+			
+				Fee::waiveFee($feeId,$username);
+			}
+		}
+	}
 	else if (isset($_REQUEST['student_id']))
 	{
 		$studentId = $_REQUEST['student_id'];
@@ -122,6 +146,22 @@ else
 		if (!empty($fee_RET) && $fee_RET[1]['TOTAL_FEE'] != NULL)
 			$totalFee = $fee_RET[1]['TOTAL_FEE'];
 			
+		/// Add a new action column to display if the fee is reversed or display the option to reverse it.
+		foreach ($trans_RET as &$trans)
+		{
+			$action = "";
+			
+			if ($trans['WAIVED'])
+				$action = '<b><font color=red>Waived</font></b>';
+			else
+			{
+				$action = button('x','',
+					"# onclick=javascript:window.location='Modules.php?modname=$_REQUEST[modname]&modfunc=remove&student_id=$studentId&fee_id=$trans[FEE_ID]'");
+			}
+			
+			$trans['ACTION'] = $action;
+		}
+		
 		$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail&student_id=$studentId\",
 			\"blank\",\"width=500,height=300\"); return false;'");
 		
@@ -129,7 +169,7 @@ else
 		
 		echo '<p><b>Student: </b></p><p><b>Fee Balance: </b>'.number_format($totalFee,2).'</p>';
 		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','ASSIGNED_DATE'=>'Assigned Date',
-			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','WAIVED'=>'Waived'),'Fee','Fees');
+			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','ACTION'=>'Action'),'Fee','Fees');
 	}
 	else
 	{
