@@ -30,6 +30,30 @@ else
 		
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
+		$title = "Add payment";
+		
+		echo '<br>';
+		PopTable('header',$title);
+		echo '<form id="newPaymentFrm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new&student_id=$_REQUEST[student_id]".' method=post>
+	  	<table>
+	  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
+	  	<tr><td>Type:</td><td><select name="TYPE">';
+	  	
+		$query = "select type_desc from BILLING_PAYMENT_TYPE order by type_desc";
+		$result = DBQuery($query);
+			while($row = db_fetch_row($result)){
+				echo '<option value="'.$row['TYPE_DESC'].'">'.$row['TYPE_DESC'].'</option>';
+		}
+		
+		echo '</select></td></tr>
+			  	<tr><td>Date:</td><td>'.PrepareDate(date('Y-m-d'),'_date').'</td></tr>
+			  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
+			  	<tr><td colspan="2" align="center"><input type=submit name=button style="cursor:pointer;" 
+			  		value="Add Payment" /></td></tr>
+			  	</table>
+			  	</form>';
+			  	
+		PopTable('footer');
 	}
 	else if ($_REQUEST['modfunc'] == 'new')
 	{
