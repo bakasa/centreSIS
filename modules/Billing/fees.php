@@ -29,6 +29,8 @@
 
 DrawHeader(ProgramTitle());
 
+require 'modules/Billing/student.fnc.php';
+
 if ($_REQUEST['search_modfunc'] == 'list')
 {
 	Search('student_id');
@@ -180,7 +182,7 @@ else
 			
 		//array_push($trans_RET,array('TITLE'=>$buttonAdd));
 		
-		echo '<p><b>Student: </b></p><p><b>Fee Balance: </b>'.number_format($totalFee,2).'</p>';
+		DrawHeader('<b>Student: </b>'.getStudentName($studentId).'&nbsp<b>Fee Balance: </b>'.number_format($totalFee,2));
 		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','INSERTED_BY'=>'Inserted By','ASSIGNED_DATE'=>'Assigned Date',
 			'DUE_DATE'=>'Due Date','WAIVED_BY'=>'Waived By','WAIVED_DATE'=>'Waived Date','COMMENT'=>'Comment','ACTION'=>'Action'),'Fee','Fees',$link);
 	}
