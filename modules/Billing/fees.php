@@ -66,6 +66,8 @@ else
 		include 'modules/Billing/classes/Auth.php';
 		include 'modules/Billing/classes/Fee.php';
 
+		$studentId = $_REQUEST['student_id'];
+		
 		$auth = new Auth();
 		$staffId = User('STAFF_ID');
 		$profile = User('PROFILE');
@@ -73,7 +75,6 @@ else
 		if($auth->checkAdmin($profile, $staffId))
 		{
 			$module    = "Billing";
-			$studentId = $_REQUEST['student_id'];;
 			$amount    = $_REQUEST['AMOUNT'];
 			$title     = $_REQUEST['TITLE'];
 			$comment   = $_REQUEST['COMMENT'];
