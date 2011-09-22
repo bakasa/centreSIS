@@ -66,11 +66,21 @@ if (isset($_REQUEST['modfunc']))
 		echo '<SCRIPT language=javascript>opener.document.location = "Modules.php?modname='.$_REQUEST['modname']
 			.'"; window.close();</script>';
 	}
+	else if ($_REQUEST['modfunc'] == 'remove')
+	{
+	}
 }
 else
 {
 	$type_RET = DBGet(DBQuery("SELECT type_id, type_desc as desc FROM BILLING_PAYMENT_TYPE ORDER BY type_desc"));
 
+	/// Add a new action column to display if the fee is reversed or display the option to reverse it.
+	foreach ($type_RET as &$type)
+	{
+		$type['ACTION'] = button('x','',
+			"# onclick=javascript:window.location='Modules.php?modname=$_REQUEST[modname]&modfunc=remove&id=$type[TYPE_ID]'");
+	}
+		
 	$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail\",
 		\"blank\",\"width=400,height=150\"); return false;'");
 
