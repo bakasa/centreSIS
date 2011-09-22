@@ -44,6 +44,63 @@ else
 	{
 		if ($_REQUEST['modfunc'] == 'detail')
 		{
+			$students = serialize($_REQUEST['st_arr']);
+			
+			echo '<br>';
+			PopTable('header','Add Selected Fees');
+			echo '<form id="newMassFeeFrm" action=Modules.php?modname='."$_REQUEST[modname]&modfunc=save&students=$students".' method=POST>
+		  	<table>
+		  	<tr><td>Title:</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
+		  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
+		  	<tr><td>Assigned:</td><td>'.PrepareDate(date('Y-m-d'),'_assigned').'</td></tr>
+		  	<tr><td>Due Date:</td><td>'.PrepareDate(date('Y-m-d'),'_due').'</td></tr>
+		  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
+		  	<tr><td colspan="4" align="center">
+		  		<input type=submit name=button style="cursor:pointer;" value="Add Fees" /></td></tr>
+			</table>
+		  	</form>';
+		  	PopTable('footer');
+		}
+		else if ($_REQUEST['modfunc'] == 'save')
+		{
+			include 'modules/Billing/classes/Auth.php';
+			include 'modules/Billing/classes/Fee.php';
+
+			$auth = new Auth();
+			$staffId = User('STAFF_ID');
+			$profile = User('PROFILE');
+
+			if($auth->checkAdmin($profile, $staffId))
+			{
+				$module     = 'Billing';
+				$studentIds = unserialize(stripslashes($_REQUEST['students']));
+				$amount     = $_REQUEST['AMOUNT'];
+				$title      = $_REQUEST['TITLE'];
+				$comment    = $_REQUEST['COMMENT'];
+				$assMon	    = $_REQUEST['month_assigned'];
+				$assDay	    = $_REQUEST['day_assigned'];
+				$assYr	    = $_REQUEST['year_assigned'];
+				$dueMon     = $_REQUEST['month_due'];
+				$dueDay     = $_REQUEST['day_due'];
+				$dueYr      = $_REQUEST['year_due'];
+				$username   = User('USERNAME');
+
+				$monthnames = array(1 => 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC');
+				$dueMon = array_search($dueMon,$monthnames);
+				$dueDate = $dueMon.'/'.$dueDay.'/'.$dueYr;
+				$assMon = array_search($assMon,$monthnames);
+				$assignedDate = $assMon.'/'.$assDay.'/'.$assYr;
+
+				Fee::addMassFee($amount,$title,$studentIds,$dueDate,$assignedDate,$comment,$module,$username);
+			}
+			
+			/// clear _REQUEST variable and only leave modname
+			$modName = $_REQUEST['modname'];
+			
+			unset($_REQUEST);
+			$_REQUEST['modname'] = $modName;
+			
+			$displaySearch = true;
 		}
 		else
 			$displaySearch = true;
