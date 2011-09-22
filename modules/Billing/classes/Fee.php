@@ -27,19 +27,6 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #**************************************************************************
 class Fee{
-    public static function removeWaiver($feeId){
-        $query = "UPDATE BILLING_FEE
-                  SET waived_date = null,
-                  waived_by = null,
-                  waived = 0
-                  WHERE fee_id = $feeId";
-        if(DBQuery($query)){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 
     public static function waiveFee($feeId, $username){
         $query = "UPDATE BILLING_FEE
@@ -47,16 +34,6 @@ class Fee{
                   waived_by = '$username',
                   waived = 1
                   WHERE fee_id = $feeId";
-        if(DBQuery($query)){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public static function deleteFee($feeId){
-        $query = "DELETE FROM BILLING_FEE WHERE fee_id = $feeId";
         if(DBQuery($query)){
             return true;
         }
