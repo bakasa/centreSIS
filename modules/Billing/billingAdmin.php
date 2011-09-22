@@ -47,6 +47,24 @@ if (isset($_REQUEST['modfunc']))
 	}
 	else if ($_REQUEST['modfunc'] == 'new')
 	{
+		/// TODO: SANATIZE INPUT AND CHECK IF ALL VALUES ARE SET & VALID
+		
+		require 'modules/Billing/classes/Auth.php';
+		require 'modules/Billing/classes/PaymentType.php';
+
+		$auth = new Auth();
+		$staffId = User('STAFF_ID');
+		$profile = User('PROFILE');
+
+		if($auth->checkAdmin($profile, $staffId))
+		{
+			$type = $_REQUEST['type'];
+
+			PaymentType::addType($type);
+		}
+		
+		echo '<SCRIPT language=javascript>opener.document.location = "Modules.php?modname='.$_REQUEST['modname']
+			.'"; window.close();</script>';
 	}
 }
 else
