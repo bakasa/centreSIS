@@ -57,6 +57,36 @@ else
 	}
 	else if ($_REQUEST['modfunc'] == 'new')
 	{
+		include 'modules/Billing/classes/Auth.php';
+		include 'modules/Billing/classes/Payment.php';
+
+		/// TODO: SANATIZE AND CHECK INPUT!!
+		
+		$studentId = $_REQUEST['student_id'];
+		
+		$auth = new Auth();
+		$staffId = User('STAFF_ID');
+		$profile = User('PROFILE');
+
+		if($auth->checkAdmin($profile, $staffId))
+		{
+			$amount    = $_REQUEST['AMOUNT'];
+			$comment   = $_REQUEST['COMMENT'];
+			$mon	   = $_REQUEST['month_date'];
+			$day	   = $_REQUEST['day_date'];
+			$yr	       = $_REQUEST['year_date'];
+			$type_     = $_REQUEST['TYPE'];
+
+			$monthnames = array(1 => 'JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC');
+			$mon = array_search($mon,$monthnames);
+
+			 $date_ = $mon.'/'.$day.'/'.$yr;
+
+			Payment::addPayment($amount,$type_,$studentId,$date_,$comment);
+		}
+		
+		echo '<SCRIPT language=javascript>opener.document.location = "Modules.php?modname='.$_REQUEST['modname']
+			."&student_id=$studentId".'"; window.close();</script>';
 	}
 	else if ($_REQUEST['modfunc'] == 'remove')
 	{
