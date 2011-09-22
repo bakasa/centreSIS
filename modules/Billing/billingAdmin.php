@@ -29,10 +29,38 @@
 
 DrawHeader(ProgramTitle());
 
-$type_RET = DBGet(DBQuery("SELECT type_id, type_desc as desc FROM BILLING_PAYMENT_TYPE ORDER BY type_desc"));
+if (isset($_REQUEST['modfunc']))
+{
+	if ($_REQUEST['modfunc'] == 'detail')
+	{
+		echo '<br>';
+		PopTable('header','Add new payment option');
+		echo '<form id="PayOptionForm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new".' method=post>
+			<table>
+			<tr><td>Description</td><td><input type="text" size="30" name="type" /></td></tr>
+			<tr><td colspan="2" align="center">
+				<input type=submit name=button value="Save" />&nbsp;&nbsp;
+				<input type="button" name=button onclick="window.close();" value="Cancel" />
+			</td></tr>
+			</table></form>';
+		PopTable('footer');
+	}
+	else if ($_REQUEST['modfunc'] == 'new')
+	{
+	}
+}
+else
+{
+	$type_RET = DBGet(DBQuery("SELECT type_id, type_desc as desc FROM BILLING_PAYMENT_TYPE ORDER BY type_desc"));
 
-$columns = array('DESC'=>'Description','ACTION'=>'Action');
+	$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail\",
+		\"blank\",\"width=400,height=150\"); return false;'");
 
-ListOutput($type_RET,$columns,'Payment Option','Payment Options');
+	$link['add']['html'] = array('DESC'=>$buttonAdd,'ACTION'=>'');
+			
+	$columns = array('DESC'=>'Description','ACTION'=>'Action');
+
+	ListOutput($type_RET,$columns,'Payment Option','Payment Options',$link);
+}
 
 ?>
