@@ -136,7 +136,8 @@ else
                   assigned_date AS assigned_date,
                   due_date AS due_date,
                   comment,
-                  waived
+                  waived,
+                  waived_by
                   FROM
                   BILLING_FEE
                   WHERE
@@ -174,13 +175,13 @@ else
 			\"blank\",\"width=500,height=300\"); return false;'");
 		
 		$link['add']['html'] = array('TITLE'=>$buttonAdd,'AMOUNT'=>'','INSERTED_BY'=>'','ASSIGNED_DATE'=>'',
-			'DUE_DATE'=>'','COMMENT'=>'','ACTION'=>'');
+			'DUE_DATE'=>'','WAIVED_BY'=>'','COMMENT'=>'','ACTION'=>'');
 			
 		//array_push($trans_RET,array('TITLE'=>$buttonAdd));
 		
 		echo '<p><b>Student: </b></p><p><b>Fee Balance: </b>'.number_format($totalFee,2).'</p>';
 		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','INSERTED_BY'=>'Inserted By','ASSIGNED_DATE'=>'Assigned Date',
-			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','ACTION'=>'Action'),'Fee','Fees',$link);
+			'DUE_DATE'=>'Due Date','WAIVED_BY'=>'Waived By','COMMENT'=>'Comment','ACTION'=>'Action'),'Fee','Fees',$link);
 	}
 	
 	if ($displaySearch)
