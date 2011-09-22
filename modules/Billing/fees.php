@@ -132,6 +132,7 @@ else
                   fee_id,
                   amount,
                   title,
+                  inserted_by,
                   assigned_date AS assigned_date,
                   due_date AS due_date,
                   comment,
@@ -172,13 +173,13 @@ else
 		$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail&student_id=$studentId\",
 			\"blank\",\"width=500,height=300\"); return false;'");
 		
-		$link['add']['html'] = array('TITLE'=>$buttonAdd,'AMOUNT'=>'','ASSIGNED_DATE'=>'',
+		$link['add']['html'] = array('TITLE'=>$buttonAdd,'AMOUNT'=>'','INSERTED_BY'=>'','ASSIGNED_DATE'=>'',
 			'DUE_DATE'=>'','COMMENT'=>'','ACTION'=>'');
 			
 		//array_push($trans_RET,array('TITLE'=>$buttonAdd));
 		
 		echo '<p><b>Student: </b></p><p><b>Fee Balance: </b>'.number_format($totalFee,2).'</p>';
-		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','ASSIGNED_DATE'=>'Assigned Date',
+		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','INSERTED_BY'=>'Inserted By','ASSIGNED_DATE'=>'Assigned Date',
 			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','ACTION'=>'Action'),'Fee','Fees',$link);
 	}
 	
