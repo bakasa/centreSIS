@@ -39,6 +39,32 @@ else
 	}
 	else if (isset($_REQUEST['student_id']))
 	{
+		$studentId = $_REQUEST['student_id'];
+		
+		$query = "SELECT
+			  payment_id,
+			  amount,
+			  comment,
+		      payment_date AS payment_date,
+			  refunded,
+			  payment_type
+			  FROM
+			  BILLING_PAYMENT
+			  WHERE
+			  student_id = $studentId
+			  ORDER BY payment_id";
+
+		$trans_RET = DBGet(DBQuery($query));
+
+		$totalPayment = "0";
+		$total_RET = DBGet(DBQuery("SELECT SUM(amount) AS total_payment FROM BILLING_PAYMENT WHERE student_id = $studentId and refunded = 0;"));
+		
+		if (!empty($total_RET) && $total_RET[1]['TOTAL_PAYMENT'] != NULL)
+			$totalPayment = $total_RET[1]['TOTAL_PAYMENT'];
+			
+		$columns = array('AMOUNT'=>'Amount','PAYMENT_TYPE'=>'Type','PAYMENT_DATE'=>'Date','COMMENT'=>'Comment','ACTION'=>'Action');
+		
+		ListOutput($trans_RET,$columns,'payment','payments');
 	}
 	else
 	{
