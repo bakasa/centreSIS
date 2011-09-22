@@ -24,10 +24,6 @@ if ($_REQUEST['search_modfunc'] == 'list')
 }
 else
 {
-	/// if a fee has been deleted just display selected student list.
-	if ($_REQUEST['delete_ok'])
-		unset($_REQUEST['modfunc']);
-		
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
 		$title = "Add payment";
@@ -90,6 +86,23 @@ else
 	}
 	else if ($_REQUEST['modfunc'] == 'remove')
 	{
+		if (DeletePrompt('payment','refund'))
+		{
+			include 'modules/Billing/classes/Auth.php';
+			include 'modules/Billing/classes/Payment.php';
+
+			$auth = new Auth();
+			$staffId = User('STAFF_ID');
+			$profile = User('PROFILE');
+
+			if($auth->checkAdmin($profile, $staffId))
+			{
+				$Id = $_REQUEST['id'];
+				$username  = User('USERNAME');
+			
+				Payment::refundPayment($Id);
+			}
+		}
 	}
 	else if (isset($_REQUEST['student_id']))
 	{
