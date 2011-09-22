@@ -62,9 +62,16 @@ else
 		if (!empty($total_RET) && $total_RET[1]['TOTAL_PAYMENT'] != NULL)
 			$totalPayment = $total_RET[1]['TOTAL_PAYMENT'];
 			
+		/// Insert button to add new payments to the selected student.
+		$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail&student_id=$studentId\",
+			\"blank\",\"width=500,height=300\"); return false;'");
+		
+		$link['add']['html'] = array('AMOUNT'=>$buttonAdd,'PAYMENT_TYPE'=>'',
+			'PAYMENT_DATE'=>'','COMMENT'=>'','ACTION'=>'');
+			
 		$columns = array('AMOUNT'=>'Amount','PAYMENT_TYPE'=>'Type','PAYMENT_DATE'=>'Date','COMMENT'=>'Comment','ACTION'=>'Action');
 		
-		ListOutput($trans_RET,$columns,'payment','payments');
+		ListOutput($trans_RET,$columns,'payment','payments',$link);
 	}
 	else
 	{
