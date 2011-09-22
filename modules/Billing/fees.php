@@ -35,10 +35,9 @@ if ($_REQUEST['search_modfunc'] == 'list')
 }
 else
 {
-	/// if a fee has been deleted just display selected student list.
-	if ($_REQUEST['delete_ok'])
-		unset($_REQUEST['modfunc']);
-		
+	$displayList = false;
+	$displaySearch = false;
+			
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
 		$title = 'New Fee';
@@ -116,9 +115,16 @@ else
 			
 				Fee::waiveFee($feeId,$username);
 			}
+			
+			$displayList = true;
 		}
 	}
 	else if (isset($_REQUEST['student_id']))
+		$displayList = true;
+	else
+		$displaySearch = true;
+		
+	if ($displayList)
 	{
 		$studentId = $_REQUEST['student_id'];
 		
@@ -175,10 +181,9 @@ else
 		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','ASSIGNED_DATE'=>'Assigned Date',
 			'DUE_DATE'=>'Due Date','COMMENT'=>'Comment','ACTION'=>'Action'),'Fee','Fees',$link);
 	}
-	else
-	{
+	
+	if ($displaySearch)
 		Search('student_id');
-	}
 }
 
 ?>
