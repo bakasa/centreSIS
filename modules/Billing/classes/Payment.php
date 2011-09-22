@@ -29,7 +29,8 @@
 class Payment{
 
 	public static function refundPayment($id, $user){
-			$query = "UPDATE BILLING_PAYMENT SET refunded = 1, refund_date = current_timestamp, refund_by = $user WHERE payment_id = $id";
+			$query = "UPDATE BILLING_PAYMENT SET refunded = 1, refund_date = current_timestamp, refund_by = '$user' WHERE payment_id = $id";
+
 			if(DBQuery($query)){
 				return true;
 			}
