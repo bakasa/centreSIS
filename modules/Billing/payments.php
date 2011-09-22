@@ -116,6 +116,22 @@ else
 		if (!empty($total_RET) && $total_RET[1]['TOTAL_PAYMENT'] != NULL)
 			$totalPayment = $total_RET[1]['TOTAL_PAYMENT'];
 			
+		/// Add a new action column to display if the fee is reversed or display the option to reverse it.
+		foreach ($trans_RET as &$trans)
+		{
+			$action = "";
+			
+			if ($trans['REFUNDED'])
+				$action = '<b><font color=red>Refunded</font></b>';
+			else
+			{
+				$action = button('x','',
+					"# onclick=javascript:window.location='Modules.php?modname=$_REQUEST[modname]&modfunc=remove&student_id=$studentId&id=$trans[PAYMENT_ID]'");
+			}
+			
+			$trans['ACTION'] = $action;
+		}
+		
 		/// Insert button to add new payments to the selected student.
 		$buttonAdd = button('add','',"# onclick='javascript:window.open(\"Modules.php?modname=$_REQUEST[modname]&modfunc=detail&student_id=$studentId\",
 			\"blank\",\"width=500,height=300\"); return false;'");
