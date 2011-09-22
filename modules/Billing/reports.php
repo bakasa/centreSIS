@@ -211,17 +211,16 @@ if($TAB == 2){
 		$i++;
 	}
 	
-	if ($i > 1)
-	{
-		$transReport[$i]['STUDENT'] = '<b>TOTAL</b>';
-		$transReport[$i]['FEE'] = '<b>'.number_format($totalFee,2).'</b>';
-		$transReport[$i]['PAYMENT'] = '<b>'.number_format($totalPayment,2).'</b>';
-		$transReport[$i]['DATE'] = '<b>'.date('Y-m-d').'</b>';
-	}
+	/// Append total balance.
+	$link['add']['html'] = array('STUDENT'=>'<b>TOTAL</b>',
+		'FEE'=>'<b><center>'.number_format($totalFee,2).'</center></b>',
+		'PAYMENT'=>'<b><center>'.number_format($totalPayment,2).'</center></b>',
+		'DATE'=>'',
+		'COMMENT'=>'');
 	
 	echo '<p>';
 	ListOutput($transReport,array('STUDENT'=>'Student','FEE'=>'Fee','PAYMENT'=>'Payment','DATE'=>'Date','COMMENT'=>'Comment'),
-		'Transaction','Transactions',false,array(),array('center'=>true));
+		'Transaction','Transactions',($i > 1) ? $link : false);
 	echo '</p>';
 }
 else{
