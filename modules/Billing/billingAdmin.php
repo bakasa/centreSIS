@@ -29,6 +29,8 @@
 
 DrawHeader(ProgramTitle());
 
+$displayList = false;
+
 if (isset($_REQUEST['modfunc']))
 {
 	if ($_REQUEST['modfunc'] == 'detail')
@@ -68,9 +70,32 @@ if (isset($_REQUEST['modfunc']))
 	}
 	else if ($_REQUEST['modfunc'] == 'remove')
 	{
+		if (DeletePrompt('Payment option'))
+		{
+			/// TODO: SANATIZE INPUT AND CHECK IF ALL VALUES ARE SET & VALID
+			
+			require 'modules/Billing/classes/Auth.php';
+			require 'modules/Billing/classes/PaymentType.php';
+
+			$auth = new Auth();
+			$staffId = User('STAFF_ID');
+			$profile = User('PROFILE');
+
+			if($auth->checkAdmin($profile, $staffId))
+			{
+				$id = $_REQUEST['id'];
+
+				PaymentType::deleteType($id);
+			}
+	
+			$displayList = true;
+		}
 	}
 }
 else
+	$displayList = true;
+	
+if ($displayList)
 {
 	$type_RET = DBGet(DBQuery("SELECT type_id, type_desc as desc FROM BILLING_PAYMENT_TYPE ORDER BY type_desc"));
 
