@@ -341,7 +341,7 @@ if(!$_REQUEST['modfunc'])
 			$link['TITLE']['link'] = "Modules.php?modname=$_REQUEST[modname]&modfunc=$_REQUEST[modfunc]&mp_term=QTR&year_id=$_REQUEST[year_id]&semester_id=$_REQUEST[semester_id]";
 			$link['TITLE']['variables'] = array('marking_period_id'=>'MARKING_PERIOD_ID');
 			$link['add']['link'] = "Modules.php?modname=$_REQUEST[modname]&mp_term=QTR&marking_period_id=new&year_id=$_REQUEST[year_id]&semester_id=$_REQUEST[semester_id]";
-9
+
 			ListOutput($qtr_RET,$columns,_('Quarter'),_('Quarters'),$link,array(),$LO_options);
 			echo '</TD>';
 
