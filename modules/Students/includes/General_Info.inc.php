@@ -1,14 +1,7 @@
 <?php
 echo '<TABLE width=100% border=0 cellpadding=6>';
 echo '<TR>';
-// IMAGE
-if($_REQUEST['student_id']!='new' && $StudentPicturesPath && (($file = @fopen($picture_path=$StudentPicturesPath.UserSyear().'/'.UserStudentID().'.JPG','r')) || ($file = @fopen($picture_path=$StudentPicturesPath.(UserSyear()-1).'/'.UserStudentID().'.JPG','r'))))
-{
-	fclose($file);
-	echo '<TD width=150><IMG SRC="'.$picture_path.'" width=150></TD><TD valign=top>';
-}
-else
-	echo '<TD colspan=2>';
+echo '<TD colspan=2>';
 
 echo '<TABLE width=100% cellpadding=5><TR>';
 
@@ -83,6 +76,15 @@ echo NoInput(makeLogin($student['LAST_LOGIN']),_('Last Login'));
 echo '</TD>';
 
 echo '</TR></TABLE>';
+// IMAGE
+if($_REQUEST['student_id']!='new' && $StudentPicturesPath && (($file = @fopen($picture_path=$StudentPicturesPath.UserSyear().'/'.UserStudentID().'.JPG','r')) || ($file = @fopen($picture_path=$StudentPicturesPath.(UserSyear()-1).'/'.UserStudentID().'.JPG','r'))))
+{
+	fclose($file);
+	echo '<TD width=150><IMG SRC="'.$picture_path.'" width=150></TD><TD valign=top></TD>';
+}
+else
+	echo '<TD colspan=2></TD>';
+	
 echo '</TD></TR></TABLE>';
 
 echo '<HR>';
