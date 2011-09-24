@@ -120,7 +120,7 @@ if($_REQUEST['modfunc']!='delete')
 				echo '<TR id=selected_tr onmouseover="" onmouseout="" bgcolor="'.Preferences('HIGHLIGHT').'"; this.style.color="white";\'><TD width=20 align=right'.$style.'>'.(AllowEdit()&&$id>3?button('remove','',"Modules.php?modname=$_REQUEST[modname]&modfunc=delete&profile_id=$id",20):'').'</TD><TD '.$style.' onclick="document.location.href=\'Modules.php?modname='.$_REQUEST['modname'].'&profile_id='.$id.'\';">';
 			else
 				echo '<TR onmouseover=\'this.style.backgroundColor="'.Preferences('HIGHLIGHT').'"; this.style.color="white";\' onmouseout=\'this.style.cssText="background-color:transparent; color:black;";\'><TD width=20 align=right'.$style.'>'.(AllowEdit()&&$id>3?button('remove','',"Modules.php?modname=$_REQUEST[modname]&modfunc=delete&profile_id=$id",20):'').'</TD><TD'.$style.' onclick="document.location.href=\'Modules.php?modname='.$_REQUEST['modname'].'&profile_id='.$id.'\';">';
-			echo '<A style="cursor: pointer; cursor:hand;">'.($id>3?'':'<b>').'<small>'.$profile[1]['TITLE'].' &nbsp; </small>'.($id>3?'':'</b>').'</A>';
+			echo '<A style="cursor: pointer; cursor:hand;">'.($id>3?'':'<b>').'<small>'.$profile['']['TITLE'].' &nbsp; </small>'.($id>3?'':'</b>').'</A>';
 			echo '</TD>';
 			echo '<TD'.$style.'><A style="cursor: pointer; cursor:hand;"><IMG SRC=assets/arrow_right.gif></A></TD>';
 			echo '</TR>';
