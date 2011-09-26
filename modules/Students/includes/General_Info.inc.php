@@ -83,8 +83,20 @@ if($_REQUEST['student_id']!='new' && $StudentPicturesPath && (($file = @fopen($p
 	echo '<TD width=150><IMG SRC="'.$picture_path.'" width=150></TD><TD valign=top></TD>';
 }
 else
-	echo '<TD colspan=2></TD>';
-	
+{
+	if($_REQUEST['student_id']!='new')
+	{
+		echo '<TD><div align="center"><IMG SRC="assets/noimage.jpg?id='.rand(6,100000).'" width=144 class=pic>';
+		
+		if(User('PROFILE')=='admin' && User('PROFILE')!='student' && User('PROFILE')!='parent')
+			echo '<br><a href=Modules.php?modname=Students/Upload.php style="text-decoration:none"><b>Upload Student\'s Photo</b></a></div>';
+			
+		echo '</TD>';
+	}
+	else
+		echo '<TD colspan=2></TD>';
+}
+
 echo '</TD></TR></TABLE>';
 
 echo '<HR>';
