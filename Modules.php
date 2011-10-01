@@ -50,6 +50,12 @@ if($_REQUEST['modname'])
 			$allowed = true;
 			break;
 		}
+		else if ($_REQUEST['modname'] == 'Students/Upload.php')
+		{
+			$allowed = true;
+			break;
+		}
+		
 		foreach($programs as $program=>$title)
 		{
 			if($_REQUEST['modname']==$program)
