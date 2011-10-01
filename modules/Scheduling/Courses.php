@@ -354,7 +354,7 @@ if((!$_REQUEST['modfunc'] || $_REQUEST['modfunc']=='choose_course') && !$_REQUES
 			if($new==false && Preferences('HIDDEN')=='Y')
 				$header .= '<DIV id=days><div onclick=\'addHTML("';
 			$header .= '<TABLE><TR>';
-			$days = array(_('Su'),_('M'),_('T'),_('W'),_('Th'),_('F'),_('Sa'));
+			$days = array(_('Su'),_('Mo'),_('Tu'),_('We'),_('Th'),_('Fr'),_('Sa'));
 			foreach($days as $day)
 			{
 				if(strpos($RET['DAYS'],$day)!==false || ($new && $day!=_('Sa') && $day!=_('Su')))
