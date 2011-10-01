@@ -80,7 +80,12 @@ echo '</TR></TABLE>';
 if($_REQUEST['student_id']!='new' && $StudentPicturesPath && (($file = @fopen($picture_path=$StudentPicturesPath.UserSyear().'/'.UserStudentID().'.JPG','r')) || ($file = @fopen($picture_path=$StudentPicturesPath.(UserSyear()-1).'/'.UserStudentID().'.JPG','r'))))
 {
 	fclose($file);
-	echo '<TD width=150><IMG SRC="'.$picture_path.'" width=150></TD><TD valign=top></TD>';
+	echo '<TD><IMG SRC="'.$picture_path.'" width=150>';
+	
+	if(User('PROFILE')=='admin' && User('PROFILE')!='student' && User('PROFILE')!='parent')
+		echo '<br><a href=Modules.php?modname=Students/Upload.php style="text-decoration:none"><b>Upload Student\'s Photo</b></a></div>';
+			
+	echo '</TD><TD valign=top></TD>';
 }
 else
 {
