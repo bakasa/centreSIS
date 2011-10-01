@@ -205,8 +205,6 @@ if($_REQUEST['tables'] && $_POST['tables'] && AllowEdit())
 							$mp_title = GetMP($columns['MARKING_PERIOD_ID'],'SHORT_NAME').' - ';
 					}
 
-					if(strlen($columns['DAYS'])<5)
-						$mp_title .= $columns['DAYS'].' - ';
 					if($columns['SHORT_NAME'])
 						$mp_title .= $columns['SHORT_NAME'].' - ';
 					$title = str_replace("'","''",$period[1]['TITLE'].' - '.$mp_title.$teacher[1]['FIRST_NAME'].' '.$teacher[1]['MIDDLE_NAME'].' '.$teacher[1]['LAST_NAME']);
