@@ -2830,20 +2830,6 @@ INSERT INTO attendance_calendars (school_id, title, syear, calendar_id, default_
 -- Data for Name: attendance_codes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (1, 2007, 1, 'Absent', 'A', 'teacher', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (2, 2007, 1, 'Vacation', 'V', 'official', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (3, 2007, 1, 'Present', 'P', 'teacher', 'P', 'Y', 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (4, 2007, 1, 'Tardy', 'T', 'teacher', 'P', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (5, 2007, 1, 'Less than 5 minutes late', 'L', 'teacher', 'P', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (6, 2007, 1, 'Excused Absence', 'E', 'official', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (7, 2007, 1, 'Sick', 'S', 'official', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (8, 2008, 1, 'Absent', 'A', 'teacher', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (9, 2008, 1, 'Vacation', 'V', 'official', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (10, 2008, 1, 'Present', 'P', 'teacher', 'P', 'Y', 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (11, 2008, 1, 'Tardy', 'T', 'teacher', 'P', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (12, 2008, 1, 'Less than 5 minutes late', 'L', 'teacher', 'P', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (13, 2008, 1, 'Excused Absence', 'E', 'official', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (14, 2008, 1, 'Sick', 'S', 'official', 'A', NULL, 0, NULL);
 INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (15, 2009, 1, 'Absent', 'A', 'teacher', 'A', NULL, 0, NULL);
 INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (16, 2009, 1, 'Vacation', 'V', 'official', 'A', NULL, 0, NULL);
 INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (17, 2009, 1, 'Present', 'P', 'teacher', 'P', 'Y', 0, NULL);
@@ -2967,12 +2953,6 @@ INSERT INTO custom_fields (id, "type", search, title, sort_order, select_options
 -- Data for Name: eligibility_activities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (1, 2007, 1, 'Boy''s Basketball', '2008-01-01', '2008-04-14');
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (2, 2007, 1, 'Chess Team', '2007-09-01', '2008-06-04');
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (3, 2007, 1, 'Girl''s Basketball', '2008-01-01', '2008-04-15');
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (4, 2008, 1, 'Boy''s Basketball', '2008-01-01', '2008-04-14');
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (5, 2008, 1, 'Chess Team', '2007-09-01', '2008-06-04');
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (6, 2008, 1, 'Girl''s Basketball', '2008-01-01', '2008-04-15');
 INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (7, 2009, 1, 'Boy''s Basketball', '2008-01-01', '2008-04-14');
 INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (8, 2009, 1, 'Chess Team', '2007-09-01', '2008-06-04');
 INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (9, 2009, 1, 'Girl''s Basketball', '2008-01-01', '2008-04-15');
@@ -3386,12 +3366,6 @@ INSERT INTO program_config (syear, school_id, program, title, value) VALUES (200
 -- Data for Name: report_card_comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (1, 2007, 1, NULL, NULL, NULL, 1, 'Fails to Meet Course Requirements');
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (2, 2007, 1, NULL, NULL, NULL, 2, 'Comes to Class Unprepared');
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (3, 2007, 1, NULL, NULL, NULL, 3, 'Exerts Positive Influence in Class');
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (4, 2008, 1, NULL, NULL, NULL, 1, 'Fails to Meet Course Requirements');
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (5, 2008, 1, NULL, NULL, NULL, 2, 'Comes to Class Unprepared');
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (6, 2008, 1, NULL, NULL, NULL, 3, 'Exerts Positive Influence in Class');
 INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (7, 2009, 1, NULL, NULL, NULL, 1, 'Fails to Meet Course Requirements');
 INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (8, 2009, 1, NULL, NULL, NULL, 2, 'Comes to Class Unprepared');
 INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (9, 2009, 1, NULL, NULL, NULL, 3, 'Exerts Positive Influence in Class');
@@ -3401,8 +3375,6 @@ INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, 
 -- Data for Name: report_card_grade_scales; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO report_card_grade_scales (id, syear, school_id, title, "comment", hhr_gpa_value, hr_gpa_value, sort_order, rollover_id, gp_scale) VALUES (3, 2008, 1, 'Main', NULL, NULL, NULL, 1, 2, NULL);
-INSERT INTO report_card_grade_scales (id, syear, school_id, title, "comment", hhr_gpa_value, hr_gpa_value, sort_order, rollover_id, gp_scale) VALUES (2, 2007, 1, 'Main', NULL, NULL, NULL, 1, NULL, 4.000);
 INSERT INTO report_card_grade_scales (id, syear, school_id, title, "comment", hhr_gpa_value, hr_gpa_value, sort_order, rollover_id, gp_scale) VALUES (4, 2009, 1, 'Main', NULL, NULL, NULL, 1, 3, NULL);
 
 
