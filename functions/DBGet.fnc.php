@@ -28,6 +28,7 @@ function DBGet($QI,$functions=array(),$index=array())
 	$tmp_THIS_RET = $THIS_RET;
 
 	$s = 0;
+	$tmp = array();
 	$results = array();
 	while($RET=db_fetch_row($QI))
 	{
@@ -38,7 +39,10 @@ function DBGet($QI,$functions=array(),$index=array())
 			$ind = '';
 			foreach($index as $col)
 				$ind .= "['".str_replace("'","\'",$THIS_RET[$col])."']";
-			eval('$s'.$ind.'++;$this_ind=$s'.$ind.';');
+			
+			$entry = '$tmp'.$ind;
+			
+			eval('(isset('.$entry.')) ? '.$entry.'++ : '.$entry.'=1;$this_ind='.$entry.';');
 		}
 		else
 			$s++; // 1-based if no index specified
