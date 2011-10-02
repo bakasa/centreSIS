@@ -31,7 +31,7 @@ function Preferences($item='',$program='Preferences')
 
 	if(isset($_SESSION['STAFF_ID']) && !$_CENTRE['Preferences'][$program])
 	{
-        $QI = DBQuery("SELECT TITLE,VALUE FROM PROGRAM_USER_CONFIG WHERE USER_ID='".$_SESSION['STAFF_ID']."' AND PROGRAM='".$program."'");
+        $QI = DBQuery("SELECT TITLE,VALUE FROM PROGRAM_USER_CONFIG WHERE USER_ID='".User('STAFF_ID')."' AND PROGRAM='".$program."'");
 		$_CENTRE['Preferences'][$program] = DBGet($QI,array(),array('TITLE'));
 	}
 	if($item=='')
@@ -60,7 +60,7 @@ function Preferences($item='',$program='Preferences')
 
 	if(isset($_SESSION['STAFF_ID']) && User('PROFILE')=='parent' || isset($_SESSION['STUDENT_ID']))
 		$_CENTRE['Preferences'][$program]['SEARCH'][1]['VALUE'] = 'N';
-
+	
 	return $_CENTRE['Preferences'][$program][$item][1]['VALUE'];
 }
 ?>
