@@ -853,7 +853,7 @@ CREATE TABLE eligibility_completed (
 CREATE TABLE school_gradelevels (
     id numeric NOT NULL,
     school_id numeric NOT NULL,
-    short_name character varying(2),
+    short_name character varying(3),
     title character varying(50),
     next_grade_id numeric,
     sort_order numeric

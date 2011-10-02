@@ -77,7 +77,7 @@ function makeTextInput($value,$name)
 		$id = 'new';
 	
 	if($name!='TITLE')
-		$extra = 'size=5 maxlength=2';
+		$extra = 'size=5 maxlength=3';
 	if($name=='SORT_ORDER')
 		$comment = '<!-- '.$value.' -->';
 
