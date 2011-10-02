@@ -31,7 +31,7 @@ if(!defined('CONFIG_INC'))
 	$CentreAdmins = '1';			// can be list such as '1,23,50' - note, these should be id's in the DefaultSyear,
 							// otherwise they can't login anyway
 	$CentreNotifyAddress = 'soporte@multilink.com.ve';
-	$DefaultSyear = '2009';
+	$DefaultSyear = '2011';
 	$CentreLocales = array('es_VE.utf8','en_US');	// Add other languages you want to support here, ex: 'fr_FR', 'es_ES', 'it_IT', ...
 						// Language packs can be obtained by sending an email to info@centresis.org
 	$LocalePath = $CentrePath.'locale'; // Path were the language packs are stored. You need to restart Apache at each change in this directory

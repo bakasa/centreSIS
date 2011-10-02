@@ -2605,219 +2605,219 @@ INSERT INTO address (address_id, house_no, fraction, letter, direction, street, 
 -- Data for Name: attendance_calendar; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-08-21', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-08-24', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-08-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-08-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-08-27', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-08-28', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-08-31', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-03', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-04', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-07', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-08', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-09', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-10', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-11', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-14', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-15', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-16', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-17', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-18', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-21', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-22', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-23', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-24', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-28', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-29', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-09-30', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-05', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-06', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-07', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-08', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-09', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-12', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-13', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-14', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-15', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-16', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-19', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-20', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-21', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-22', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-23', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-27', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-28', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-29', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-10-30', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-03', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-04', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-05', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-06', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-09', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-10', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-11', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-12', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-13', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-16', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-17', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-18', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-19', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-20', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-23', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-24', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-27', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-11-30', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-03', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-04', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-07', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-08', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-09', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-10', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-11', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-14', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-15', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-16', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-17', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-18', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-21', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-22', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-23', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-24', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-28', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-29', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-30', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2009-12-31', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-04', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-05', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-06', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-07', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-08', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-11', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-12', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-13', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-14', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-15', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-18', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-19', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-20', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-21', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-22', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-27', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-28', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-01-29', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-03', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-04', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-05', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-08', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-09', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-10', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-11', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-12', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-15', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-16', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-17', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-18', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-19', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-22', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-23', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-24', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-02-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-03', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-04', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-05', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-08', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-09', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-10', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-11', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-12', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-15', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-16', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-17', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-18', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-19', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-22', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-23', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-24', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-29', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-30', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-03-31', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-05', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-06', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-07', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-08', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-09', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-12', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-13', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-14', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-15', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-16', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-19', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-20', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-21', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-22', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-23', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-27', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-28', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-29', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-04-30', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-03', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-04', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-05', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-06', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-07', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-10', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-11', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-12', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-13', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-14', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-17', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-18', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-19', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-20', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-21', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-24', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-25', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-26', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-27', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-28', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-05-31', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-06-01', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-06-02', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-06-03', 999, NULL, 1);
-INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2009, 1, '2010-06-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-08-21', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-08-24', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-08-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-08-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-08-27', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-08-28', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-08-31', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-03', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-07', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-08', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-09', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-10', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-11', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-14', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-15', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-16', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-17', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-18', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-21', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-22', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-23', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-24', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-28', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-29', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-09-30', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-05', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-06', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-07', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-08', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-09', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-12', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-13', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-14', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-15', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-16', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-19', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-20', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-21', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-22', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-23', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-27', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-28', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-29', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-10-30', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-03', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-05', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-06', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-09', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-10', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-11', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-12', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-13', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-16', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-17', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-18', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-19', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-20', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-23', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-24', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-27', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-11-30', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-03', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-07', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-08', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-09', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-10', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-11', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-14', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-15', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-16', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-17', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-18', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-21', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-22', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-23', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-24', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-28', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-29', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-30', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2011-12-31', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-05', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-06', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-07', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-08', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-11', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-12', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-13', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-14', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-15', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-18', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-19', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-20', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-21', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-22', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-27', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-28', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-01-29', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-03', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-05', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-08', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-09', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-10', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-11', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-12', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-15', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-16', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-17', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-18', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-19', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-22', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-23', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-24', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-02-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-03', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-05', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-08', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-09', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-10', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-11', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-12', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-15', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-16', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-17', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-18', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-19', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-22', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-23', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-24', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-29', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-30', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-03-31', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-05', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-06', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-07', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-08', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-09', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-12', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-13', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-14', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-15', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-16', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-19', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-20', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-21', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-22', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-23', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-27', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-28', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-29', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-04-30', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-03', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-04', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-05', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-06', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-07', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-10', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-11', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-12', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-13', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-14', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-17', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-18', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-19', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-20', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-21', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-24', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-25', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-26', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-27', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-28', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-05-31', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-06-01', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-06-02', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-06-03', 999, NULL, 1);
+INSERT INTO attendance_calendar (syear, school_id, school_date, minutes, block, calendar_id) VALUES (2011, 1, '2012-06-04', 999, NULL, 1);
 
 
 --
 -- Data for Name: attendance_calendars; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO attendance_calendars (school_id, title, syear, calendar_id, default_calendar, rollover_id) VALUES (1, 'Main', 2009, 1, 'Y', NULL);
+INSERT INTO attendance_calendars (school_id, title, syear, calendar_id, default_calendar, rollover_id) VALUES (1, 'Main', 2011, 1, 'Y', NULL);
 
 
 --
@@ -2830,13 +2830,13 @@ INSERT INTO attendance_calendars (school_id, title, syear, calendar_id, default_
 -- Data for Name: attendance_codes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (15, 2009, 1, 'Absent', 'A', 'teacher', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (16, 2009, 1, 'Vacation', 'V', 'official', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (17, 2009, 1, 'Present', 'P', 'teacher', 'P', 'Y', 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (18, 2009, 1, 'Tardy', 'T', 'teacher', 'P', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (19, 2009, 1, 'Less than 5 minutes late', 'L', 'teacher', 'P', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (20, 2009, 1, 'Excused Absence', 'E', 'official', 'A', NULL, 0, NULL);
-INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (21, 2009, 1, 'Sick', 'S', 'official', 'A', NULL, 0, NULL);
+INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (15, 2011, 1, 'Absent', 'A', 'teacher', 'A', NULL, 0, NULL);
+INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (16, 2011, 1, 'Vacation', 'V', 'official', 'A', NULL, 0, NULL);
+INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (17, 2011, 1, 'Present', 'P', 'teacher', 'P', 'Y', 0, NULL);
+INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (18, 2011, 1, 'Tardy', 'T', 'teacher', 'P', NULL, 0, NULL);
+INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (19, 2011, 1, 'Less than 5 minutes late', 'L', 'teacher', 'P', NULL, 0, NULL);
+INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (20, 2011, 1, 'Excused Absence', 'E', 'official', 'A', NULL, 0, NULL);
+INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", state_code, default_code, table_name, sort_order) VALUES (21, 2011, 1, 'Sick', 'S', 'official', 'A', NULL, 0, NULL);
 
 
 --
@@ -2861,37 +2861,37 @@ INSERT INTO attendance_codes (id, syear, school_id, title, short_name, "type", s
 -- Data for Name: calendar_events; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (1, 2007, 1, '2008-04-07', 'No School', 'Spring break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (2, 2007, 1, '2008-04-08', 'No School', 'Spring break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (3, 2007, 1, '2008-04-09', 'No School', 'Spring break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (4, 2007, 1, '2008-04-10', 'No School', 'Spring break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (5, 2007, 1, '2008-04-11', 'No School', 'Spring break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (6, 2007, 1, '2008-05-02', 'Early Dismissal', 'Staff development');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (7, 2007, 1, '2008-06-05', 'Last Day Of School', 'Unless snow days are needed');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (8, 2007, 1, '2007-12-24', 'No School', 'Christmas break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (9, 2007, 1, '2007-12-25', 'No School', 'Merry Christmas!');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (10, 2007, 1, '2007-12-26', 'No School', 'Christmas break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (11, 2007, 1, '2007-12-27', 'No School', 'Christmas break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (12, 2007, 1, '2007-12-28', 'No School', 'Christmas break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (13, 2007, 1, '2007-12-31', 'No School', 'Christmas break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (14, 2007, 1, '2008-01-01', 'No School', 'Christmas break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (15, 2007, 1, '2007-08-31', 'Early Dismissal', 'Staff development');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (16, 2007, 1, '2007-09-03', 'No School', 'Labor Day');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (17, 2007, 1, '2007-11-21', 'Early Dismissal', 'Thanksgiving break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (18, 2007, 1, '2007-11-22', 'No School', 'Happy Thanksgiving!');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (19, 2007, 1, '2007-11-23', 'No School', 'Thanksgiving break');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (20, 2007, 1, '2008-01-21', 'Early Dismissal', 'Martin Luther King');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (21, 2007, 1, '2008-02-15', 'Early Dismissal', 'Staff development');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (22, 2007, 1, '2008-02-18', 'No School', 'President''s Day');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (23, 2007, 1, '2008-03-21', 'Early Dismissal', 'Good Friday');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (24, 2007, 1, '2008-03-24', 'No School', 'Easter Monday');
-INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (25, 2007, 1, '2008-03-23', 'Easter', 'Happy Easter!');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (1, 2011, 1, '2011-04-07', 'No School', 'Spring break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (2, 2011, 1, '2011-04-08', 'No School', 'Spring break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (3, 2011, 1, '2011-04-09', 'No School', 'Spring break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (4, 2011, 1, '2011-04-10', 'No School', 'Spring break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (5, 2011, 1, '2011-04-11', 'No School', 'Spring break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (6, 2011, 1, '2011-05-02', 'Early Dismissal', 'Staff development');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (7, 2011, 1, '2011-06-05', 'Last Day Of School', 'Unless snow days are needed');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (8, 2011, 1, '2011-12-24', 'No School', 'Christmas break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (9, 2011, 1, '2011-12-25', 'No School', 'Merry Christmas!');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (10, 2011, 1, '2011-12-26', 'No School', 'Christmas break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (11, 2011, 1, '2011-12-27', 'No School', 'Christmas break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (12, 2011, 1, '2011-12-28', 'No School', 'Christmas break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (13, 2011, 1, '2011-12-31', 'No School', 'Christmas break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (14, 2011, 1, '2011-01-01', 'No School', 'Christmas break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (15, 2011, 1, '2011-08-31', 'Early Dismissal', 'Staff development');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (16, 2011, 1, '2011-09-03', 'No School', 'Labor Day');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (17, 2011, 1, '2011-11-21', 'Early Dismissal', 'Thanksgiving break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (18, 2011, 1, '2011-11-22', 'No School', 'Happy Thanksgiving!');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (19, 2011, 1, '2011-11-23', 'No School', 'Thanksgiving break');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (20, 2011, 1, '2011-01-21', 'Early Dismissal', 'Martin Luther King');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (21, 2011, 1, '2011-02-15', 'Early Dismissal', 'Staff development');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (22, 2011, 1, '2011-02-18', 'No School', 'President''s Day');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (23, 2011, 1, '2011-03-21', 'Early Dismissal', 'Good Friday');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (24, 2011, 1, '2011-03-24', 'No School', 'Easter Monday');
+INSERT INTO calendar_events (id, syear, school_id, school_date, title, description) VALUES (25, 2011, 1, '2011-03-23', 'Easter', 'Happy Easter!');
 
 
 --
 -- Data for Name: config; Type: TABLE DATA; Schema: public; Owner: postgres
 --
-INSERT INTO config (title, syear, login) VALUES ('Centre School Software', 2009, 'No');
+INSERT INTO config (title, syear, login) VALUES ('Centre School Software', 2011, 'No');
 
 
 --
@@ -2953,9 +2953,9 @@ INSERT INTO custom_fields (id, "type", search, title, sort_order, select_options
 -- Data for Name: eligibility_activities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (7, 2009, 1, 'Boy''s Basketball', '2008-01-01', '2008-04-14');
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (8, 2009, 1, 'Chess Team', '2007-09-01', '2008-06-04');
-INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (9, 2009, 1, 'Girl''s Basketball', '2008-01-01', '2008-04-15');
+INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (7, 2011, 1, 'Boy''s Basketball', '2011-01-01', '2011-04-14');
+INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (8, 2011, 1, 'Chess Team', '2011-09-01', '2011-06-04');
+INSERT INTO eligibility_activities (id, syear, school_id, title, start_date, end_date) VALUES (9, 2011, 1, 'Girl''s Basketball', '2011-01-01', '2011-04-15');
 
 
 --
@@ -3328,14 +3328,14 @@ INSERT INTO profile_exceptions (profile_id, modname, can_use, can_edit) VALUES (
 -- Data for Name: program_config; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'START_DAY', '1');
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'START_HOUR', '23');
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'START_MINUTE', '30');
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'START_M', 'PM');
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'END_DAY', '5');
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'END_HOUR', '23');
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'END_MINUTE', '30');
-INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2009, 1, 'eligibility', 'END_M', 'PM');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'START_DAY', '1');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'START_HOUR', '23');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'START_MINUTE', '30');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'START_M', 'PM');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'END_DAY', '5');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'END_HOUR', '23');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'END_MINUTE', '30');
+INSERT INTO program_config (syear, school_id, program, title, value) VALUES (2011, 1, 'eligibility', 'END_M', 'PM');
 
 
 --
@@ -3366,37 +3366,37 @@ INSERT INTO program_config (syear, school_id, program, title, value) VALUES (200
 -- Data for Name: report_card_comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (7, 2009, 1, NULL, NULL, NULL, 1, 'Fails to Meet Course Requirements');
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (8, 2009, 1, NULL, NULL, NULL, 2, 'Comes to Class Unprepared');
-INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (9, 2009, 1, NULL, NULL, NULL, 3, 'Exerts Positive Influence in Class');
+INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (7, 2011, 1, NULL, NULL, NULL, 1, 'Fails to Meet Course Requirements');
+INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (8, 2011, 1, NULL, NULL, NULL, 2, 'Comes to Class Unprepared');
+INSERT INTO report_card_comments (id, syear, school_id, course_id, category_id, scale_id, sort_order, title) VALUES (9, 2011, 1, NULL, NULL, NULL, 3, 'Exerts Positive Influence in Class');
 
 
 --
 -- Data for Name: report_card_grade_scales; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO report_card_grade_scales (id, syear, school_id, title, "comment", hhr_gpa_value, hr_gpa_value, sort_order, rollover_id, gp_scale) VALUES (4, 2009, 1, 'Main', NULL, NULL, NULL, 1, 3, NULL);
+INSERT INTO report_card_grade_scales (id, syear, school_id, title, "comment", hhr_gpa_value, hr_gpa_value, sort_order, rollover_id, gp_scale) VALUES (4, 2011, 1, 'Main', NULL, NULL, NULL, 1, 3, NULL);
 
 
 --
 -- Data for Name: report_card_grades; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (31, 2009, 1, 'A+', 1, 12.00, 97, 'Consistently superior', 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (32, 2009, 1, 'A', 2, 11.00, 93, 'Superior', 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (33, 2009, 1, 'A-', 3, 10.00, 90, NULL, 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (34, 2009, 1, 'B+', 4, 9.00, 87, NULL, 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (35, 2009, 1, 'B', 5, 8.00, 83, 'Above average', 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (36, 2009, 1, 'B-', 6, 7.00, 80, NULL, 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (37, 2009, 1, 'C+', 7, 6.00, 77, NULL, 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (38, 2009, 1, 'C', 8, 5.00, 73, 'Average', 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (39, 2009, 1, 'C-', 9, 4.00, 70, NULL, 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (40, 2009, 1, 'D+', 10, 3.00, 67, NULL, 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (41, 2009, 1, 'D', 11, 2.00, 63, 'Below average', 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (42, 2009, 1, 'D-', 12, 1.00, 60, NULL, 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (43, 2009, 1, 'F', 13, 0.00, 0, 'Failing', 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (44, 2009, 1, 'I', 14, 0.00, 0, 'Incomplete', 4, NULL);
-INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (45, 2009, 1, 'N/A', 15, 0.00, NULL, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (31, 2011, 1, 'A+', 1, 12.00, 97, 'Consistently superior', 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (32, 2011, 1, 'A', 2, 11.00, 93, 'Superior', 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (33, 2011, 1, 'A-', 3, 10.00, 90, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (34, 2011, 1, 'B+', 4, 9.00, 87, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (35, 2011, 1, 'B', 5, 8.00, 83, 'Above average', 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (36, 2011, 1, 'B-', 6, 7.00, 80, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (37, 2011, 1, 'C+', 7, 6.00, 77, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (38, 2011, 1, 'C', 8, 5.00, 73, 'Average', 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (39, 2011, 1, 'C-', 9, 4.00, 70, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (40, 2011, 1, 'D+', 10, 3.00, 67, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (41, 2011, 1, 'D', 11, 2.00, 63, 'Below average', 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (42, 2011, 1, 'D-', 12, 1.00, 60, NULL, 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (43, 2011, 1, 'F', 13, 0.00, 0, 'Failing', 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (44, 2011, 1, 'I', 14, 0.00, 0, 'Incomplete', 4, NULL);
+INSERT INTO report_card_grades (id, syear, school_id, title, sort_order, gpa_value, break_off, "comment", grade_scale_id, unweighted_gp) VALUES (45, 2011, 1, 'N/A', 15, 0.00, NULL, NULL, 4, NULL);
 
 
 --
@@ -3430,50 +3430,50 @@ INSERT INTO school_gradelevels (id, school_id, short_name, title, next_grade_id,
 -- Data for Name: school_marking_periods; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (23, 2009, 'FY', 1, NULL, 'Full Year', 'FY', 1, '2009-08-21', '2010-06-05', NULL, NULL, NULL, NULL, NULL, 12);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (24, 2009, 'SEM', 1, 23, 'Semester 1', 'S1', 1, '2009-08-21', '2010-01-06', '2010-01-05', '2010-01-06', NULL, NULL, NULL, 13);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (25, 2009, 'SEM', 1, 23, 'Semester 2', 'S2', 2, '2010-01-07', '2010-06-05', '2010-06-04', '2010-06-05', NULL, NULL, NULL, 14);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (26, 2009, 'QTR', 1, 24, 'Quarter 1', 'Q1', 1, '2009-08-21', '2009-10-10', '2009-10-09', '2009-10-10', 'Y', NULL, 'Y', 15);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (27, 2009, 'QTR', 1, 24, 'Quarter 2', 'Q2', 2, '2009-10-11', '2010-01-06', '2010-01-05', '2010-01-06', 'Y', NULL, 'Y', 16);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (28, 2009, 'QTR', 1, 25, 'Quarter 3', 'Q3', 3, '2010-01-07', '2010-03-10', '2010-03-09', '2010-03-10', 'Y', NULL, 'Y', 17);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (29, 2009, 'QTR', 1, 25, 'Quarter 4', 'Q4', 4, '2010-03-11', '2010-06-05', '2010-06-06', '2010-06-05', 'Y', NULL, 'Y', 18);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (30, 2009, 'PRO', 1, 26, 'Midterm 1', 'M1', 1, '2009-08-21', '2009-09-21', '2009-09-20', '2009-09-21', 'Y', NULL, NULL, 19);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (31, 2009, 'PRO', 1, 27, 'Midterm 2', 'M2', 2, '2009-10-11', '2009-11-11', '2009-11-10', '2009-11-11', 'Y', NULL, NULL, 20);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (32, 2009, 'PRO', 1, 28, 'Midterm 3', 'M3', 3, '2010-01-07', '2010-02-07', '2010-02-06', '2010-02-07', 'Y', NULL, NULL, 21);
-INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (33, 2009, 'PRO', 1, 29, 'Midterm 4', 'M4', 4, '2010-03-11', '2010-04-11', '2010-04-10', '2010-04-11', 'Y', NULL, NULL, 22);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (23, 2011, 'FY', 1, NULL, 'Full Year', 'FY', 1, '2011-08-21', '2012-06-05', NULL, NULL, NULL, NULL, NULL, 12);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (24, 2011, 'SEM', 1, 23, 'Semester 1', 'S1', 1, '2011-08-21', '2012-01-06', '2012-01-05', '2012-01-06', NULL, NULL, NULL, 13);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (25, 2011, 'SEM', 1, 23, 'Semester 2', 'S2', 2, '2012-01-07', '2012-06-05', '2012-06-04', '2012-06-05', NULL, NULL, NULL, 14);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (26, 2011, 'QTR', 1, 24, 'Quarter 1', 'Q1', 1, '2011-08-21', '2011-10-10', '2011-10-09', '2011-10-10', 'Y', NULL, 'Y', 15);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (27, 2011, 'QTR', 1, 24, 'Quarter 2', 'Q2', 2, '2011-10-11', '2012-01-06', '2012-01-05', '2012-01-06', 'Y', NULL, 'Y', 16);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (28, 2011, 'QTR', 1, 25, 'Quarter 3', 'Q3', 3, '2012-01-07', '2012-03-10', '2012-03-09', '2012-03-10', 'Y', NULL, 'Y', 17);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (29, 2011, 'QTR', 1, 25, 'Quarter 4', 'Q4', 4, '2012-03-11', '2012-06-05', '2012-06-06', '2012-06-05', 'Y', NULL, 'Y', 18);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (30, 2011, 'PRO', 1, 26, 'Midterm 1', 'M1', 1, '2011-08-21', '2011-09-21', '2011-09-20', '2011-09-21', 'Y', NULL, NULL, 19);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (31, 2011, 'PRO', 1, 27, 'Midterm 2', 'M2', 2, '2011-10-11', '2011-11-11', '2011-11-10', '2011-11-11', 'Y', NULL, NULL, 20);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (32, 2011, 'PRO', 1, 28, 'Midterm 3', 'M3', 3, '2012-01-07', '2012-02-07', '2012-02-06', '2012-02-07', 'Y', NULL, NULL, 21);
+INSERT INTO school_marking_periods (marking_period_id, syear, mp, school_id, parent_id, title, short_name, sort_order, start_date, end_date, post_start_date, post_end_date, does_grades, does_exam, does_comments, rollover_id) VALUES (33, 2011, 'PRO', 1, 29, 'Midterm 4', 'M4', 4, '2012-03-11', '2012-04-11', '2012-04-10', '2012-04-11', 'Y', NULL, NULL, 22);
 
 
 --
 -- Data for Name: school_periods; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (23, 2009, 1, 1, 'Full Day', 'FD', 300, NULL, NULL, NULL, 'Y', 12);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (24, 2009, 1, 2, 'Half Day AM', 'AM', 150, NULL, NULL, NULL, 'Y', 13);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (25, 2009, 1, 3, 'Half Day PM', 'PM', 150, NULL, NULL, NULL, 'Y', 14);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (26, 2009, 1, 4, 'Period 1', '01', 0, NULL, NULL, NULL, NULL, 15);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (27, 2009, 1, 5, 'Period 2', '02', 0, NULL, NULL, NULL, NULL, 16);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (28, 2009, 1, 6, 'Period 3', '03', 0, NULL, NULL, NULL, NULL, 17);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (29, 2009, 1, 7, 'Period 4', '04', 0, NULL, NULL, NULL, NULL, 18);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (30, 2009, 1, 8, 'Period 5', '05', 0, NULL, NULL, NULL, NULL, 19);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (31, 2009, 1, 9, 'Period 6', '06', 0, NULL, NULL, NULL, NULL, 20);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (32, 2009, 1, 10, 'Period 7', '07', 0, NULL, NULL, NULL, NULL, 21);
-INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (33, 2009, 1, 11, 'Period 8', '08', 0, NULL, NULL, NULL, NULL, 22);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (23, 2011, 1, 1, 'Full Day', 'FD', 300, NULL, NULL, NULL, 'Y', 12);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (24, 2011, 1, 2, 'Half Day AM', 'AM', 150, NULL, NULL, NULL, 'Y', 13);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (25, 2011, 1, 3, 'Half Day PM', 'PM', 150, NULL, NULL, NULL, 'Y', 14);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (26, 2011, 1, 4, 'Period 1', '01', 0, NULL, NULL, NULL, NULL, 15);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (27, 2011, 1, 5, 'Period 2', '02', 0, NULL, NULL, NULL, NULL, 16);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (28, 2011, 1, 6, 'Period 3', '03', 0, NULL, NULL, NULL, NULL, 17);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (29, 2011, 1, 7, 'Period 4', '04', 0, NULL, NULL, NULL, NULL, 18);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (30, 2011, 1, 8, 'Period 5', '05', 0, NULL, NULL, NULL, NULL, 19);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (31, 2011, 1, 9, 'Period 6', '06', 0, NULL, NULL, NULL, NULL, 20);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (32, 2011, 1, 10, 'Period 7', '07', 0, NULL, NULL, NULL, NULL, 21);
+INSERT INTO school_periods (period_id, syear, school_id, sort_order, title, short_name, length, start_time, end_time, block, attendance, rollover_id) VALUES (33, 2011, 1, 11, 'Period 8', '08', 0, NULL, NULL, NULL, NULL, 22);
 
 
 --
 -- Data for Name: schools; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO schools (syear, id, title, address, city, state, zipcode, phone, principal, www_address, school_number, short_name, reporting_gp_scale) VALUES (2009, 1, 'Default School', '500 S. Street St.', 'Springfield', 'IL', '62704', NULL, 'Mr. Principal', 'www.centresis.org', NULL, NULL, NULL);
+INSERT INTO schools (syear, id, title, address, city, state, zipcode, phone, principal, www_address, school_number, short_name, reporting_gp_scale) VALUES (2011, 1, 'Default School', '500 S. Street St.', 'Springfield', 'IL', '62704', NULL, 'Mr. Principal', 'www.centresis.org', NULL, NULL, NULL);
 
 
 --
 -- Data for Name: staff; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO staff (syear, staff_id, current_school_id, title, first_name, last_name, middle_name, name_suffix, username, "password", phone, email, profile, homeroom, schools, last_login, failed_login, profile_id, rollover_id) VALUES (2009, 2, NULL, NULL, 'Teach', 'Teacher', 'T', NULL, 'teacher', 'teacher', NULL, NULL, 'teacher', NULL, NULL, NULL, NULL, 2, NULL);
-INSERT INTO staff (syear, staff_id, current_school_id, title, first_name, last_name, middle_name, name_suffix, username, "password", phone, email, profile, homeroom, schools, last_login, failed_login, profile_id, rollover_id) VALUES (2009, 3, NULL, NULL, 'Parent', 'Parent', 'P', NULL, 'parent', 'parent', NULL, NULL, 'parent', NULL, NULL, NULL, NULL, 3, NULL);
-INSERT INTO staff (syear, staff_id, current_school_id, title, first_name, last_name, middle_name, name_suffix, username, "password", phone, email, profile, homeroom, schools, last_login, failed_login, profile_id, rollover_id) VALUES (2009, 1, 1, NULL, 'Admin', 'Administrator', 'A', NULL, 'admin', 'admin', NULL, NULL, 'admin', NULL, NULL, '2009-09-15 20:09:55', NULL, 1, NULL);
+INSERT INTO staff (syear, staff_id, current_school_id, title, first_name, last_name, middle_name, name_suffix, username, "password", phone, email, profile, homeroom, schools, last_login, failed_login, profile_id, rollover_id) VALUES (2011, 2, NULL, NULL, 'Teach', 'Teacher', 'T', NULL, 'teacher', 'teacher', NULL, NULL, 'teacher', NULL, NULL, NULL, NULL, 2, NULL);
+INSERT INTO staff (syear, staff_id, current_school_id, title, first_name, last_name, middle_name, name_suffix, username, "password", phone, email, profile, homeroom, schools, last_login, failed_login, profile_id, rollover_id) VALUES (2011, 3, NULL, NULL, 'Parent', 'Parent', 'P', NULL, 'parent', 'parent', NULL, NULL, 'parent', NULL, NULL, NULL, NULL, 3, NULL);
+INSERT INTO staff (syear, staff_id, current_school_id, title, first_name, last_name, middle_name, name_suffix, username, "password", phone, email, profile, homeroom, schools, last_login, failed_login, profile_id, rollover_id) VALUES (2011, 1, 1, NULL, 'Admin', 'Administrator', 'A', NULL, 'admin', 'admin', NULL, NULL, 'admin', NULL, NULL, '2011-09-15 20:09:55', NULL, 1, NULL);
 
 
 --
@@ -3814,19 +3814,19 @@ INSERT INTO staff_field_categories (id, title, sort_order, columns, include, "ad
 -- Data for Name: student_enrollment; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO student_enrollment (id, syear, school_id, student_id, grade_id, start_date, end_date, enrollment_code, drop_code, next_school, calendar_id, last_school) VALUES (3, 2009, 1, 1, 7, '2009-09-14', NULL, 15, NULL, 1, 4, 1);
+INSERT INTO student_enrollment (id, syear, school_id, student_id, grade_id, start_date, end_date, enrollment_code, drop_code, next_school, calendar_id, last_school) VALUES (3, 2011, 1, 1, 7, '2011-09-14', NULL, 15, NULL, 1, 4, 1);
 
 
 --
 -- Data for Name: student_enrollment_codes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (13, 2009, 'Moved from District', 'MOVE', 'Drop', NULL, 1);
-INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (14, 2009, 'Expelled', 'EXP', 'Drop', NULL, 2);
-INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (15, 2009, 'Beginning of Year', 'EBY', 'Add', 'Y', 3);
-INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (16, 2009, 'From Other District', 'OTHER', 'Add', NULL, 4);
-INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (17, 2009, 'Transferred in District', 'TRAN', 'Drop', NULL, 5);
-INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (18, 2009, 'Transferred in District', 'EMY', 'Add', NULL, 6);
+INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (13, 2011, 'Moved from District', 'MOVE', 'Drop', NULL, 1);
+INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (14, 2011, 'Expelled', 'EXP', 'Drop', NULL, 2);
+INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (15, 2011, 'Beginning of Year', 'EBY', 'Add', 'Y', 3);
+INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (16, 2011, 'From Other District', 'OTHER', 'Add', NULL, 4);
+INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (17, 2011, 'Transferred in District', 'TRAN', 'Drop', NULL, 5);
+INSERT INTO student_enrollment_codes (id, syear, title, short_name, "type", default_code, sort_order) VALUES (18, 2011, 'Transferred in District', 'EMY', 'Add', NULL, 6);
 
 
 --
