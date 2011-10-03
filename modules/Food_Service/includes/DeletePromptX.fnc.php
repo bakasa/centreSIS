@@ -7,8 +7,11 @@
 //	}
 
 
-function DeletePromptX($title,$action=_('Delete'))
+function DeletePromptX($title,$action=null)
 {
+	if (empty($action))
+		$action = _('delete');
+
 	$PHP_tmp_SELF = PreparePHP_SELF($_REQUEST,array('delete_ok','delete_cancel'));
 
 	if(!$_REQUEST['delete_ok'] && !$_REQUEST['delete_cancel'])
