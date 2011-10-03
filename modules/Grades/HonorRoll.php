@@ -149,7 +149,7 @@ function MyWidgets($item)
 				$extra['WHERE'] .= " AND NOT exists(SELECT '' FROM STUDENT_REPORT_CARD_GRADES sg,COURSE_PERIODS cp,REPORT_CARD_GRADES rg                     WHERE sg.STUDENT_ID=s.STUDENT_ID AND cp.SYEAR=ssm.SYEAR AND sg.SYEAR=ssm.SYEAR AND sg.MARKING_PERIOD_ID='".UserMP()."' AND cp.COURSE_PERIOD_ID=sg.COURSE_PERIOD_ID AND cp.DOES_HONOR_ROLL='Y' AND rg.GRADE_SCALE_ID=cp.GRADE_SCALE_ID AND sg.REPORT_CARD_GRADE_ID=rg.ID AND rg.GPA_VALUE<(SELECT  HR_GPA_VALUE FROM REPORT_CARD_GRADE_SCALES WHERE ID=rg.GRADE_SCALE_ID))";
 				$extra['columns_after']['HIGH_HONOR'] = 'High Honor';
 				if(!$extra['NoSearchTerms'])
-					$_CENTRE['SearchTerms'] .= '<font color=gray><b>'._('Honor Roll').' &amp; '._'(High Honor Roll').'</b></font><BR>';
+					$_CENTRE['SearchTerms'] .= '<font color=gray><b>'._('Honor Roll').' &amp; '._('High Honor Roll').'</b></font><BR>';
 			}
 			elseif($_REQUEST['honor_roll']=='Y')
 			{
