@@ -31,7 +31,7 @@ function ProperDate($date='',$length='long')
 	}
 	$comment = '<!-- '.$year.$month.$day.' -->';
 
-	if($_REQUEST['_CENTRE_PDF'] && $_REQUEST['LO_save'] && Preferences('E_DATE')=='MM/DD/YYYY')
+	if(isset($_REQUEST['_CENTRE_PDF']) && $_REQUEST['_CENTRE_PDF'] && $_REQUEST['LO_save'] && Preferences('E_DATE')=='MM/DD/YYYY')
 		return $comment.$month.'/'.$day.'/'.$year;
 
 	if((Preferences('MONTH')=='m' || Preferences('MONTH')=='M') && (Preferences('DAY')=='j' || Preferences('DAY')=='d') && Preferences('YEAR'))
