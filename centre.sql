@@ -33,7 +33,7 @@ CREATE FUNCTION calc_cum_cr_gpa(character varying, integer) RETURNS integer
   mpinfo marking_periods%ROWTYPE;
   s student_mp_stats%ROWTYPE;
 BEGIN
-  SELECT * INTO mpinfo FROM marking_periods WHERE marking_period_id = mp_id;
+  SELECT * INTO mpinfo FROM marking_periods WHERE marking_period_id = CAST(mp_id as integer);
     UPDATE student_mp_stats
     SET cum_cr_weighted_factor = sms1.weighted_gpa,
         cum_cr_unweighted_factor = sms1.unweighted_gpa FROM (
@@ -65,7 +65,7 @@ CREATE FUNCTION calc_cum_gpa(character varying, integer) RETURNS integer
   mpinfo marking_periods%ROWTYPE;
   s student_mp_stats%ROWTYPE;
 BEGIN
-  SELECT * INTO mpinfo FROM marking_periods WHERE marking_period_id = mp_id;
+  SELECT * INTO mpinfo FROM marking_periods WHERE marking_period_id = CAST(mp_id as integer);
     UPDATE student_mp_stats
     SET cum_weighted_factor = sms1.weighted_gpa,
         cum_unweighted_factor = sms1.unweighted_gpa FROM (
@@ -95,7 +95,7 @@ CREATE FUNCTION calc_cum_gpa_mp(character varying) RETURNS integer
   mpinfo marking_periods%ROWTYPE;
   s student_mp_stats%ROWTYPE;
 BEGIN
-  FOR s in select student_id from student_mp_stats where marking_period_id = mp_id LOOP
+  FOR s in select student_id from student_mp_stats where marking_period_id = CAST(mp_id as integer) LOOP
    
     PERFORM calc_cum_gpa(mp_id, s.student_id);
     PERFORM calc_cum_cr_gpa(mp_id, s.student_id);
@@ -118,7 +118,7 @@ DECLARE
   mp_id ALIAS for $2;
   oldrec student_mp_stats%ROWTYPE;
 BEGIN
-  SELECT * INTO oldrec FROM student_mp_stats WHERE student_id = s_id and marking_period_id = mp_id;
+  SELECT * INTO oldrec FROM student_mp_stats WHERE student_id = s_id and marking_period_id = CAST(mp_id as integer);
 
   IF FOUND THEN
     UPDATE STUDENT_MP_STATS SET 
@@ -256,7 +256,7 @@ from student_enrollment se, student_mp_stats sgm, marking_periods mp
 where 
 se.student_id = sgm.student_id
 and sgm.marking_period_id = mp.marking_period_id
-and mp.marking_period_id = mp_id
+and mp.marking_period_id = CAST(mp_id as integer)
 and se.syear = mp.syear
 and not sgm.cum_cr_weighted_factor is null
 order by grade_id, rank ) as rank
@@ -3616,7 +3616,7 @@ INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'S
 INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'Users/User.php', 'Y', 'Y');
 INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'Users/User.php&staff_id=new', 'Y', 'Y');
 INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'Users/AddStudents.php', 'Y', 'Y');
-INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'Users/Preferences.php', 'Y', 'Y');
+INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6s, 'Users/Preferences.php', 'Y', 'Y');
 INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'Users/Profiles.php', 'Y', 'Y');
 INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'Users/Exceptions.php', 'Y', 'Y');
 INSERT INTO staff_exceptions (user_id, modname, can_use, can_edit) VALUES (6, 'Users/UserFields.php', 'Y', 'Y');
