@@ -16,7 +16,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 		$options['sort'] = true;
 	if(!isset($options['cellpadding']))
 		$options['cellpadding'] = '6';
-	if(!$options['header_color'])
+	if(!isset($options['header_color']))
 		$options['header_color'] = Preferences('HEADER');
 	if(!$link)
 		$link = array();
