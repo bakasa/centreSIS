@@ -14,7 +14,7 @@ function AllowEdit($modname=false)
 		if(($modname=='Students/Student.php' || $modname=='Users/User.php') && $_REQUEST['category_id'])
 			$modname = $modname.'&category_id='.$_REQUEST['category_id'];
 
-		if(!$_CENTRE['AllowEdit'])
+		if(!isset($_CENTRE['AllowEdit']) || !$_CENTRE['AllowEdit'])
 		{
 			if(User('PROFILE_ID'))
 				$_CENTRE['AllowEdit'] = DBGet(DBQuery("SELECT MODNAME FROM PROFILE_EXCEPTIONS WHERE PROFILE_ID='".User('PROFILE_ID')."' AND CAN_EDIT='Y'"),array(),array('MODNAME'));
