@@ -44,6 +44,10 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 	$search = '';
 	if (isset($_REQUEST['LO_search']))
 		$search = $_REQUEST['LO_search'];
+		
+	$sortColumn = '';
+	if (isset($_REQUEST['LO_sort']))
+		$sortColumn = $_REQUEST['LO_sort'];
 
 	$PHP_tmp_SELF = PreparePHP_SELF($_REQUEST,array('page','LO_sort','LO_direction','LO_search','LO_save','remove_prompt','remove_name','PHPSESSID'));
 
@@ -148,7 +152,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 		unset($result[0]);
 		$result_count = count($result);
 
-		unset($_REQUEST['LO_sort']);
+		$sortColumn='';
 	}
 	// END UN-GROUPING
 	$_LIST['output'] = true;
@@ -234,14 +238,14 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 
 			// END SEARCHES ---
 
-			if(isset($_REQUEST['LO_sort']) && $_REQUEST['LO_sort'])
+			if($sortColumn)
 			{
 				foreach($result as $sort)
 				{
-					if(substr($sort[$_REQUEST['LO_sort']],0,4)!='<!--')
-						$sort_array[] = $sort[$_REQUEST['LO_sort']];
+					if(substr($sort[$sortColumn],0,4)!='<!--')
+						$sort_array[] = $sort[$sortColumn];
 					else
-						$sort_array[] = substr($sort[$_REQUEST['LO_sort']],4,strpos($sort[$_REQUEST['LO_sort']],'-->')-5);
+						$sort_array[] = substr($sort[$sortColumn],4,strpos($sort[$sortColumn],'-->')-5);
 				}
 				if($_REQUEST['LO_direction']==-1)
 					$dir = SORT_DESC;
@@ -350,7 +354,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						for($i=1;$i<=ceil($result_count/$num_displayed);$i++)
 						{
 							if($i!=$page)
-								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
+								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$sortColumn&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
 						}
@@ -361,7 +365,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						for($i=1;$i<=7;$i++)
 						{
 							if($i!=$page)
-								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
+								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$sortColumn&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
 						}
@@ -369,11 +373,11 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						for($i=ceil($result_count/$num_displayed)-2;$i<=ceil($result_count/$num_displayed);$i++)
 						{
 							if($i!=$page)
-								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
+								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$sortColumn&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
 						}
-						$pages = substr($pages,0,-2) . " &nbsp;<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=" . ($page +1) . ">Next Page</A><BR>";
+						$pages = substr($pages,0,-2) . " &nbsp;<A HREF=$PHP_tmp_SELF&LO_sort=$sortColumn&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=" . ($page +1) . ">Next Page</A><BR>";
 					}
 					echo sprintf(_('Go to Page %s'),$pages);
 					echo '</TD></TR></TABLE>';
@@ -426,7 +430,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				}
 				if($options['save'] && !isset($_REQUEST['_CENTRE_PDF']) && $result_count>0)
 				{
-					$extra = "page=$page&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search);
+					$extra = "page=$page&LO_sort=$sortColumn&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search);
 					echo "<A HREF=$PHP_tmp_SELF&$extra&LO_save=$options[save]&_CENTRE_PDF=true><IMG SRC=assets/download.gif border=0 vspace=0 hspace=0></A>";
 				}
 				
@@ -469,7 +473,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			{
 				foreach($column_names as $key=>$value)
 				{
-					if($_REQUEST['LO_sort']==$key)
+					if($sortColumn==$key)
 						$direction = -1 * $_REQUEST['LO_direction'];
 					else
 						$direction = 1;
