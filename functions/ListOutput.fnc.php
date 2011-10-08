@@ -477,7 +477,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						$direction = -1 * $_REQUEST['LO_direction'];
 					else
 						$direction = 1;
-					echo "<TD align=center bgcolor=".($options['header_colors'][$key]?$options['header_colors'][$key]:$options['header_color'])."><DIV id=LOx$i style='position: relative;'></DIV>";
+					echo "<TD align=center bgcolor=".(isset($options['header_colors'][$key])?$options['header_colors'][$key]:$options['header_color'])."><DIV id=LOx$i style='position: relative;'></DIV>";
 					echo "<A ";
 					if($options['sort'])
 						echo "HREF=$PHP_tmp_SELF&page=$page&LO_sort=$key&LO_direction=$direction&LO_search=".urlencode($search);
