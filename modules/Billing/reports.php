@@ -26,9 +26,12 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #**************************************************************************
-$TAB = $_REQUEST['TAB'];
+
 // 2 Daily Transactions
 // 1 Balance
+$TAB = 1;
+if (isset($_REQUEST['TAB']))
+	$TAB = $_REQUEST['TAB'];
 
 DrawHeader(ProgramTitle());
 DrawHeader(SubmitButton("Balances","","onclick=billing.showBalances()")
@@ -45,7 +48,9 @@ if($TAB == 2){
 	if(isset($_REQUEST['year_max']) && isset($_REQUEST['month_max']) && isset($_REQUEST['day_max']))	
 		$endDate   = date('Y-m-d',strtotime($_REQUEST['year_max'].'-'.$_REQUEST['month_max'].'-'.$_REQUEST['day_max']));
 
-	$username = $_REQUEST['USERNAME'];
+	$username='';
+	if (isset($_REQUEST['USERNAME']))
+		$username = $_REQUEST['USERNAME'];
 
 	if($beginDate == null){
 		$beginDate = Date('Y-m-01');
@@ -224,7 +229,10 @@ if($TAB == 2){
 	echo '</p>';
 }
 else{
-	$username = $_REQUEST['USERNAME'];
+
+	$username = '';
+	if (isset($_REQUEST['USERNAME']))
+		$username = $_REQUEST['USERNAME'];
 
 	$query = "SELECT
 			  S.last_name,
