@@ -272,7 +272,7 @@ else{
 		$totalPayment = substr($totalPayment,1);
 		$totalFee     = substr($totalFee,1);
 
-		$balance = $totalFee - $totalPayment;
+		$balance = $totalPayment - $totalFee;
 		$balance = number_format($balance, 2);
 		
 		$student['BALANCE'] = $balance;
