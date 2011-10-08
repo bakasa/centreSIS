@@ -586,7 +586,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				{
 					foreach($column_names as $key=>$value)
 					{
-						if($link[$key] && $item[$key]!==false && !isset($_REQUEST['_CENTRE_PDF']))
+						if(!empty($link[$key]) && $item[$key]!==false && !isset($_REQUEST['_CENTRE_PDF']))
 						{
 							echo "<TD bgcolor=$color class=LO_field>";
 							if($key=='FULL_NAME')
