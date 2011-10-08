@@ -333,6 +333,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 		}
 		if($result_count!=0 || $search !=_('Search'))
 		{
+			$where_message = '';
+			
 			if(!isset($_REQUEST['_CENTRE_PDF']))
 			{
 				if(!$page)
