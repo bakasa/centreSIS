@@ -33,10 +33,6 @@ Class Auth
 	var $PARENT = 'parent';
 	var $TEACHER = 'teacher';
 	var $STUDENT = 'student';
-	var $STUDENT_ID = 0;
-	var $ADMIN_ID = 1;
-	var $TEACHER_ID = 2;
-	var $PARENT_ID = 3;
 
 	function Auth()
 	{
@@ -44,78 +40,22 @@ Class Auth
 
 	function checkAdmin($profile, $staffId)
 	{
-		if($profile == $this->ADMIN)
-		{
-			if($staffId == $this->ADMIN_ID)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		return $profile == $this->ADMIN;
 	}
 
 	function checkParent($profile, $staffId)
 	{
-		if($profile == $this->PARENT)
-		{
-			if($staffId == $this->PARENT_ID)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		return $profile == $this->PARENT;
 	}
 
 	function checkStudent($profile, $staffId)
 	{
-		if($profile == $this->STUDENT)
-		{
-			if($staffId == $this->STUDENT_ID)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		return $profile == $this->STUDENT;
 	}
 
 	function checkTeacher($profile, $staffId)
 	{
-		if($profile == $this->TEACHER)
-		{
-			if($staffId == $this->TEACHER_ID)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		return $profile == $this->TEACHER;
 	}
 
 }
