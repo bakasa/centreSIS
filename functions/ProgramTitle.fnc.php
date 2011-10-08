@@ -18,7 +18,7 @@ function ProgramTitle($modname='')
 			{
 				if($modname==$program)
 				{
-					if($_CENTRE['HeaderIcon']!==false)
+					if(!isset($_CENTRE['HeaderIcon']))
 						if(substr($modname,0,25)=='Users/TeacherPrograms.php')
 							$_CENTRE['HeaderIcon'] = substr($modname,34,strpos($modname,'/',34)-34).'.gif';
 						else
