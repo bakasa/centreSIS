@@ -41,7 +41,9 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 	if (isset($_REQUEST['page']))
 		$page = $_REQUEST['page'];
 		
-	$extra = "page=$page&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search']);
+	$search = '';
+	if (isset($_REQUEST['LO_search']))
+		$search = $_REQUEST['LO_search'];
 
 	$PHP_tmp_SELF = PreparePHP_SELF($_REQUEST,array('page','LO_sort','LO_direction','LO_search','LO_save','remove_prompt','remove_name','PHPSESSID'));
 
@@ -162,10 +164,10 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			$cols = count($column_names);
 
 			// HANDLE SEARCHES ---
-			if($result_count && $_REQUEST['LO_search'] && $_REQUEST['LO_search']!='Search')
+			if($result_count && $search && $search !='Search')
 			{
-				$_REQUEST['LO_search'] = $search_term = str_replace('\\\"','"',$_REQUEST['LO_search']);
-				$_REQUEST['LO_search'] = $search_term = ereg_replace('[^a-zA-Z0-9 _"]*','',strtolower($search_term));
+				$search = $search_term = str_replace('\\\"','"',$search);
+				$search = $search_term = ereg_replace('[^a-zA-Z0-9 _"]*','',strtolower($search_term));
 
 				if(substr($search_term,0,0)!='"' && substr($search_term,-1)!='"')
 				{
@@ -193,7 +195,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					foreach($value as $name=>$val)
 					{
 						$val = ereg_replace('[^a-zA-Z0-9 _]+','',strtolower($val));
-						if(strtolower($_REQUEST['LO_search'])==$val)
+						if(strtolower($search)==$val)
 							$values[$key] += 25;
 						foreach($terms as $term=>$one)
 						{
@@ -232,7 +234,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 
 			// END SEARCHES ---
 
-			if($_REQUEST['LO_sort'])
+			if(isset($_REQUEST['LO_sort']) && $_REQUEST['LO_sort'])
 			{
 				foreach($result as $sort)
 				{
@@ -260,7 +262,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 		}
 
         // HANDLE SAVING THE LIST ---
-        if($options['save'] && $_REQUEST['LO_save']==$options['save'])
+        if($options['save'] && isset($_REQUEST['LO_save']) && $_REQUEST['LO_save']==$options['save'])
 		{
 			if(!$options['save_delimiter'] && Preferences('DELIMITER')=='CSV')
 				$options['save_delimiter'] = 'comma';
@@ -325,14 +327,16 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			if($result_count==0 || $display_count==0)
                 echo "<b>".sprintf(_('No %s were found.'),ngettext($singular, $plural, 0))."</b> &nbsp; &nbsp;";
 		}
-		if($result_count!=0 || ($_REQUEST['LO_search'] && $_REQUEST['LO_search']!=_('Search')))
+		if($result_count!=0 || $search !=_('Search'))
 		{
 			if(!isset($_REQUEST['_CENTRE_PDF']))
 			{
 				if(!$page)
 					$page = 1;
-				if(!$_REQUEST['LO_direction'])
+					
+				if(!isset($_REQUEST['LO_direction']))
 					$_REQUEST['LO_direction'] = 1;
+					
 				$start = ($page - 1) * $num_displayed + 1;
 				$stop = $start + ($num_displayed-1);
 				if($stop > $result_count)
@@ -346,7 +350,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						for($i=1;$i<=ceil($result_count/$num_displayed);$i++)
 						{
 							if($i!=$page)
-								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=$i>$i</A>, ";
+								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
 						}
@@ -357,7 +361,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						for($i=1;$i<=7;$i++)
 						{
 							if($i!=$page)
-								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=$i>$i</A>, ";
+								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
 						}
@@ -365,11 +369,11 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						for($i=ceil($result_count/$num_displayed)-2;$i<=ceil($result_count/$num_displayed);$i++)
 						{
 							if($i!=$page)
-								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=$i>$i</A>, ";
+								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
 						}
-						$pages = substr($pages,0,-2) . " &nbsp;<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=" . ($page +1) . ">Next Page</A><BR>";
+						$pages = substr($pages,0,-2) . " &nbsp;<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search)."&page=" . ($page +1) . ">Next Page</A><BR>";
 					}
 					echo sprintf(_('Go to Page %s'),$pages);
 					echo '</TD></TR></TABLE>';
@@ -421,13 +425,17 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						echo '<BR>'.$where_message;
 				}
 				if($options['save'] && !isset($_REQUEST['_CENTRE_PDF']) && $result_count>0)
+				{
+					$extra = "page=$page&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($search);
 					echo "<A HREF=$PHP_tmp_SELF&$extra&LO_save=$options[save]&_CENTRE_PDF=true><IMG SRC=assets/download.gif border=0 vspace=0 hspace=0></A>";
+				}
+				
 				echo '</TD>';
 				$colspan = 1;
 				if(!isset($_REQUEST['_CENTRE_PDF']) && $options['search'])
 				{
 					echo '<TD align=right>';
-					echo "<INPUT type=text id=LO_search name=LO_search value='".(($_REQUEST['LO_search'] && $_REQUEST['LO_search']!=_('Search'))?$_REQUEST['LO_search']:_('Search')."' style='color:BBBBBB'"),"' onfocus='if(this.value==\""._('Search')."\") this.value=\"\"; this.style.color=\"000000\";' onblur='if(this.value==\"\") {this.value=\""._('Search')."\"; this.style.color=\"BBBBBB\";}' onkeypress='if(event.keyCode==13){document.location.href=\"".PreparePHP_SELF($_REQUEST,array('LO_search','page'))."&LO_search=\"+this.value; return false;} '><INPUT type=button value='"._('Go')."' onclick='document.location.href=\"".PreparePHP_SELF($_REQUEST,array('LO_search','page'))."&LO_search=\"+document.getElementById(\"LO_search\").value;'></TD>";
+					echo "<INPUT type=text id=LO_search name=LO_search value='".(($search && $search !=_('Search'))? $search:_('Search')."' style='color:BBBBBB'"),"' onfocus='if(this.value==\""._('Search')."\") this.value=\"\"; this.style.color=\"000000\";' onblur='if(this.value==\"\") {this.value=\""._('Search')."\"; this.style.color=\"BBBBBB\";}' onkeypress='if(event.keyCode==13){document.location.href=\"".PreparePHP_SELF($_REQUEST,array('LO_search','page'))."&LO_search=\"+this.value; return false;} '><INPUT type=button value='"._('Go')."' onclick='document.location.href=\"".PreparePHP_SELF($_REQUEST,array('LO_search','page'))."&LO_search=\"+document.getElementById(\"LO_search\").value;'></TD>";
 					$colspan++;
 				}
 				echo "</TR>";
@@ -468,7 +476,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					echo "<TD align=center bgcolor=".($options['header_colors'][$key]?$options['header_colors'][$key]:$options['header_color'])."><DIV id=LOx$i style='position: relative;'></DIV>";
 					echo "<A ";
 					if($options['sort'])
-						echo "HREF=$PHP_tmp_SELF&page=$page&LO_sort=$key&LO_direction=$direction&LO_search=".urlencode($_REQUEST['LO_search']);
+						echo "HREF=$PHP_tmp_SELF&page=$page&LO_sort=$key&LO_direction=$direction&LO_search=".urlencode($search);
 					echo " class=column_heading><b>$value</b></A>";
 					if($i==1)
 						echo "<DIV id=LOy0 style='position: relative;'></DIV>";
@@ -744,7 +752,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 		}
 		if($result_count!=0)
 		{
-			if($options['yscroll'])
+			if(isset($options['yscroll']) && $options['yscroll'])
 			{
 				echo '<div id="LOy_layer" style="position: absolute; top: 0; left: 0; visibility:hidden;">';
 				echo "<TABLE cellpadding=$options[cellpadding] id=LOy_table>";
