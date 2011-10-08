@@ -14,7 +14,6 @@ if (isset($_REQUEST['modfunc']))
 		if(!$htmldocPath)
 			$_CENTRE['allow_edit'] = false;
 		ob_start();
-		include('languages/English/'.$modname);
 		include('modules/'.$modname);
 		if($htmldocPath)
 		{

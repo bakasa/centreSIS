@@ -10,7 +10,6 @@ $modcat = 'Attendance';
 if(AllowUse($_REQUEST['modname']))
 {
 	echo "<SCRIPT language=javascript>parent.help.location=\"Bottom.php?modcat=$modcat&modname=$_REQUEST[modname]\";</SCRIPT>";
-	include("languages/English/$_REQUEST[modname]");
 	include("modules/$_REQUEST[modname]");
 }
 ?>

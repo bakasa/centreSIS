@@ -72,7 +72,6 @@ if($_REQUEST['modname'])
 	{
 		if(Preferences('SEARCH')!='Y')
 			$_REQUEST['search_modfunc'] = 'list';
-		include('languages/English/'.$modname);
 		include('modules/'.$modname);
 	}
 	else
