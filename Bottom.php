@@ -1,6 +1,8 @@
 <?php
 include "./Warehouse.php";
 
+error_reporting(1);
+
 if (isset($_REQUEST['modfunc']))
 {
 	if($_REQUEST['modfunc']=='print')
