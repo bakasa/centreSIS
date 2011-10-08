@@ -21,7 +21,7 @@ if(!isset($_REQUEST['_CENTRE_PDF']))
 
 if($_REQUEST['modname'])
 {
-	if($_REQUEST['_CENTRE_PDF']=='true')
+	if(isset($_REQUEST['_CENTRE_PDF']) && $_REQUEST['_CENTRE_PDF']=='true')
 		ob_start();
 	if(strpos($_REQUEST['modname'],'?')!==false)
 	{
@@ -38,7 +38,7 @@ if($_REQUEST['modname'])
 	else
 		$modname = $_REQUEST['modname'];
 
-	if(!$_REQUEST['LO_save'] && !isset($_REQUEST['_CENTRE_PDF']) && (strpos($modname,'misc/')===false || $modname=='misc/Registration.php' || $modname=='misc/Export.php' || $modname=='misc/Portal.php'))
+	if(isset($_REQUEST['LO_save']) && !$_REQUEST['LO_save'] && !isset($_REQUEST['_CENTRE_PDF']) && (strpos($modname,'misc/')===false || $modname=='misc/Registration.php' || $modname=='misc/Export.php' || $modname=='misc/Portal.php'))
 		$_SESSION['_REQUEST_vars'] = $_REQUEST;
 
 	$allowed = false;
@@ -86,7 +86,7 @@ if($_REQUEST['modname'])
 		exit;
 	}
 
-	if($_SESSION['unset_student'])
+	if(isset($_SESSION['unset_student']))
 	{
 		unset($_SESSION['unset_student']);
 		//unset($_SESSION['staff_id']); // mab 070704 why is this here
@@ -97,20 +97,25 @@ if($_REQUEST['modname'])
 if(!isset($_REQUEST['_CENTRE_PDF']))
 {
 	echo '</TD></TR></TABLE>';
-	for($i=1;$i<=$_CENTRE['PrepareDate'];$i++)
+	
+	if (isset($_CENTRE['PrepareDate']))
 	{
-		echo '<script type="text/javascript">
-    Calendar.setup({
-        monthField     :    "monthSelect'.$i.'",
-        dayField       :    "daySelect'.$i.'",
-        yearField      :    "yearSelect'.$i.'",
-        ifFormat       :    "%d-%b-%y",
-        button         :    "trigger'.$i.'",
-        align          :    "Tl",
-        singleClick    :    true
-    });
-</script>';
+		for($i=1;$i<=$_CENTRE['PrepareDate'];$i++)
+		{
+			echo '<script type="text/javascript">
+		Calendar.setup({
+		    monthField     :    "monthSelect'.$i.'",
+		    dayField       :    "daySelect'.$i.'",
+		    yearField      :    "yearSelect'.$i.'",
+		    ifFormat       :    "%d-%b-%y",
+		    button         :    "trigger'.$i.'",
+		    align          :    "Tl",
+		    singleClick    :    true
+		});
+	</script>';
+		}
 	}
+	
 	echo '</BODY>';
 	echo '</HTML>';
 }
