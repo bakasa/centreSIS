@@ -26,7 +26,7 @@ if (isset($_REQUEST['modfunc']))
 
 			// get a temp filename, and then change its extension from .tmp to .html to make htmldoc happy.
 			$temphtml=tempnam('','html');
-			$temphtml_tmp=substr($temphtml, 0, strrpos($temphtml, ".")).'html';
+			$temphtml_tmp=$temphtml.'.html';
 			rename($temphtml_tmp, $temphtml);
 
 			$fp=@fopen($temphtml,"w+");
