@@ -536,7 +536,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					}
 				}
 
-				if($item['row_color'])
+				if(isset($item['row_color']))
 					$color = $item['row_color'];
 				elseif($color=='#F8F8F9')
 					$color = $side_color;
