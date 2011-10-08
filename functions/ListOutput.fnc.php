@@ -36,7 +36,12 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 	// PREPARE LINKS ---
 	$result_count = $display_count = count($result);
 	$num_displayed = 100000;
-	$extra = "page=$_REQUEST[page]&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search']);
+	
+	$page = 0;
+	if (isset($_REQUEST['page']))
+		$page = $_REQUEST['page'];
+		
+	$extra = "page=$page&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search']);
 
 	$PHP_tmp_SELF = PreparePHP_SELF($_REQUEST,array('page','LO_sort','LO_direction','LO_search','LO_save','remove_prompt','remove_name','PHPSESSID'));
 
@@ -324,11 +329,11 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 		{
 			if(!isset($_REQUEST['_CENTRE_PDF']))
 			{
-				if(!$_REQUEST['page'])
-					$_REQUEST['page'] = 1;
+				if(!$page)
+					$page = 1;
 				if(!$_REQUEST['LO_direction'])
 					$_REQUEST['LO_direction'] = 1;
-				$start = ($_REQUEST['page'] - 1) * $num_displayed + 1;
+				$start = ($page - 1) * $num_displayed + 1;
 				$stop = $start + ($num_displayed-1);
 				if($stop > $result_count)
 					$stop = $result_count;
@@ -340,7 +345,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					{
 						for($i=1;$i<=ceil($result_count/$num_displayed);$i++)
 						{
-							if($i!=$_REQUEST['page'])
+							if($i!=$page)
 								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
@@ -351,7 +356,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					{
 						for($i=1;$i<=7;$i++)
 						{
-							if($i!=$_REQUEST['page'])
+							if($i!=$page)
 								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
@@ -359,12 +364,12 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 						$pages = substr($pages,0,-2) . " ... ";
 						for($i=ceil($result_count/$num_displayed)-2;$i<=ceil($result_count/$num_displayed);$i++)
 						{
-							if($i!=$_REQUEST['page'])
+							if($i!=$page)
 								$pages .= "<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=$i>$i</A>, ";
 							else
 								$pages .= "$i, ";
 						}
-						$pages = substr($pages,0,-2) . " &nbsp;<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=" . ($_REQUEST['page'] +1) . ">Next Page</A><BR>";
+						$pages = substr($pages,0,-2) . " &nbsp;<A HREF=$PHP_tmp_SELF&LO_sort=$_REQUEST[LO_sort]&LO_direction=$_REQUEST[LO_direction]&LO_search=".urlencode($_REQUEST['LO_search'])."&page=" . ($page +1) . ">Next Page</A><BR>";
 					}
 					echo sprintf(_('Go to Page %s'),$pages);
 					echo '</TD></TR></TABLE>';
@@ -463,7 +468,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					echo "<TD align=center bgcolor=".($options['header_colors'][$key]?$options['header_colors'][$key]:$options['header_color'])."><DIV id=LOx$i style='position: relative;'></DIV>";
 					echo "<A ";
 					if($options['sort'])
-						echo "HREF=$PHP_tmp_SELF&page=$_REQUEST[page]&LO_sort=$key&LO_direction=$direction&LO_search=".urlencode($_REQUEST['LO_search']);
+						echo "HREF=$PHP_tmp_SELF&page=$page&LO_sort=$key&LO_direction=$direction&LO_search=".urlencode($_REQUEST['LO_search']);
 					echo " class=column_heading><b>$value</b></A>";
 					if($i==1)
 						echo "<DIV id=LOy0 style='position: relative;'></DIV>";
