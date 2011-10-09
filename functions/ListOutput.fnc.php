@@ -714,9 +714,9 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				if($options['header'])
 					echo '<TR><TD align=center>'.$options['header'].'</TD></TR>';
 
-			if($link['add']['link'] && !isset($_REQUEST['_CENTRE_PDF']))
+			if(!empty($link['add']['link']) && !isset($_REQUEST['_CENTRE_PDF']))
 				echo '<center>' . button('add',$link['add']['title'],$link['add']['link']) . '</center>';
-			elseif(($link['add']['html'] || $link['add']['span']) && count($column_names) && !isset($_REQUEST['_CENTRE_PDF']))
+			elseif((!empty($link['add']['html']) || !empty($link['add']['span'])) && count($column_names) && !isset($_REQUEST['_CENTRE_PDF']))
 			{
 				$color = $side_color;
 
