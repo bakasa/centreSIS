@@ -706,7 +706,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			if(($result_count > $num_displayed) || (($options['count'] || $display_zero) && ((($result_count==0 || $display_count==0) && $plural) || ($result_count==0 || $display_count==0))))
 			{
 				echo '</TD></TR>';
-				if($options['header'])
+				if(!empty($options['header']))
 					echo '<TR><TD align=center>'.$options['header'].'</TD></TR>';
 				echo '</TABLE>';
 			}
