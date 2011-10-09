@@ -451,7 +451,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				echo '<TR style="height:0;"><TD width=100% style="height:0;" height=0 align=right><DIV id=LOx'.(count($column_names)+(($result_count!=0 && $cols && !isset($_REQUEST['_CENTRE_PDF']))?1:0)+(($remove && !isset($_REQUEST['_CENTRE_PDF']))?1:0)).' style="width:0; position: relative; height:0;"></DIV>';
 			// END SEARCH BOX ----
 			echo '</TD></TR>';
-			if($options['header'])
+			if(!empty($options['header']))
 				echo '<TR><TD align=center>'.$options['header'].'</TD></TR>';
 			echo '<TR><TD>';
 
