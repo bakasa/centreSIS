@@ -499,7 +499,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				echo '</THEAD><TBODY>';
 
 			// mab - enable add link as first or last
-			if($result_count!=0 && $link['add']['first'] && ($stop-$start+1)>=$link['add']['first'])
+			if($result_count!=0 && !empty($link['add']['first']) && ($stop-$start+1)>=$link['add']['first'])
 			{
 				//if($remove && !isset($_REQUEST['_CENTRE_PDF']))
 				//	$cols++;
@@ -652,15 +652,15 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				echo "</TR>";
 			}
 
-			if($result_count!=0 && (!$link['add']['first'] || ($stop-$start+1)<$link['add']['first']))
+			if($result_count!=0 && (empty($link['add']['first']) || ($stop-$start+1)<$link['add']['first']))
 			{
 				//if($remove && !isset($_REQUEST['_CENTRE_PDF']))
 				//	$cols++;
-				if($link['add']['link'] && !isset($_REQUEST['_CENTRE_PDF']))
+				if(!empty($link['add']['link']) && !isset($_REQUEST['_CENTRE_PDF']))
 					echo "<TR><TD colspan=".($remove?$cols+1:$cols)." align=left bgcolor=#FFFFFF>".button('add',$link['add']['title'],$link['add']['link'])."</TD></TR>";
-				elseif($link['add']['span'] && !isset($_REQUEST['_CENTRE_PDF']))
+				elseif(!empty($link['add']['span']) && !isset($_REQUEST['_CENTRE_PDF']))
 					echo "<TR><TD colspan=".($remove?$cols+1:$cols)." align=left bgcolor=#FFFFFF>".button('add').$link['add']['span']."</TD></TR>";
-				elseif($link['add']['html'] && $cols)
+				elseif(!empty($link['add']['html']) && $cols)
 				{
 					if($color!='#F8F8F9') //$count%2)
 						$color = '#F8F8F9';
@@ -680,6 +680,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					echo "</TR>";
 				}
 			}
+			
 			if($result_count!=0)
 			{
 				if(!isset($_REQUEST['_CENTRE_PDF']) && ($stop-$start)>10)
