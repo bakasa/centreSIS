@@ -292,6 +292,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			if (isset($options['save_quotes']))
 				$saveQuotes = $options['save_quotes'];
 				
+			$output = '';
+				
 			if($saveDelim != 'xml')
 			{
 				foreach($column_names as $key=>$value)
