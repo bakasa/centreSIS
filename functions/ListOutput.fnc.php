@@ -203,7 +203,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 							$values[$key] += 25;
 						foreach($terms as $term=>$one)
 						{
-							if(ereg($term,$val))
+							if(preg_match('/'.$term.'/',$val))
 								$values[$key] += 3;
 						}
 					}
@@ -300,8 +300,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					$value = $item[$key];
 					if($options['save_delimiter']=='comma' && !$options['save_quotes'])
 						$value = str_replace(',',';',$value);
-					$value = eregi_replace('<SELECT.*SELECTED\>([^<]+)<.*</SELECT\>','\\1',$value);
-					$value = eregi_replace('<SELECT.*</SELECT\>','',$value);
+					$value = preg_match('/<SELECT.*SELECTED\>([^<]+)<.*<\/SELECT\>/i','\\1',$value);
+					$value = preg_match('/<SELECT.*<\/SELECT\>/i','',$value);
 					$output .= ($options['save_quotes']?'"':'') . ($options['save_delimiter']=='xml'?'<'.str_replace(' ','',$value).'>':'') . preg_replace('/<[^>]+>/','',preg_replace("/<div onclick='[^']+'>/",'',preg_replace('/ +/',' ',preg_replace('/&[^;]+;/','',str_replace('<BR>&middot;',' : ',str_replace('&nbsp;',' ',$value)))))) . ($options['save_delimiter']=='xml'?'</'.str_replace(' ','',$value).'>'."\n":'') . ($options['save_quotes']?'"':'') . ($options['save_delimiter']=='comma'?',':"\t");
 				}
 				$output .= "\n";
@@ -533,8 +533,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				{
 					foreach($item as $key=>$value)
 					{
-						$value = eregi_replace('<SELECT.*SELECTED\>([^<]+)<.*</SELECT\>','\\1',$value);
-						$value = eregi_replace('<SELECT.*</SELECT\>','',$value);
+						$value = preg_match('/<SELECT.*SELECTED\>([^<]+)<.*<\/SELECT\>/i','\\1',$value);
+						$value = preg_match('/<SELECT.*<\/SELECT\>/i','',$value);
 
 						$item[$key] = preg_replace("/<div onclick='[^']+'>/",'',$value);
 					}
