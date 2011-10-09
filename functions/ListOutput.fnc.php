@@ -743,7 +743,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					echo "<TABLE cellpadding=$options[cellpadding] width=100%><TR><TD bgcolor=$options[header_color]></TD>";
 					foreach($column_names as $key=>$value)
 					{
-						echo "<TD bgcolor=".($options['header_colors'][$key]?$options['header_colors'][$key]:$options['header_color'])."><A class=column_heading><b>" . str_replace(' ','&nbsp;',$value) . "</b></A></TD>";
+						echo "<TD bgcolor=".(!empty($options['header_colors'][$key])?$options['header_colors'][$key]:$options['header_color'])."><A class=column_heading><b>" . str_replace(' ','&nbsp;',$value) . "</b></A></TD>";
 					}
 					echo "</TR>";
 
