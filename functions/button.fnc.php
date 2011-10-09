@@ -2,6 +2,8 @@
 
 function button($type,$text='',$link='',$width=15)
 {
+	$button = '';
+	
 	if($type=='dot')
 	{
 		$button = '<TABLE border=0 cellpadding=0 cellspacing=0 height='.$width.' width='.$width.' bgcolor='.$text.'><TR><TD>';
