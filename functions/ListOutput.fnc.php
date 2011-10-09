@@ -749,7 +749,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 
 					echo "<TR bgcolor=$color>";
 
-					if($link['add']['html']['remove'])
+					if(!empty($link['add']['html']['remove']))
 						echo "<TD bgcolor=$color>".$link['add']['html']['remove']."</TD>";
 					else
 						echo "<TD bgcolor=$color>".button('add')."</TD>";
