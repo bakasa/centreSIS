@@ -164,7 +164,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 		if($result_count != 0)
 		{
 			$count = 0;
-			$remove = count($link['remove']['variables']);
+			$remove = isset($link['remove']['variables']) ? count($link['remove']['variables']) : 0;
 			$cols = count($column_names);
 
 			// HANDLE SEARCHES ---
