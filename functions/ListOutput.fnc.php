@@ -331,6 +331,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			if($result_count==0 || $display_count==0)
                 echo "<b>".sprintf(_('No %s were found.'),ngettext($singular, $plural, 0))."</b> &nbsp; &nbsp;";
 		}
+		
+		$br=0;
 		if($result_count!=0 || $search !=_('Search'))
 		{
 			$where_message = '';
