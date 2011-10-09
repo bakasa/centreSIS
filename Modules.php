@@ -38,7 +38,7 @@ if($_REQUEST['modname'])
 	else
 		$modname = $_REQUEST['modname'];
 
-	if(isset($_REQUEST['LO_save']) && !$_REQUEST['LO_save'] && !isset($_REQUEST['_CENTRE_PDF']) && (strpos($modname,'misc/')===false || $modname=='misc/Registration.php' || $modname=='misc/Export.php' || $modname=='misc/Portal.php'))
+	if(empty($_REQUEST['LO_save']) && !isset($_REQUEST['_CENTRE_PDF']) && (strpos($modname,'misc/')===false || $modname=='misc/Registration.php' || $modname=='misc/Export.php' || $modname=='misc/Portal.php'))
 		$_SESSION['_REQUEST_vars'] = $_REQUEST;
 
 	$allowed = false;
