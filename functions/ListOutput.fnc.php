@@ -321,7 +321,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			header("Pragma: ");
 			header("Content-Type: application/$extension");
 			header("Content-Disposition: inline; filename=\"".ProgramTitle().".$extension\"\n");
-			if($options['save_eval'])
+			if(!empty($options['save_eval']))
 				eval($options['save_eval']);
 			echo $output;
 			exit();
