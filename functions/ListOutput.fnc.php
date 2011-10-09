@@ -311,8 +311,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 					$value = $item[$key];
 					if($saveDelim == 'comma' && !$saveQuotes)
 						$value = str_replace(',',';',$value);
-					$value = preg_match('/<SELECT.*SELECTED\>([^<]+)<.*<\/SELECT\>/i','\\1',$value);
-					$value = preg_match('/<SELECT.*<\/SELECT\>/i','',$value);
+					$value = preg_replace('/<SELECT.*SELECTED\>([^<]+)<.*<\/SELECT\>/i','\\1',$value);
+					$value = preg_replace('/<SELECT.*<\/SELECT\>/i','',$value);
 					$output .= ($saveQuotes?'"':'') . ($saveDelim == 'xml'?'<'.str_replace(' ','',$value).'>':'') . preg_replace('/<[^>]+>/','',preg_replace("/<div onclick='[^']+'>/",'',preg_replace('/ +/',' ',preg_replace('/&[^;]+;/','',str_replace('<BR>&middot;',' : ',str_replace('&nbsp;',' ',$value)))))) . ($saveDelim == 'xml'?'</'.str_replace(' ','',$value).'>'."\n":'') . ($saveQuotes?'"':'') . ($saveDelim == 'comma'?',':"\t");
 				}
 				$output .= "\n";
@@ -545,8 +545,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				{
 					foreach($item as $key=>$value)
 					{
-						$value = preg_match('/<SELECT.*SELECTED\>([^<]+)<.*<\/SELECT\>/i','\\1',$value);
-						$value = preg_match('/<SELECT.*<\/SELECT\>/i','',$value);
+						$value = preg_replace('/<SELECT.*SELECTED\>([^<]+)<.*<\/SELECT\>/i','\\1',$value);
+						$value = preg_replace('/<SELECT.*<\/SELECT\>/i','',$value);
 
 						$item[$key] = preg_replace("/<div onclick='[^']+'>/",'',$value);
 					}
