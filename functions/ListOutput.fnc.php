@@ -287,6 +287,10 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			$saveDelim = '';
 			if (isset($options['save_delimiter']))
 				$saveDelim = $options['save_delimiter'];
+			
+			$saveQuotes = '';
+			if (isset($options['save_quotes']))
+				$saveQuotes = $options['save_quotes'];
 				
 			if($saveDelim != 'xml')
 			{
@@ -294,7 +298,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				{
 					if($saveDelim == 'comma' && !$options['save_quotes'])
 						$value = str_replace(',',';',$value);
-					$output .= ($options['save_quotes']?'"':'') . str_replace('&nbsp;',' ',str_replace('<BR>',' ',preg_replace('/<!--.*-->/','',$value))) . ($options['save_quotes']?'"':'') . ($saveDelim == 'comma' ?',':"\t");
+					$output .= ($saveQuotes?'"':'') . str_replace('&nbsp;',' ',str_replace('<BR>',' ',preg_replace('/<!--.*-->/','',$value))) . ($saveQuotes?'"':'') . ($saveDelim == 'comma' ?',':"\t");
 				}
 				$output .= "\n";
 			}
@@ -303,11 +307,11 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 				foreach($column_names as $key=>$value)
 				{
 					$value = $item[$key];
-					if($saveDelim == 'comma' && !$options['save_quotes'])
+					if($saveDelim == 'comma' && !$saveQuotes)
 						$value = str_replace(',',';',$value);
 					$value = preg_match('/<SELECT.*SELECTED\>([^<]+)<.*<\/SELECT\>/i','\\1',$value);
 					$value = preg_match('/<SELECT.*<\/SELECT\>/i','',$value);
-					$output .= ($options['save_quotes']?'"':'') . ($saveDelim == 'xml'?'<'.str_replace(' ','',$value).'>':'') . preg_replace('/<[^>]+>/','',preg_replace("/<div onclick='[^']+'>/",'',preg_replace('/ +/',' ',preg_replace('/&[^;]+;/','',str_replace('<BR>&middot;',' : ',str_replace('&nbsp;',' ',$value)))))) . ($saveDelim == 'xml'?'</'.str_replace(' ','',$value).'>'."\n":'') . ($options['save_quotes']?'"':'') . ($saveDelim == 'comma'?',':"\t");
+					$output .= ($saveQuotes?'"':'') . ($saveDelim == 'xml'?'<'.str_replace(' ','',$value).'>':'') . preg_replace('/<[^>]+>/','',preg_replace("/<div onclick='[^']+'>/",'',preg_replace('/ +/',' ',preg_replace('/&[^;]+;/','',str_replace('<BR>&middot;',' : ',str_replace('&nbsp;',' ',$value)))))) . ($saveDelim == 'xml'?'</'.str_replace(' ','',$value).'>'."\n":'') . ($saveQuotes?'"':'') . ($saveDelim == 'comma'?',':"\t");
 				}
 				$output .= "\n";
 			}
