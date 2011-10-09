@@ -352,6 +352,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 
 				if($result_count > $num_displayed)
 				{
+					$pages = '';
 					$where_message = "<SMALL>".sprintf(_('Displaying %d through %d'),$start,$stop)."</SMALL>";
 					if(ceil($result_count/$num_displayed) <= 10)
 					{
