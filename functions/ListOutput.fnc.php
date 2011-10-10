@@ -689,7 +689,8 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 
 					foreach($column_names as $key=>$value)
 					{
-						echo "<TD bgcolor=$color class=LO_field>".$link['add']['html'][$key]."</TD>";
+						$keyVal = !empty($link['add']['html'][$key]) ? $link['add']['html'][$key] : '';
+						echo "<TD bgcolor=$color class=LO_field>".$keyVal."</TD>";
 					}
 					echo "</TR>";
 				}
@@ -756,7 +757,9 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 
 					foreach($column_names as $key=>$value)
 					{
-						echo "<TD bgcolor=$color class=LO_field>".$link['add']['html'][$key]."</TD>";
+						$keyVal = !empty($link['add']['html'][$key]) ? $link['add']['html'][$key] : '';
+
+						echo "<TD bgcolor=$color class=LO_field>".$keyVal."</TD>";
 					}
 					echo "</TR>";
 					echo "</TABLE>";
