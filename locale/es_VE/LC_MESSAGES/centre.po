@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-12 16:00-0430\n"
+"POT-Creation-Date: 2011-10-12 18:25-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6018,25 +6018,9 @@ msgid "Su"
 msgstr "Do"
 
 #: modules/Scheduling/Courses.php:359 modules/Attendance/AddAbsences.php:101
-msgid "M"
-msgstr "L"
-
-#: modules/Scheduling/Courses.php:359 modules/Attendance/AddAbsences.php:101
-msgid "T"
-msgstr "M"
-
-#: modules/Scheduling/Courses.php:359 modules/Attendance/AddAbsences.php:101
-msgid "W"
-msgstr "M"
-
-#: modules/Scheduling/Courses.php:359 modules/Attendance/AddAbsences.php:101
 #: modules/Scheduling/Courses.php:357
 msgid "Th"
 msgstr "Ju"
-
-#: modules/Scheduling/Courses.php:359 modules/Attendance/AddAbsences.php:101
-msgid "F"
-msgstr "V"
 
 #: modules/Scheduling/Courses.php:359 modules/Scheduling/Courses.php:362
 #: modules/Scheduling/Courses.php:368 modules/Attendance/AddAbsences.php:101
@@ -6458,19 +6442,19 @@ msgstr "Direcciones del Estudiante"
 msgid "delete"
 msgstr "borrar"
 
-#: modules/Scheduling/Courses.php:357
+#: modules/Scheduling/Courses.php:357 modules/Attendance/AddAbsences.php:101
 msgid "Mo"
 msgstr "Lu"
 
-#: modules/Scheduling/Courses.php:357
+#: modules/Scheduling/Courses.php:357 modules/Attendance/AddAbsences.php:101
 msgid "Tu"
 msgstr "Ma"
 
-#: modules/Scheduling/Courses.php:357
+#: modules/Scheduling/Courses.php:357 modules/Attendance/AddAbsences.php:101
 msgid "We"
 msgstr "Mi"
 
-#: modules/Scheduling/Courses.php:357
+#: modules/Scheduling/Courses.php:357 modules/Attendance/AddAbsences.php:101
 msgid "Fr"
 msgstr "Vi"
 
