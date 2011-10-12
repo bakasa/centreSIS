@@ -98,7 +98,7 @@ if(!$_REQUEST['modfunc'])
 			$last--;
 
 		echo '<TABLE><TR>';
-		echo '<TH>'._('Su').'</TH><TH>'._('M').'</TH><TH>'._('T').'</TH><TH>'._('W').'</TH><TH>'._('Th').'</TH><TH>'._('F').'</TH><TH>'._('Sa').'</TH></TR><TR>';
+		echo '<TH>'._('Su').'</TH><TH>'._('Mo').'</TH><TH>'._('Tu').'</TH><TH>'._('We').'</TH><TH>'._('Th').'</TH><TH>'._('Fr').'</TH><TH>'._('Sa').'</TH></TR><TR>';
 		$calendar_RET = DBGet(DBQuery("SELECT SCHOOL_DATE FROM ATTENDANCE_CALENDAR WHERE SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' AND MINUTES!='0' AND EXTRACT(MONTH FROM SCHOOL_DATE)='".($_REQUEST['month']*1)."'"),array(),array('SCHOOL_DATE'));
 		for($i=1;$i<=$skip;$i++)
 			echo '<TD></TD>';
