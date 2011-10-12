@@ -1538,6 +1538,7 @@ CREATE TABLE program_config (
 
 CREATE TABLE program_user_config (
     user_id numeric NOT NULL,
+    school_id numeric NOT NULL,
     program character varying(255),
     title character varying(100),
     value character varying(100)
@@ -1883,6 +1884,7 @@ CREATE SEQUENCE school_periods_seq
 --
 
 SELECT pg_catalog.setval('school_periods_seq', 33, true);
+
 
 
 --
