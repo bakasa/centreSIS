@@ -25,10 +25,10 @@ function GetAllMP($mp,$marking_period_id='0')
 				$RET = DBGet(DBQuery("SELECT MARKING_PERIOD_ID,PARENT_ID FROM SCHOOL_MARKING_PERIODS WHERE MP='QTR' AND SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."'"));
 				foreach($RET as $value)
 				{
-					$_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']] = "'$fy','$value[PARENT_ID]','$value[MARKING_PERIOD_ID]'";
-					$_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']] .= ','.GetChildrenMP($mp,$value['MARKING_PERIOD_ID']);
-					if(substr($_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']],-1)==',')
-						$_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']] = substr($_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']],0,-1);
+					$_CENTRE['GetAllMP'][$mp][$marking_period_id] = "'$fy','$value[PARENT_ID]','$value[MARKING_PERIOD_ID]'";
+					$_CENTRE['GetAllMP'][$mp][$marking_period_id] .= ','.GetChildrenMP($mp,$value['MARKING_PERIOD_ID']);
+					if(substr($_CENTRE['GetAllMP'][$mp][$marking_period_id],-1)==',')
+						$_CENTRE['GetAllMP'][$mp][$marking_period_id] = substr($_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']],0,-1);
 				}
 			break;
 
@@ -39,7 +39,7 @@ function GetAllMP($mp,$marking_period_id='0')
 
 				$RET = DBGet(DBQuery("SELECT MARKING_PERIOD_ID,PARENT_ID FROM SCHOOL_MARKING_PERIODS WHERE MP='QTR' AND SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."'"));
 				foreach($RET as $value)
-					$_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']] = "'$fy','$value[PARENT_ID]','$value[MARKING_PERIOD_ID]'";
+					$_CENTRE['GetAllMP'][$mp][$marking_period_id] = "'$fy','$value[PARENT_ID]','$value[MARKING_PERIOD_ID]'";
 			break;
 
 			case 'SEM':
@@ -56,7 +56,7 @@ function GetAllMP($mp,$marking_period_id='0')
 				}
 				$RET = DBGet(DBQuery("SELECT MARKING_PERIOD_ID FROM SCHOOL_MARKING_PERIODS s WHERE MP='SEM' AND NOT EXISTS (SELECT '' FROM SCHOOL_MARKING_PERIODS q WHERE q.MP='QTR' AND q.PARENT_ID=s.MARKING_PERIOD_ID) AND SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."'"));
 				foreach($RET as $value)
-					$_CENTRE['GetAllMP'][$mp][$value['MARKING_PERIOD_ID']] = "'$fy','$value[MARKING_PERIOD_ID]'";
+					$_CENTRE['GetAllMP'][$mp][$marking_period_id] = "'$fy','$value[MARKING_PERIOD_ID]'";
 			break;
 
 			case 'FY':
