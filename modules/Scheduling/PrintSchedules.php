@@ -125,7 +125,7 @@ if(!$_REQUEST['modfunc'])
 
 function _makeDays($value,$column)
 {
-	foreach(array('U','M','T','W','H','F','S') as $day)
+	foreach(array(_('Su'),_('Mo'),_('Tu'),_('We'),_('Th'),_('Fr'),_('Sa')) as $day)
 		if(strpos($value,$day)!==false)
 			$return .= $day;
 		else
