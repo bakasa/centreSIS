@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-12 18:25-0430\n"
+"POT-Creation-Date: 2011-10-13 08:10-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,6 +135,7 @@ msgstr "Aceptar"
 #: modules/Grades/DeletePromptX.fnc.php:22
 #: modules/Food_Service/includes/DeletePromptX.fnc.php:22
 #: modules/Food_Service/includes/DeletePromptX.fnc.php:39
+#: modules/Billing/billingAdmin.php:45
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -457,6 +458,7 @@ msgstr ""
 #: modules/Custom/CreateParents.php:191 modules/misc/Portal.php:93
 #: modules/misc/Portal.php:186
 #: modules/Students/includes/General_Info.inc.php:54
+#: modules/Billing/reports.php:290
 msgid "Grade"
 msgid_plural "Grades"
 msgstr[0] "Grado"
@@ -751,7 +753,7 @@ msgstr "Balance del Servicio de Comida"
 #: modules/Food_Service/Users/Statements.php:58
 #: modules/Food_Service/Users/Transactions.php:45
 #: modules/Food_Service/Users/Transactions.php:62 modules/misc/Portal.php:93
-#: modules/misc/Portal.php:186
+#: modules/misc/Portal.php:186 modules/Billing/reports.php:290
 msgid "Balance"
 msgstr "Balance"
 
@@ -1122,7 +1124,8 @@ msgstr "Comentarios"
 #: modules/misc/Portal.php:272 modules/Scheduling/Courses.php:499
 #: modules/Scheduling/Courses.php:536 modules/misc/Portal.php:43
 #: modules/misc/Portal.php:109 modules/misc/Portal.php:162
-#: modules/misc/Portal.php:208
+#: modules/misc/Portal.php:208 modules/Billing/fees.php:52
+#: modules/Billing/fees.php:186 modules/Billing/mass_fees.php:53
 msgid "Title"
 msgstr "Título"
 
@@ -1180,6 +1183,8 @@ msgstr "Preferencia"
 #: modules/Food_Service/Students/Transactions.php:94
 #: modules/Food_Service/Users/Transactions.php:87
 #: modules/Food_Service/TransactionsReport.php:82
+#: modules/Billing/mass_payments.php:54 modules/Billing/payments.php:41
+#: modules/Billing/payments.php:172
 msgid "Type"
 msgstr "Tipo"
 
@@ -1264,7 +1269,7 @@ msgstr "Código de Estado"
 #: modules/Food_Service/TakeMenuCounts.php:130 modules/Grades/Grades.php:248
 #: modules/Scheduling/new_Requests.php:49 modules/Users/User.php:229
 #: modules/Scheduling/Courses.php:330 modules/Scheduling/Courses.php:495
-#: modules/Scheduling/Courses.php:532
+#: modules/Scheduling/Courses.php:532 modules/Billing/billingAdmin.php:44
 msgid "Save"
 msgstr "Guardar"
 
@@ -1332,7 +1337,10 @@ msgstr "Añadir Ausencia"
 #: modules/Food_Service/Menu.php:7 modules/Grades/Menu.php:7
 #: modules/Grades/Menu.php:35 modules/Scheduling/Menu.php:8
 #: modules/Scheduling/Menu.php:25 modules/Students/Menu.php:7
-#: modules/Students/Menu.php:24
+#: modules/Students/Menu.php:24 modules/Billing/Menu.php:30
+#: modules/Billing/Menu.php:31 modules/Billing/Menu.php:42
+#: modules/Billing/Menu.php:43 modules/Billing/Menu.php:47
+#: modules/Billing/Menu.php:48
 msgid "Reports"
 msgstr "Reportes"
 
@@ -1474,7 +1482,9 @@ msgstr "Busqueda Avanzada"
 #: modules/misc/Portal.php:272 modules/misc/Portal.php:52
 #: modules/misc/Portal.php:70 modules/misc/Portal.php:118
 #: modules/misc/Portal.php:136 modules/misc/Portal.php:171
-#: modules/misc/Portal.php:217
+#: modules/misc/Portal.php:217 modules/Billing/mass_payments.php:63
+#: modules/Billing/payments.php:50 modules/Billing/payments.php:172
+#: modules/Billing/reports.php:227
 msgid "Date"
 msgstr "Fecha"
 
@@ -1493,7 +1503,7 @@ msgstr "Fecha"
 #: modules/Eligibility/StudentList.php:89 modules/Grades/Grades.php:172
 #: modules/Students/Search.inc.php:197 modules/misc/Export.php:181
 #: modules/Reports/Students.php:132 modules/misc/Portal.php:93
-#: modules/misc/Portal.php:186
+#: modules/misc/Portal.php:186 modules/Billing/reports.php:291
 msgid "Students"
 msgstr "Estudiantes"
 
@@ -1586,6 +1596,9 @@ msgstr "Ya has tomado asistencia hoy para este período"
 #: modules/Students/Search.inc.php:197 modules/Users/AddStudents.php:58
 #: modules/misc/Export.php:181 modules/Reports/Students.php:132
 #: modules/misc/Portal.php:93 modules/misc/Portal.php:186
+#: modules/Billing/fees.php:185 modules/Billing/payments.php:175
+#: modules/Billing/reports.php:227 modules/Billing/reports.php:290
+#: modules/Billing/reports.php:291
 msgid "Student"
 msgstr "Estudiante"
 
@@ -2259,7 +2272,7 @@ msgstr "Vista Original"
 #: modules/School_Setup/Calendar.php:299 modules/misc/Portal.php:54
 #: modules/misc/Portal.php:272 modules/misc/Portal.php:52
 #: modules/misc/Portal.php:118 modules/misc/Portal.php:171
-#: modules/misc/Portal.php:217
+#: modules/misc/Portal.php:217 modules/Billing/billingAdmin.php:114
 msgid "Description"
 msgstr "Descripción"
 
@@ -2286,7 +2299,10 @@ msgstr "Orden"
 #: modules/Food_Service/Users/ServeMenus.php:91
 #: modules/Food_Service/Users/Statements.php:50
 #: modules/Food_Service/Users/Statements.php:58
-#: modules/Food_Service/Users/Transactions.php:87
+#: modules/Food_Service/Users/Transactions.php:87 modules/Billing/fees.php:53
+#: modules/Billing/fees.php:186 modules/Billing/mass_fees.php:54
+#: modules/Billing/mass_payments.php:53 modules/Billing/payments.php:40
+#: modules/Billing/payments.php:172
 msgid "Amount"
 msgstr "Cantidad"
 
@@ -2374,7 +2390,8 @@ msgstr "Declaraciones"
 
 #: modules/Food_Service/Menu.php:5 modules/Food_Service/ActivityReport.php:148
 #: modules/Food_Service/Students/Statements.php:82
-#: modules/Food_Service/Users/Statements.php:61
+#: modules/Food_Service/Users/Statements.php:61 modules/Billing/Menu.php:32
+#: modules/Billing/reports.php:228
 msgid "Transactions"
 msgstr "Transacciones"
 
@@ -2565,6 +2582,7 @@ msgstr "Total"
 #: modules/Food_Service/ActivityReport.php:148
 #: modules/Food_Service/Students/Statements.php:82
 #: modules/Food_Service/Users/Statements.php:61
+#: modules/Billing/reports.php:228
 msgid "Transaction"
 msgstr "Transacción"
 
@@ -2627,7 +2645,10 @@ msgstr "Asignación"
 #: modules/Grades/StudentGrades.php:185
 #: modules/Students/includes/Comments.inc.php:9
 #: modules/Grades/ReportCardComments.php:157
-#: modules/Grades/ReportCardComments.php:183
+#: modules/Grades/ReportCardComments.php:183 modules/Billing/fees.php:56
+#: modules/Billing/fees.php:187 modules/Billing/mass_fees.php:57
+#: modules/Billing/mass_payments.php:64 modules/Billing/payments.php:51
+#: modules/Billing/payments.php:173 modules/Billing/reports.php:227
 msgid "Comment"
 msgstr "Comentario"
 
@@ -2658,12 +2679,14 @@ msgstr "Puntajes"
 
 #: modules/Grades/Assignments-new.php:200 modules/Grades/Configuration.php:45
 #: modules/Grades/Grades.php:254 modules/Grades/ProgressReports.php:30
-#: modules/Grades/ProgressReports.php:130
+#: modules/Grades/ProgressReports.php:130 modules/Billing/fees.php:186
 msgid "Assigned Date"
 msgstr "Fecha Asignada"
 
 #: modules/Grades/Assignments-new.php:200 modules/Grades/Configuration.php:45
 #: modules/Grades/Grades.php:254 modules/Grades/ProgressReports.php:32
+#: modules/Billing/fees.php:55 modules/Billing/fees.php:187
+#: modules/Billing/mass_fees.php:56
 msgid "Due Date"
 msgstr "Fecha de Expiración"
 
@@ -2723,6 +2746,7 @@ msgid "Assignment Type"
 msgstr "Tipo de Asignación"
 
 #: modules/Grades/Assignments.php:238 modules/Grades/StudentGrades.php:244
+#: modules/Billing/fees.php:54 modules/Billing/mass_fees.php:55
 msgid "Assigned"
 msgstr "Asignado"
 
@@ -6465,3 +6489,160 @@ msgstr "Hora de Inicio"
 #: modules/School_Setup/Periods.php:70
 msgid "End Time"
 msgstr "Hora de Culminación"
+
+#: modules/Billing/Menu.php:33 modules/Billing/fees.php:187
+msgid "Fees"
+msgstr "Deudas"
+
+#: modules/Billing/Menu.php:34
+msgid "Payments"
+msgstr "Pagos"
+
+#: modules/Billing/Menu.php:35
+msgid "Mass Fees"
+msgstr "Deudas en Masa"
+
+#: modules/Billing/Menu.php:36
+msgid "Mass Payments"
+msgstr "Pagos en Masa"
+
+#: modules/Billing/Menu.php:37
+msgid "Config"
+msgstr "Configuración"
+
+#: modules/Billing/Menu.php:38 modules/Billing/billingAdmin.php:116
+msgid "Payment Options"
+msgstr "Formas de Pago"
+
+#: modules/Billing/billingAdmin.php:39
+msgid "Add new payment option"
+msgstr "Agregar nueva forma de pago"
+
+#: modules/Billing/billingAdmin.php:73
+msgid "Payment option"
+msgstr "Forma de pago"
+
+#: modules/Billing/billingAdmin.php:114 modules/Billing/fees.php:187
+#: modules/Billing/payments.php:173
+msgid "Action"
+msgstr "Acción"
+
+#: modules/Billing/billingAdmin.php:116
+msgid "Payment Option"
+msgstr "Forma de pago"
+
+#: modules/Billing/fees.php:45
+msgid "New Fee"
+msgstr "Nueva deuda"
+
+#: modules/Billing/fees.php:58
+msgid "Add Fee"
+msgstr "Agregar deuda"
+
+#: modules/Billing/fees.php:104
+msgid "fee"
+msgstr "deuda"
+
+#: modules/Billing/fees.php:104
+msgid "waive"
+msgstr "reversar"
+
+#: modules/Billing/fees.php:167 modules/Billing/reports.php:209
+msgid "Waived"
+msgstr "reversada"
+
+#: modules/Billing/fees.php:185
+msgid "Fee Balance"
+msgstr "Deuda total"
+
+#: modules/Billing/fees.php:186 modules/Billing/payments.php:172
+msgid "Inserted By"
+msgstr "Insertado por"
+
+#: modules/Billing/fees.php:187
+msgid "Waived By"
+msgstr "Reversado por"
+
+#: modules/Billing/fees.php:187
+msgid "Waived Date"
+msgstr "Fecha de Reverso"
+
+#: modules/Billing/fees.php:187 modules/Billing/reports.php:227
+msgid "Fee"
+msgstr "Deuda"
+
+#: modules/Billing/mass_fees.php:35
+msgid "Add Mass Fee"
+msgstr "Agregar deuda en masa"
+
+#: modules/Billing/mass_fees.php:50
+msgid "Add Selected Fees"
+msgstr "Agregar deudas seleccionadas"
+
+#: modules/Billing/mass_fees.php:59
+msgid "Add Fees"
+msgstr "Agregar deudas"
+
+#: modules/Billing/mass_payments.php:35
+msgid "Add Mass Payment"
+msgstr "Agregar pago en masa"
+
+#: modules/Billing/mass_payments.php:50 modules/Billing/payments.php:53
+msgid "Add Payment"
+msgstr "Agregar pago"
+
+#: modules/Billing/mass_payments.php:65
+msgid "Add Selected Payments"
+msgstr "Agregar pago seleccionado"
+
+#: modules/Billing/payments.php:34
+msgid "Add payment"
+msgstr "Agregar pago"
+
+#: modules/Billing/payments.php:96 modules/Billing/payments.php:176
+msgid "payment"
+msgstr "pago"
+
+#: modules/Billing/payments.php:96
+msgid "refund"
+msgstr "reintegrar"
+
+#: modules/Billing/payments.php:155
+msgid "Refunded"
+msgstr "Reintegrado"
+
+#: modules/Billing/payments.php:173
+msgid "Refunded Date"
+msgstr "Fecha de reintegro"
+
+#: modules/Billing/payments.php:173
+msgid "Refund By"
+msgstr "Reintegrado por"
+
+#: modules/Billing/payments.php:175
+msgid "Payment Balance"
+msgstr "Pago Total"
+
+#: modules/Billing/payments.php:176
+msgid "payments"
+msgstr "pagos"
+
+#: modules/Billing/reports.php:37
+msgid "Balances"
+msgstr "Balances"
+
+#: modules/Billing/reports.php:38
+msgid "Daily Transaction"
+msgstr "Transacciones Diarias"
+
+#: modules/Billing/reports.php:197
+msgid "Refund"
+msgstr "Reintegrar"
+
+#: modules/Billing/reports.php:227
+msgid "Payment"
+msgstr "Pago"
+
+#: modules/Billing/reports.php:290
+msgid "Student ID"
+msgstr "ID"
