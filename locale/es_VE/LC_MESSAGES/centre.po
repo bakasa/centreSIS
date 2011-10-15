@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 08:10-0430\n"
+"POT-Creation-Date: 2011-10-15 15:47-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6646,3 +6646,7 @@ msgstr "Pago"
 #: modules/Billing/reports.php:290
 msgid "Student ID"
 msgstr "ID"
+
+#: modules/Attendance/TakeAttendance.php:35
+msgid "SuMoTuWeThFrSa"
+msgstr "DoLuMaMiJuViSa"
