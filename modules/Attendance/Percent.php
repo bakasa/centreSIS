@@ -81,7 +81,7 @@ if(!$_REQUEST['modfunc'])
 	$extra['WHERE'] .= CustomFields('where');
 
 	echo "<FORM action=Modules.php?modname=$_REQUEST[modname]&list_by_day=$_REQUEST[list_by_day] method=POST>";
-	$advanced_link = " <A HREF=Modules.php?modname=$_REQUEST[modname]&modfunc=search&list_by_day=$_REQUEST[list_by_day]&day_start=$_REQUEST[day_start]&day_end=$_REQUEST[day_end]&month_start=$_REQUEST[month_start]&month_end=$_REQUEST[month_end]&year_start=$_REQUEST[year_start]&year_end=$_REQUEST[year_end]>Advanced</A>";
+	$advanced_link = " <A HREF=Modules.php?modname=$_REQUEST[modname]&modfunc=search&list_by_day=$_REQUEST[list_by_day]&day_start=$_REQUEST[day_start]&day_end=$_REQUEST[day_end]&month_start=$_REQUEST[month_start]&month_end=$_REQUEST[month_end]&year_start=$_REQUEST[year_start]&year_end=$_REQUEST[year_end]>"._('Advanced')."</A>";
 	DrawHeader(PrepareDate($start_date,'_start').' - '.PrepareDate($end_date,'_end').$advanced_link,'<INPUT type=submit value='._('Go').'>');
 	echo '</FORM>';
 	if($_CENTRE['SearchTerms'])
