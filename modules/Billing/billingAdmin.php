@@ -36,13 +36,13 @@ if (isset($_REQUEST['modfunc']))
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
 		echo '<br>';
-		PopTable('header','Add new payment option');
+		PopTable('header',_('Add new payment option'));
 		echo '<form id="PayOptionForm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new".' method=post>
 			<table>
 			<tr><td>Description</td><td><input type="text" size="30" name="type" /></td></tr>
 			<tr><td colspan="2" align="center">
-				<input type=submit name=button value="Save" />&nbsp;&nbsp;
-				<input type="button" name=button onclick="window.close();" value="Cancel" />
+				<input type=submit name=button value='._('Save').' />&nbsp;&nbsp;
+				<input type="button" name=button onclick="window.close();" value='._('Cancel').' />
 			</td></tr>
 			</table></form>';
 		PopTable('footer');
@@ -70,7 +70,7 @@ if (isset($_REQUEST['modfunc']))
 	}
 	else if ($_REQUEST['modfunc'] == 'remove')
 	{
-		if (DeletePrompt('Payment option'))
+		if (DeletePrompt(_('Payment option')))
 		{
 			/// TODO: SANATIZE INPUT AND CHECK IF ALL VALUES ARE SET & VALID
 			
@@ -111,9 +111,9 @@ if ($displayList)
 
 	$link['add']['html'] = array('DESC'=>$buttonAdd,'ACTION'=>'');
 			
-	$columns = array('DESC'=>'Description','ACTION'=>'Action');
+	$columns = array('DESC'=>_('Description'),'ACTION'=>_('Action'));
 
-	ListOutput($type_RET,$columns,'Payment Option','Payment Options',$link);
+	ListOutput($type_RET,$columns,_('Payment Option'),_('Payment Options'),$link);
 }
 
 ?>

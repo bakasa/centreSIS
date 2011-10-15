@@ -32,7 +32,7 @@ if (isset($_REQUEST['search_modfunc']))
 	
 		echo "<FORM action=Modules.php?modname=$_REQUEST[modname]&modfunc=detail method=POST>";
 	 	Search('student_id',$extra);
-	 	echo '<BR><CENTER><INPUT type=submit value="Add Mass Fee"></CENTER>';
+	 	echo '<BR><CENTER><INPUT type=submit value='._('Add Mass Fee').'"></CENTER>';
 	 	echo '</form>';
 	 }
 }
@@ -47,16 +47,16 @@ else
 			$students = serialize($_REQUEST['st_arr']);
 			
 			echo '<br>';
-			PopTable('header','Add Selected Fees');
+			PopTable('header',_('Add Selected Fees'));
 			echo '<form id="newMassFeeFrm" action=Modules.php?modname='."$_REQUEST[modname]&modfunc=save&students=$students".' method=POST>
 		  	<table>
-		  	<tr><td>Title:</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
-		  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
-		  	<tr><td>Assigned:</td><td>'.PrepareDate(date('Y-m-d'),'_assigned').'</td></tr>
-		  	<tr><td>Due Date:</td><td>'.PrepareDate(date('Y-m-d'),'_due').'</td></tr>
-		  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
+		  	<tr><td>'._('Title').':</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
+		  	<tr><td>'._('Amount').':</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
+		  	<tr><td>'._('Assigned').':</td><td>'.PrepareDate(date('Y-m-d'),'_assigned').'</td></tr>
+		  	<tr><td>'._('Due Date').':</td><td>'.PrepareDate(date('Y-m-d'),'_due').'</td></tr>
+		  	<tr><td>'._('Comment').':</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
 		  	<tr><td colspan="4" align="center">
-		  		<input type=submit name=button style="cursor:pointer;" value="Add Fees" /></td></tr>
+		  		<input type=submit name=button style="cursor:pointer;" value='._('Add Fees').'" /></td></tr>
 			</table>
 		  	</form>';
 		  	PopTable('footer');

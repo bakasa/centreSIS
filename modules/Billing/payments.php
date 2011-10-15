@@ -31,14 +31,14 @@ else
 	
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
-		$title = "Add payment";
+		$title = _('Add payment');
 		
 		echo '<br>';
 		PopTable('header',$title);
 		echo '<form id="newPaymentFrm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new&student_id=$_REQUEST[student_id]".' method=post>
 	  	<table>
-	  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
-	  	<tr><td>Type:</td><td><select name="TYPE">';
+	  	<tr><td>'._('Amount').':</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
+	  	<tr><td>'._('Type').':</td><td><select name="TYPE">';
 	  	
 		$query = "select type_desc from BILLING_PAYMENT_TYPE order by type_desc";
 		$result = DBQuery($query);
@@ -47,10 +47,10 @@ else
 		}
 		
 		echo '</select></td></tr>
-			  	<tr><td>Date:</td><td>'.PrepareDate(date('Y-m-d'),'_date').'</td></tr>
-			  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
+			  	<tr><td>'._('Date').':</td><td>'.PrepareDate(date('Y-m-d'),'_date').'</td></tr>
+			  	<tr><td>'._('Comment').':</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
 			  	<tr><td colspan="2" align="center"><input type=submit name=button style="cursor:pointer;" 
-			  		value="Add Payment" /></td></tr>
+			  		value="'._('Add Payment').'" /></td></tr>
 			  	</table>
 			  	</form>';
 			  	
@@ -93,7 +93,7 @@ else
 	}
 	else if ($_REQUEST['modfunc'] == 'remove')
 	{
-		if (DeletePrompt('payment','refund'))
+		if (DeletePrompt(_('payment'),_('refund')))
 		{
 			include 'modules/Billing/classes/Auth.php';
 			include 'modules/Billing/classes/Payment.php';
@@ -152,7 +152,7 @@ else
 			$action = "";
 			
 			if ($trans['REFUNDED'])
-				$action = '<b><font color=red>Refunded</font></b>';
+				$action = '<b><font color=red>'._('Refunded').'</font></b>';
 			else
 			{
 				$action = button('x','',
@@ -169,11 +169,11 @@ else
 		$link['add']['html'] = array('AMOUNT'=>$buttonAdd,'PAYMENT_TYPE'=>'',
 			'PAYMENT_DATE'=>'','INSERTED_BY'=>'','REFUND_DATE'=>'','REFUND_BY'=>'','COMMENT'=>'','ACTION'=>'');
 			
-		$columns = array('AMOUNT'=>'Amount','PAYMENT_TYPE'=>'Type','PAYMENT_DATE'=>'Date','INSERTED_BY'=>'Inserted By','REFUND_DATE'=>'Refunded Date',
-			'REFUND_BY'=>'Refund By','COMMENT'=>'Comment','ACTION'=>'Action');
+		$columns = array('AMOUNT'=>_('Amount'),'PAYMENT_TYPE'=>_('Type'),'PAYMENT_DATE'=>_('Date'),'INSERTED_BY'=>_('Inserted By'),
+			'REFUND_DATE'=>_('Refunded Date'), 'REFUND_BY'=>_('Refund By'),'COMMENT'=>_('Comment'),'ACTION'=>_('Action'));
 		
-		DrawHeader('<b>Student: </b>'.getStudentName($studentId).'&nbsp<b>Payment Balance: </b>'.number_format($totalPayment,2));
-		ListOutput($trans_RET,$columns,'payment','payments',$link);
+		DrawHeader('<b>'._('Student').': </b>'.getStudentName($studentId).'&nbsp<b>'._('Payment Balance').': </b>'.number_format($totalPayment,2));
+		ListOutput($trans_RET,$columns,_('payment'),_('payments'),$link);
 	}
 	
 	if ($displaySearch)

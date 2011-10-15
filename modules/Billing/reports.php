@@ -34,8 +34,8 @@ if (isset($_REQUEST['TAB']))
 	$TAB = $_REQUEST['TAB'];
 
 DrawHeader(ProgramTitle());
-DrawHeader(SubmitButton("Balances","","onclick=billing.showBalances()")
-	.SubmitButton("Daily Transaction","","onclick=billing.showDaliyTrans()"));
+DrawHeader(SubmitButton(_('Balances'),"","onclick=billing.showBalances()")
+	.SubmitButton(_('Daily Transaction'),"","onclick=billing.showDaliyTrans()"));
 
 if($TAB == 2){
 
@@ -194,7 +194,7 @@ if($TAB == 2){
 		{
 			$totalPayment -= $amount;
 			$payment = number_format(-$amount,2);
-			$comment = '<b><font color=red>Refund</font></b>'.' - '.$trans['COMMENT'];
+			$comment = '<b><font color=red>'._('Refund').'</font></b>'.' - '.$trans['COMMENT'];
 		}
 		else if ($type == 'F')
 		{
@@ -206,7 +206,7 @@ if($TAB == 2){
 		{
 			$totalFee -= $amount;
 			$fee = number_format(-$amount,2);
-			$comment = '<b><font color=red>Waived</font></b>'.' - '.$trans['COMMENT'];
+			$comment = '<b><font color=red>'._('Waived').'</font></b>'.' - '.$trans['COMMENT'];
 		}
 		
 		$transReport[$i]['FEE'] = $fee;
@@ -224,8 +224,8 @@ if($TAB == 2){
 		'COMMENT'=>'');
 	
 	echo '<p>';
-	ListOutput($transReport,array('STUDENT'=>'Student','FEE'=>'Fee','PAYMENT'=>'Payment','DATE'=>'Date','COMMENT'=>'Comment'),
-		'Transaction','Transactions',($i > 1) ? $link : false);
+	ListOutput($transReport,array('STUDENT'=>_('Student'),'FEE'=>_('Fee'),'PAYMENT'=>_('Payment'),'DATE'=>_('Date'),'COMMENT'=>_('Comment')),
+		_('Transaction'),_('Transactions'),($i > 1) ? $link : false);
 	echo '</p>';
 }
 else{
@@ -287,8 +287,8 @@ else{
 	}
 	
 	echo '<p>';
-	ListOutput($student_RET,array('STUDENT'=>'Student','STUDENT_ID'=>'Student ID','TITLE'=>'Grade','BALANCE'=>'Balance'),
-		'Student','Students',array('save'=>1));
+	ListOutput($student_RET,array('STUDENT'=>_('Student'),'STUDENT_ID'=>_('Student ID'),'TITLE'=>_('Grade'),'BALANCE'=>_('Balance')),
+		_('Student'),_('Students'),array('save'=>1));
 	echo '</p>';
 }
 

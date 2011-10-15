@@ -42,20 +42,20 @@ else
 			
 	if ($_REQUEST['modfunc'] == 'detail')
 	{
-		$title = 'New Fee';
+		$title = _('New Fee');
 		
 		echo '<br>';
 		PopTable('header',$title);
 		echo '<div id="addFeeDiv" align=center>
 		  	<form id="newFeeFrm" action='."Modules.php?modname=$_REQUEST[modname]&modfunc=new&student_id=$_REQUEST[student_id]".' method=post>
 		  	<table>
-		  	<tr><td>Title:</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
-		  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
-		  	<tr><td>Assigned:</td><td>'.PrepareDate(date('Y-m-d'), '_assigned').'</td></tr>
-		  	<tr><td>Due Date:</td><td>'.PrepareDate(date('Y-m-d'), '_due').'</td></tr>
-		  	<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
+		  	<tr><td>'._('Title').':</td><td><input type="text" size="20" id="title" name="TITLE" /></td></tr>
+		  	<tr><td>'._('Amount').':</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
+		  	<tr><td>'._('Assigned').':</td><td>'.PrepareDate(date('Y-m-d'), '_assigned').'</td></tr>
+		  	<tr><td>'._('Due Date').':</td><td>'.PrepareDate(date('Y-m-d'), '_due').'</td></tr>
+		  	<tr><td>'._('Comment').':</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
 		  	<tr><td colspan="2" align="center">
-		  		<input type=submit name=button;" style="cursor:pointer;" value="Add Fee" /> 
+		  		<input type=submit name=button;" style="cursor:pointer;" value='._('Add Fee').'" /> 
 		  	</td></tr>
 		  	</table>
 		  	</form>
@@ -101,7 +101,7 @@ else
 	}
 	else if ($_REQUEST['modfunc'] == 'remove')
 	{
-		if (DeletePrompt('fee','waive'))
+		if (DeletePrompt(_('fee'),_('waive')))
 		{
 			include 'modules/Billing/classes/Auth.php';
 			include 'modules/Billing/classes/Fee.php';
@@ -164,7 +164,7 @@ else
 			$action = "";
 			
 			if ($trans['WAIVED'])
-				$action = '<b><font color=red>Waived</font></b>';
+				$action = '<b><font color=red>'._('Waived').'</font></b>';
 			else
 			{
 				$action = button('x','',
@@ -182,9 +182,9 @@ else
 			
 		//array_push($trans_RET,array('TITLE'=>$buttonAdd));
 		
-		DrawHeader('<b>Student: </b>'.getStudentName($studentId).'&nbsp<b>Fee Balance: </b>'.number_format($totalFee,2));
-		ListOutput($trans_RET,array('TITLE'=>'Title','AMOUNT'=>'Amount','INSERTED_BY'=>'Inserted By','ASSIGNED_DATE'=>'Assigned Date',
-			'DUE_DATE'=>'Due Date','WAIVED_BY'=>'Waived By','WAIVED_DATE'=>'Waived Date','COMMENT'=>'Comment','ACTION'=>'Action'),'Fee','Fees',$link);
+		DrawHeader('<b>'._('Student').': </b>'.getStudentName($studentId).'&nbsp<b>'._('Fee Balance').': </b>'.number_format($totalFee,2));
+		ListOutput($trans_RET,array('TITLE'=>_('Title'),'AMOUNT'=>_('Amount'),'INSERTED_BY'=>_('Inserted By'),'ASSIGNED_DATE'=>_('Assigned Date'),
+			'DUE_DATE'=>_('Due Date'),'WAIVED_BY'=>_('Waived By'),'WAIVED_DATE'=>_('Waived Date'),'COMMENT'=>_('Comment'),'ACTION'=>_('Action')),_('Fee'),_('Fees'),$link);
 	}
 	
 	if ($displaySearch)

@@ -32,7 +32,7 @@ if (isset($_REQUEST['search_modfunc']))
 	
 		echo "<FORM action=Modules.php?modname=$_REQUEST[modname]&modfunc=detail method=POST>";
 	 	Search('student_id',$extra);
-	 	echo '<BR><CENTER><INPUT type=submit value="Add Mass Payment"></CENTER>';
+	 	echo '<BR><CENTER><INPUT type=submit value="'._('Add Mass Payment').'"></CENTER>';
 	 	echo '</form>';
 	 }
 }
@@ -47,11 +47,11 @@ else
 			$students = serialize($_REQUEST['st_arr']);
 			
 			echo '<br>';
-			PopTable('header','Add Payment');
+			PopTable('header',_('Add Payment'));
 			echo '<form id="newMassPaymentFrm" action=Modules.php?modname='."$_REQUEST[modname]&modfunc=save&students=$students".' method=POST>
 		  	<table>
-		  	<tr><td>Amount:</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
-		  	<tr><td>Type:</td><td><select name="TYPE">';
+		  	<tr><td>'._('Amount').':</td><td><input type="text" size="20" id="amount" name="AMOUNT" /></td></tr>
+		  	<tr><td>'._('Type').':</td><td><select name="TYPE">';
 		  	
 			$query = "SELECT type_desc FROM BILLING_PAYMENT_TYPE ORDER BY type_desc";
 			$result = DBQuery($query);
@@ -60,9 +60,9 @@ else
 			}
 
 		   echo'</select></td></tr>
-			<tr><td>Date:</td><td>'.PrepareDate(date('Y-m-d'),'_date').'</td></tr>
-			<tr><td>Comment:</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
-		  	<tr><td colspan="4" align="center"><input type=submit name=button style="cursor:pointer;" value="Add Selected Payments" /></td></tr>
+			<tr><td>'._('Date').':</td><td>'.PrepareDate(date('Y-m-d'),'_date').'</td></tr>
+			<tr><td>'._('Comment').':</td><td><input type="text" size="20" id="comment" name="COMMENT" /></td></tr>
+		  	<tr><td colspan="4" align="center"><input type=submit name=button style="cursor:pointer;" value="'._('Add Selected Payments').'" /></td></tr>
 			</table></form>';
 		  	PopTable('footer');
 		}
