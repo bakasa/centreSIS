@@ -31,12 +31,12 @@ if($_REQUEST['table']=='0')
 	$table = 'ATTENDANCE_PERIOD';
 else
 	$table = 'LUNCH_PERIOD';
+	
+$daysWeek = _('SuMoTuWeThFrSa');	/// Days of the week
 
 $course_RET = DBGET(DBQuery("SELECT cp.HALF_DAY FROM ATTENDANCE_CALENDAR acc,COURSE_PERIODS cp,SCHOOL_PERIODS sp WHERE acc.SYEAR='".UserSyear()."' AND cp.SCHOOL_ID=acc.SCHOOL_ID AND cp.SYEAR=acc.SYEAR AND acc.SCHOOL_DATE='$date' AND cp.CALENDAR_ID=acc.CALENDAR_ID AND cp.COURSE_PERIOD_ID='".UserCoursePeriod()."'
 AND cp.MARKING_PERIOD_ID IN (SELECT MARKING_PERIOD_ID FROM SCHOOL_MARKING_PERIODS WHERE (MP='FY' OR MP='SEM' OR MP='QTR') AND SCHOOL_ID=acc.SCHOOL_ID AND acc.SCHOOL_DATE BETWEEN START_DATE AND END_DATE)
-AND sp.PERIOD_ID=cp.PERIOD_ID AND (sp.BLOCK IS NULL AND position(substring('UMTWHFS' FROM cast(extract(DOW FROM acc.SCHOOL_DATE) AS INT)+1 FOR 1) IN cp.DAYS)>0
-	OR sp.BLOCK IS NOT NULL AND acc.BLOCK IS NOT NULL AND sp.BLOCK=acc.BLOCK)
-AND position(',$_REQUEST[table],' IN cp.DOES_ATTENDANCE)>0"));
+AND sp.PERIOD_ID=cp.PERIOD_ID AND (sp.BLOCK IS NULL AND position(substring('$daysWeek' FROM cast(extract(DOW FROM acc.SCHOOL_DATE) AS INT)*2+1 FOR 2) IN cp.DAYS)>0 OR sp.BLOCK IS NOT NULL AND acc.BLOCK IS NOT NULL AND sp.BLOCK=acc.BLOCK) AND position(',$_REQUEST[table],' IN cp.DOES_ATTENDANCE)>0"));
 if(count($course_RET)==0)
 {
 	echo "<FORM action=Modules.php?modname=$_REQUEST[modname]&table=$_REQUEST[table] method=POST>";
