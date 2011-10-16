@@ -106,7 +106,7 @@ else
 	}
     echo '<TD width=24><A HREF=Bottom.php?modfunc=print target=body><IMG SRC=assets/print.gif border=0 vspace=0></A></TD><TD valign=middle class=BottomButton><A HREF=Bottom.php?modfunc=print target=body>'._('Print').'</A></TD>';
 //    echo '<TD><A HREF=# onclick=expandFrame();return false;><IMG SRC=assets/help.gif border=0 vspace=0></A></TD><TD valign=middle class=BottomButton><A HREF=# onclick="expandFrame();return false;">'._('Help').'</A></TD>';
-    echo '<TD><A HREF=index.php?modfunc=logout&locale='.$locale.' target=_top><IMG SRC=assets/logout.gif border=0 vspace=0 hspace=0></A></TD><TD valign=middle class=BottomButton><A HREF=index.php?modfunc=logout&locale='.$locale.' target=_top>'._('Logout').'</A></TD></TR></TABLE>';
+    echo '<TD><A HREF=index.php?modfunc=logout&locale='.$_SESSION['locale'].' target=_top><IMG SRC=assets/logout.gif border=0 vspace=0 hspace=0></A></TD><TD valign=middle class=BottomButton><A HREF=index.php?modfunc=logout&locale='.$_SESSION['locale'].' target=_top>'._('Logout').'</A></TD></TR></TABLE>';
 	echo '<BR><BR>';
 	echo '</CENTER>';
 

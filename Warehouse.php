@@ -37,27 +37,29 @@ if(!isset($WAREHOUSE_PHP))
 	}
 
     // Internationalization
-	$locale = "es_VE.utf8";
-	
     if (!empty($_GET['locale']))
     { 
     	$_SESSION['locale'] = $_GET['locale'];
-    	$locale = $_SESSION['locale'];
+    }
+    else
+    {
+    	if (empty($_SESSION['locale']))
+    		$_SESSION['locale'] = $CentreLocales[0];
     }
     
-    putenv("LC_ALL=$locale");
-    setlocale(LC_ALL, $locale);
+    putenv("LC_ALL=$_SESSION[locale]");
+    setlocale(LC_ALL, $_SESSION['locale']);
     bindtextdomain("centre", $LocalePath);    //binds the messages domain to the locale folder
     bind_textdomain_codeset("centre","UTF-8");     //ensures text returned is utf-8, quite often this is iso-8859-1 by default
     textdomain("centre");    //sets the domain name, this means gettext will be looking for a file called centre.mo
 
 	function Warehouse($mode)
-	{	global $__SHOW_FOOTER,$_CENTRE,$CentreTitle,$locale;
+	{	global $__SHOW_FOOTER,$_CENTRE,$CentreTitle;
 
 		switch($mode)
 		{
 			case 'header':
-                echo '<HTML'.(substr($locale,0,2)=='he'?' dir="RTL"':'').'>';
+                echo '<HTML'.(substr($_SESSION['locale'],0,2)=='he'?' dir="RTL"':'').'>';
                 echo "<HEAD><TITLE>$CentreTitle</TITLE>";
                 echo "<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />";
 				if(basename($_SERVER['PHP_SELF'])!='index.php')

@@ -18,7 +18,7 @@ if (isset($_REQUEST['modfunc']))
 		if($_SESSION)
 		{
 			session_destroy();
-			header("Location: $_SERVER[PHP_SELF]?modfunc=logout".(isset($_REQUEST['reason'])?'&reason='.$_REQUEST['reason']:''));
+			header("Location: $_SERVER[PHP_SELF]");
 		}
 	}
 	else if($_REQUEST['modfunc']=='create_account')
