@@ -78,7 +78,7 @@ if(!$_REQUEST['modfunc'])
 		echo '<TABLE border=0>';
 
 		$RET = DBGet(DBQuery("SELECT STAFF_ID,LAST_NAME||', '||FIRST_NAME AS FULL_NAME FROM STAFF WHERE PROFILE='teacher' AND (SCHOOLS IS NULL OR position(',".UserSchool().",' IN SCHOOLS)>0) AND SYEAR='".UserSyear()."' ORDER BY FULL_NAME"));
-		echo '<TR><TD align=right width=120>Teacher</TD><TD>';
+		echo '<TR><TD align=right width=120>'._('Teacher').'</TD><TD>';
 		echo "<SELECT name=teacher_id style='max-width:250;'><OPTION value=''>"._('N/A')."</OPTION>";
 		foreach($RET as $teacher)
 			echo "<OPTION value=$teacher[STAFF_ID]>$teacher[FULL_NAME]</OPTION>";
@@ -93,7 +93,7 @@ if(!$_REQUEST['modfunc'])
 		echo '</SELECT>';
 
 		$RET = DBGet(DBQuery("SELECT PERIOD_ID,TITLE FROM SCHOOL_PERIODS WHERE SYEAR='".UserSyear()."' AND SCHOOL_ID='".UserSchool()."' ORDER BY SORT_ORDER"));
-		echo '<TR><TD align=right width=120>Period</TD><TD>';
+		echo '<TR><TD align=right width=120>'._('Period').'</TD><TD>';
 		echo "<SELECT name=period_id style='max-width:250;'><OPTION value=''>"._('N/A')."</OPTION>";
 		foreach($RET as $period)
 			echo "<OPTION value=$period[PERIOD_ID]>$period[TITLE]</OPTION>";
