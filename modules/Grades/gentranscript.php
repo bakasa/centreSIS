@@ -3,6 +3,8 @@ require('fpdf.php');
 require_once('../../config.inc.php');
 require_once('../../database.inc.php');
 
+error_reporting(E_ERROR);
+
 // Load functions.
 if($handle = opendir("$CentrePath/functions"))
 {
