@@ -168,7 +168,7 @@ function ListOutput($result,$column_names,$singular='.',$plural='.',$link=false,
 			$cols = count($column_names);
 
 			// HANDLE SEARCHES ---
-			if($result_count && $search && $search !='Search')
+			if($result_count && $search && $search !=_('Search'))
 			{
 				$search = $search_term = str_replace('\\\"','"',$search);
 				$search = $search_term = preg_replace('/[^a-zA-Z0-9 _"]*/','',strtolower($search_term));
