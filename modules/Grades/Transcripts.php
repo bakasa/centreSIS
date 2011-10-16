@@ -127,7 +127,7 @@ if(!$_REQUEST['modfunc'])
 		foreach($mp_types as $mp_type)
 		{
 			$extra['extra_header_left'] .= '<TR>';
-			$extra['extra_header_left'] .= '<TD><INPUT type=checkbox name=mp_type_arr[] value='.$mp_type['MP_TYPE'].'>'.ucwords($mp_type['MP_TYPE']).'</TD>';              
+			$extra['extra_header_left'] .= '<TD><INPUT type=checkbox name=mp_type_arr[] value='.$mp_type['MP_TYPE'].'>'._(ucwords($mp_type['MP_TYPE'])).'</TD>';              
             $extra['extra_header_left'] .= '</TR>';
 		}
 		$extra['extra_header_left'] .= '</TABLE></TD>';
