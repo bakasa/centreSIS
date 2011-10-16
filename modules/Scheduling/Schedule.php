@@ -195,13 +195,13 @@ if($_REQUEST['modfunc']=='choose_course')
 		$days_conflict = false;
 		foreach($period_RET as $existing)
 		{
-			if(strlen($mp_RET[1]['DAYS'])+strlen($existing['DAYS'])>7)
+			if(strlen($mp_RET[1]['DAYS'])+strlen($existing['DAYS'])>14)
 			{
 				$days_conflict = true;
 				break;
 			}
 			else
-				foreach(_str_split($mp_RET[1]['DAYS']) as  $i)
+				foreach(str_split($mp_RET[1]['DAYS'],2) as  $i)
 					if(strpos($existing['DAYS'],$i)!==false)
 					{
 						$days_conflict = true;
@@ -338,7 +338,7 @@ function VerifySchedule(&$schedule)
 							if(strlen($schedule[$i]['DAYS'])+strlen($schedule[$j]['DAYS'])>7)
 								$conflicts[$i] = $conflicts[$j] = true;
 							else
-								foreach(_str_split($schedule[$i]['DAYS']) as $k)
+								foreach(str_split($schedule[$i]['DAYS'],2) as $k)
 									if(strpos($schedule[$j]['DAYS'],$k)!==false)
 									{
 										$conflicts[$i] = $conflicts[$j] = true;
@@ -349,12 +349,4 @@ function VerifySchedule(&$schedule)
 		$schedule[$i]['TITLE'] = '<FONT color=red>'.$schedule[$i]['TITLE'].'</FONT>';
 }
 
-function _str_split($str)
-{
-	$ret = array();
-	$len = strlen($str);
-	for($i=0;$i<$len;$i++)
-		$ret [] = substr($str,$i,1);
-	return $ret;
-}
 ?>
