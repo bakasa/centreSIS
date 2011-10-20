@@ -44,9 +44,9 @@ select (sum((weighted_gp/gp_scale)*credit_attempted)/sum(credit_attempted)) as w
 from (
   SELECT weighted_gp, unweighted_gp, gp_scale, credit_attempted, credit_earned, school_scale 
   FROM transcript_grades where student_id = s_id
-  and (end_date <= mpinfo.end_date and (parent_end_date is null or parent_end_date >  mpinfo.end_date) or marking_period_id = mp_id)
+  and (end_date <= mpinfo.end_date and (parent_end_date is null or parent_end_date >  mpinfo.end_date) or marking_period_id = CAST(mp_id as integer))
   and gp_scale > 0 and credit_attempted > 0 and class_rank = 'Y' ) as x group by school_scale) as sms1
-    WHERE student_mp_stats.student_id = s_id and student_mp_stats.marking_period_id = mp_id;
+    WHERE student_mp_stats.student_id = s_id and student_mp_stats.marking_period_id = CAST(mp_id as integer);
   RETURN 1;
 END;
 
@@ -76,9 +76,9 @@ select (sum((weighted_gp/gp_scale)*credit_attempted)/sum(credit_attempted)) as w
 from (
   SELECT weighted_gp, unweighted_gp, gp_scale, credit_attempted, credit_earned, school_scale 
   FROM transcript_grades where student_id = s_id
-  and (end_date <= mpinfo.end_date and (parent_end_date is null or parent_end_date >  mpinfo.end_date) or marking_period_id = mp_id)
+  and (end_date <= mpinfo.end_date and (parent_end_date is null or parent_end_date >  mpinfo.end_date) or marking_period_id = CAST(mp_id as integer))
   and gp_scale > 0 and credit_attempted > 0 ) as x group by school_scale) as sms1
-    WHERE student_mp_stats.student_id = s_id and student_mp_stats.marking_period_id = mp_id;
+    WHERE student_mp_stats.student_id = s_id and student_mp_stats.marking_period_id = CAST(mp_id as integer);
   RETURN 1;
 END;
 $_$
@@ -156,7 +156,7 @@ WHERE student_id = s_id and marking_period_id = mp_id;
 	    sum( case when class_rank = 'Y' THEN unweighted_gp*credit_attempted/gp_scale END ) as cr_unweighted,
             sum(credit_attempted) as gp_credits,
             sum(case when class_rank = 'Y' THEN credit_attempted END) as cr_credits
-        from student_report_card_grades srcg join marking_periods mp on (mp.marking_period_id = srcg.marking_period_id) left outer join enroll_grade eg on (eg.student_id = srcg.student_id and eg.syear = mp.syear and eg.school_id = mp.school_id)
+        from student_report_card_grades srcg join marking_periods mp on (mp.marking_period_id = CAST(srcg.marking_period_id as integer)) left outer join enroll_grade eg on (eg.student_id = srcg.student_id and eg.syear = mp.syear and eg.school_id = mp.school_id)
         where srcg.student_id = s_id and srcg.marking_period_id = mp_id and not srcg.gp_scale = 0 
         and not srcg.marking_period_id LIKE 'E%' group by srcg.student_id, srcg.marking_period_id, eg.short_name;
   END IF;
