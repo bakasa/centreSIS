@@ -27,9 +27,11 @@ if($_REQUEST['modfunc']=='save')
 		{
 			foreach($_REQUEST['dates'] as $date=>$yes)
 			{
+				$daysWeek = _('SuMoTuWeThFrSa');	/// Days of the week
+				
 				$current_mp = GetCurrentMP('QTR',$date);
 				$all_mp = GetAllMP('QTR',$current_mp);
-				$course_periods_RET = DBGet(DBQuery("SELECT s.COURSE_PERIOD_ID,cp.PERIOD_ID,cp.HALF_DAY FROM SCHEDULE s,COURSE_PERIODS cp,ATTENDANCE_CALENDAR ac,SCHOOL_PERIODS sp WHERE sp.PERIOD_ID=cp.PERIOD_ID AND ac.SCHOOL_DATE='$date' AND ac.CALENDAR_ID=cp.CALENDAR_ID AND (ac.BLOCK=sp.BLOCK OR sp.BLOCK IS NULL) AND s.COURSE_PERIOD_ID=cp.COURSE_PERIOD_ID AND s.STUDENT_ID='$student_id' AND cp.PERIOD_ID IN $periods_list AND position(',0,' IN cp.DOES_ATTENDANCE)>0 AND (ac.SCHOOL_DATE BETWEEN s.START_DATE AND s.END_DATE OR (s.END_DATE IS NULL AND ac.SCHOOL_DATE>=s.START_DATE)) AND position(substring('UMTWHFS' FROM cast(extract(DOW FROM ac.SCHOOL_DATE) AS INT)+1 FOR 1) IN cp.DAYS)>0 AND s.MARKING_PERIOD_ID IN ($all_mp)"),array(),array('PERIOD_ID'));
+				$course_periods_RET = DBGet(DBQuery("SELECT s.COURSE_PERIOD_ID,cp.PERIOD_ID,cp.HALF_DAY FROM SCHEDULE s,COURSE_PERIODS cp,ATTENDANCE_CALENDAR ac,SCHOOL_PERIODS sp WHERE sp.PERIOD_ID=cp.PERIOD_ID AND ac.SCHOOL_DATE='$date' AND ac.CALENDAR_ID=cp.CALENDAR_ID AND (ac.BLOCK=sp.BLOCK OR sp.BLOCK IS NULL) AND s.COURSE_PERIOD_ID=cp.COURSE_PERIOD_ID AND s.STUDENT_ID='$student_id' AND cp.PERIOD_ID IN $periods_list AND position(',0,' IN cp.DOES_ATTENDANCE)>0 AND (ac.SCHOOL_DATE BETWEEN s.START_DATE AND s.END_DATE OR (s.END_DATE IS NULL AND ac.SCHOOL_DATE>=s.START_DATE)) AND position(substring('$daysWeek' FROM cast(extract(DOW FROM ac.SCHOOL_DATE) AS INT)*2+1 FOR 2) IN cp.DAYS)>0 AND s.MARKING_PERIOD_ID IN ($all_mp)"),array(),array('PERIOD_ID'));
 				//echo '<pre>'; var_dump($course_periods_RET); echo '</pre>';
 				foreach($_REQUEST['period'] as $period_id=>$yes)
 				{

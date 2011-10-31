@@ -47,8 +47,10 @@ if(!$current_mp)
 
 $all_mp = GetAllMP('QTR',$current_mp);
 
+$daysWeek = _('SuMoTuWeThFrSa');	/// Days of the week
+
 $current_Q = "SELECT ATTENDANCE_TEACHER_CODE,ATTENDANCE_CODE,ATTENDANCE_REASON,COMMENT,STUDENT_ID,ADMIN,PERIOD_ID FROM $table WHERE SCHOOL_DATE='$date'".$extra_sql;
-$current_schedule_Q = "SELECT cp.PERIOD_ID,cp.COURSE_PERIOD_ID,cp.HALF_DAY FROM SCHEDULE s,COURSE_PERIODS cp WHERE s.STUDENT_ID='__student_id__' AND s.SYEAR='".UserSyear()."' AND s.SCHOOL_ID='".UserSchool()."' AND cp.COURSE_PERIOD_ID = s.COURSE_PERIOD_ID AND position(',$_REQUEST[table],' IN cp.DOES_ATTENDANCE)>0 AND ('$date' BETWEEN s.START_DATE AND s.END_DATE OR (s.END_DATE IS NULL AND '$date'>=s.START_DATE)) AND position(substring('UMTWHFS' FROM cast(extract(DOW FROM cast('$date' AS DATE)) AS INT)+1 FOR 1) IN cp.DAYS)>0 AND s.MARKING_PERIOD_ID IN ($all_mp) ORDER BY s.START_DATE ASC";
+$current_schedule_Q = "SELECT cp.PERIOD_ID,cp.COURSE_PERIOD_ID,cp.HALF_DAY FROM SCHEDULE s,COURSE_PERIODS cp WHERE s.STUDENT_ID='__student_id__' AND s.SYEAR='".UserSyear()."' AND s.SCHOOL_ID='".UserSchool()."' AND cp.COURSE_PERIOD_ID = s.COURSE_PERIOD_ID AND position(',$_REQUEST[table],' IN cp.DOES_ATTENDANCE)>0 AND ('$date' BETWEEN s.START_DATE AND s.END_DATE OR (s.END_DATE IS NULL AND '$date'>=s.START_DATE)) AND position(substring('$daysWeek' FROM cast(extract(DOW FROM cast('$date' AS DATE)) AS INT)*2+1 FOR 2) IN cp.DAYS)>0 AND s.MARKING_PERIOD_ID IN ($all_mp) ORDER BY s.START_DATE ASC";
 $current_RET = DBGet(DBQuery($current_Q),array(),array('STUDENT_ID','PERIOD_ID'));
 if($_REQUEST['attendance'] && $_POST['attendance'] && AllowEdit())
 {
@@ -174,7 +176,7 @@ if(isset($_REQUEST['student_id']) && $_REQUEST['student_id']!='new')
 										AND s.COURSE_ID=c.COURSE_ID
 										AND s.COURSE_PERIOD_ID=cp.COURSE_PERIOD_ID AND cp.PERIOD_ID=p.PERIOD_ID AND position(',$_REQUEST[table],' IN cp.DOES_ATTENDANCE)>0
 										AND s.STUDENT_ID='".$_REQUEST['student_id']."' AND ('$date' BETWEEN s.START_DATE AND s.END_DATE OR (s.END_DATE IS NULL AND '$date'>=s.START_DATE))
-										AND position(substring('UMTWHFS' FROM cast(extract(DOW FROM cast('$date' AS DATE)) AS INT)+1 FOR 1) IN cp.DAYS)>0
+										AND position(substring('$daysWeek' FROM cast(extract(DOW FROM cast('$date' AS DATE)) AS INT)*2+1 FOR 2) IN cp.DAYS)>0
 										AND ac.CALENDAR_ID=cp.CALENDAR_ID AND ac.SCHOOL_DATE='$date' AND ac.MINUTES!='0'
 									ORDER BY p.SORT_ORDER"),$functions);
 	$columns = array('PERIOD_TITLE'=>_('Period'),'COURSE'=>_('Course'),'ATTENDANCE_CODE'=>_('Attendance Code'),'ATTENDANCE_TEACHER_CODE'=>_('Teacher\'s Entry'),'ATTENDANCE_REASON'=>_('Office Comment'),'COMMENT'=>_('Teacher Comment'));

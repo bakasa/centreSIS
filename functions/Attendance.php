@@ -2,6 +2,8 @@
 
 function UpdateAttendanceDaily($student_id,$date='',$comment=false)
 {
+	$daysWeek = _('SuMoTuWeThFrSa');	/// Days of the week
+	
 	if(!$date)
 		$date = DBDate();
 
@@ -13,7 +15,7 @@ function UpdateAttendanceDaily($student_id,$date='',$comment=false)
 				AND ac.SCHOOL_DATE='$date' AND (ac.BLOCK=sp.BLOCK OR sp.BLOCK IS NULL)
 				AND ac.CALENDAR_ID=cp.CALENDAR_ID AND ac.SCHOOL_ID=s.SCHOOL_ID AND ac.SYEAR=s.SYEAR
 				AND s.SYEAR = cp.SYEAR AND sp.PERIOD_ID = cp.PERIOD_ID
-				AND position(substring('UMTWHFS' FROM cast(extract(DOW FROM cast('$date' AS DATE)) AS INT)+1 FOR 1) IN cp.DAYS)>0
+				AND position(substring('$daysWeek' FROM cast(extract(DOW FROM cast('$date' AS DATE)) AS INT)*2+1 FOR 2) IN cp.DAYS)>0
 				AND s.STUDENT_ID='$student_id'
 				AND s.SYEAR='".UserSyear()."'
 				AND ('$date' BETWEEN s.START_DATE AND s.END_DATE OR (s.END_DATE IS NULL AND '$date'>=s.START_DATE))
@@ -21,6 +23,7 @@ function UpdateAttendanceDaily($student_id,$date='',$comment=false)
 			";
 	$RET = DBGet(DBQuery($sql));
 	$total = $RET[1]['TOTAL'];
+	
 	if($total==0)
 		return;
 
