@@ -186,7 +186,7 @@ if(UserStudentID())
                 $tabs[] = array('title'=>'Credits','link'=>"Modules.php?modname=$_REQUEST[modname]&tab_id=credits&mp_id=$mp_id");
                 echo '<CENTER>'.WrapTabs($tabs,"Modules.php?modname=$_REQUEST[modname]&tab_id=$tab_id&mp_id=$mp_id").'</CENTER>';
                 
-                $sql = 'SELECT * FROM student_report_card_grades WHERE STUDENT_ID = '.$student_id.' AND MARKING_PERIOD_ID = '.$mp_id.' ORDER BY ID';
+                $sql = 'SELECT * FROM student_report_card_grades WHERE STUDENT_ID = '.$student_id." AND MARKING_PERIOD_ID = '$mp_id' ORDER BY ID";
             
                 //build forms based on tab selected
                 if ($_REQUEST['tab_id']=='grades' || $_REQUEST['tab_id'] == ''){
