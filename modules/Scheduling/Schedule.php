@@ -335,7 +335,7 @@ function VerifySchedule(&$schedule)
 						// if different periods then okay
 						if($schedule[$i]['PERIOD_ID']==$schedule[$j]['PERIOD_ID'])
 							// should not be enrolled in the same period on the same day
-							if(strlen($schedule[$i]['DAYS'])+strlen($schedule[$j]['DAYS'])>7)
+							if(strlen($schedule[$i]['DAYS'])+strlen($schedule[$j]['DAYS'])>14)
 								$conflicts[$i] = $conflicts[$j] = true;
 							else
 								foreach(str_split($schedule[$i]['DAYS'],2) as $k)
