@@ -34,7 +34,7 @@ function Search($type,$extra=null)
 			{
 				if(UserStudentID())
 				{
-					unset($_SESSION['student_id']);
+					//unset($_SESSION['student_id']);
 					echo '<script language=JavaScript>parent.side.location="'.$_SESSION['Side_PHP_SELF'].'?modcat="+parent.side.document.forms[0].modcat.value;</script>';
 				}
 				$_REQUEST['next_modname'] = $_REQUEST['modname'];
