@@ -639,7 +639,7 @@ msgstr "Dirección"
 #: functions/Search.fnc.php:90 functions/Widgets.fnc.php:46
 #: modules/Grades/Menu.php:30
 msgid "Grades"
-msgstr "Grados"
+msgstr "Calificaciones"
 
 #: functions/Search.fnc.php:90
 msgid "Not"
@@ -3139,7 +3139,7 @@ msgstr "Añadir Comentario"
 #: modules/Grades/Menu.php:3 modules/Grades/Menu.php:28
 #: modules/Grades/Menu.php:49
 msgid "Report Cards"
-msgstr "Boletas"
+msgstr "Boletin de Calificaciones"
 
 #: modules/Grades/Menu.php:5
 msgid "Calculate GPA"
@@ -3155,7 +3155,7 @@ msgstr "Calificaciones de Estudiantes"
 
 #: modules/Grades/Menu.php:10
 msgid "Grade Breakdown"
-msgstr "Listado de Grados"
+msgstr "Listado de Notas"
 
 #: modules/Grades/Menu.php:12 modules/Grades/Menu.php:38
 msgid "GPA / Class Rank List"
@@ -3346,7 +3346,7 @@ msgstr "Rango de Grado"
 
 #: modules/Grades/StudentGrades.php:143 modules/Grades/StudentGrades.php:228
 msgid "There are no grades available for this student."
-msgstr "No hay grados disponibles para este estudiante."
+msgstr "No hay calificaciones disponibles para este estudiante."
 
 #: modules/Grades/StudentGrades.php:182
 msgid "Points / Possible"
@@ -6054,7 +6054,7 @@ msgstr "Sa"
 
 #: modules/Scheduling/Courses.php:373 modules/Scheduling/Courses.php:371
 msgid "Meeting Days"
-msgstr "Días de Clase"
+msgstr "Días de Clases"
 
 #: functions/Widgets.fnc.php:202 functions/Widgets.fnc.php:226
 msgid "Cumulative"
